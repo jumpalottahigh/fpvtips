@@ -3,6 +3,8 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import './layout.css'
 
+import Footer from './footer'
+
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -15,7 +17,12 @@ const Layout = ({ children }) => (
         }
       }
     `}
-    render={data => <React.Fragment>{children}</React.Fragment>}
+    render={data => (
+      <React.Fragment>
+        {children}
+        <Footer />
+      </React.Fragment>
+    )}
   />
 )
 

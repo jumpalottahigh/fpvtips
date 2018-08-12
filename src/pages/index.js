@@ -1,14 +1,32 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import styled from 'styled-components'
+import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import Layout from '../components/Layout/layout'
+
+import logo from '../assets/logo.png'
+
+const Promo = styled.div`
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 3.5rem);
+
+  img {
+    max-width: 80%;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+`
 
 class IndexPage extends React.Component {
   render() {
     const siteTitle = this.props.data.site.siteMetadata.title
     const siteDescription = this.props.data.site.siteMetadata.description
-    const posts = this.props.data.allMarkdownRemark.edges
 
     return (
       <Layout location={this.props.location}>
@@ -17,20 +35,19 @@ class IndexPage extends React.Component {
           meta={[{ name: 'description', content: siteDescription }]}
           title={siteTitle}
         />
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <div key={node.fields.slug}>
-              <h3>
-                <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            </div>
-          )
-        })}
+        <Promo>
+          <img src={logo} alt="FPVTIPS" />
+          <h3>Coming Soon™</h3>
+          <br />
+          <br />
+          <br />
+          <br />
+          Meanwhile, get a taste of what's coming by checking out some of the
+          build and troubleshooting articles at:
+          <a href="https://blog.georgi-yanev.com/news/">
+            blog.georgi-yanev.com
+          </a>
+        </Promo>
       </Layout>
     )
   }
@@ -44,20 +61,6 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         description
-      }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "DD MMMM, YYYY")
-            title
-          }
-        }
       }
     }
   }
