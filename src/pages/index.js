@@ -12,7 +12,7 @@ const Promo = styled.div`
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 3.5rem);
+  height: calc(100vh - 3.5rem - 64px);
 
   img {
     max-width: 80%;

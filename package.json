@@ -4,6 +4,8 @@
   "version": "1.0.0",
   "author": "Georgi Yanev <georgiyanev.gy@gmail.com>",
   "dependencies": {
+    "@material-ui/core": "^3.0.1",
+    "@material-ui/icons": "^3.0.1",
     "babel-plugin-styled-components": "^1.5.1",
     "gatsby": "next",
     "gatsby-plugin-feed": "next",

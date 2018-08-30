@@ -2,7 +2,9 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 
 import './layout.css'
+import Palette from '../UI/Palette'
 
+import AppBar from '../UI/AppBar'
 import Footer from './footer'
 
 const Layout = ({ children }) => (
@@ -19,8 +21,11 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <React.Fragment>
-        {children}
-        <Footer />
+        <Palette>
+          <AppBar />
+          {children}
+          <Footer />
+        </Palette>
       </React.Fragment>
     )}
   />
