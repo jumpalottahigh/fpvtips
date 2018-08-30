@@ -6,9 +6,8 @@ import InboxIcon from '@material-ui/icons/MoveToInbox'
 import DraftsIcon from '@material-ui/icons/Drafts'
 import StarIcon from '@material-ui/icons/Star'
 import SendIcon from '@material-ui/icons/Send'
-import MailIcon from '@material-ui/icons/Mail'
-import DeleteIcon from '@material-ui/icons/Delete'
-import ReportIcon from '@material-ui/icons/Report'
+
+import { FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa'
 
 export const mailFolderListItems = (
   <div>
@@ -43,19 +42,19 @@ export const otherMailFolderListItems = (
   <div>
     <ListItem button>
       <ListItemIcon>
-        <MailIcon />
+        <FaGithub />
       </ListItemIcon>
       <ListItemText primary="Coming soon" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <DeleteIcon />
+        <FaTwitter />
       </ListItemIcon>
       <ListItemText primary="Coming soon" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <ReportIcon />
+        <FaLinkedin />
       </ListItemIcon>
       <ListItemText primary="Coming soon" />
     </ListItem>
