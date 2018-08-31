@@ -1,11 +1,11 @@
 import React from 'react'
+import Layout from '../components/Layout/layout'
 import Map from '../components/Map'
 
 const FPVSpotsPage = () => (
-  <div>
-    <h1>FPV Spots Page</h1>
+  <Layout>
     <Map />
-  </div>
+  </Layout>
 )
 
 export default FPVSpotsPage

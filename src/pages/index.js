@@ -1,25 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import Layout from '../components/Layout/layout'
+import PaperCard from '../components/UI/PaperCard'
 
-import logo from '../assets/logo.png'
+const Grid = styled.div`
+  display: grid;
+  grid-gap: 1rem;
 
-const Promo = styled.div`
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-  height: calc(100vh - 3.5rem - 64px);
-
-  img {
-    max-width: 80%;
+  @media (min-width: 600px) {
+    grid-template-columns: 1fr 1fr;
   }
 
-  h3 {
-    font-size: 2rem;
+  @media (min-width: 900px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 `
 
@@ -35,19 +35,34 @@ class IndexPage extends React.Component {
           meta={[{ name: 'description', content: siteDescription }]}
           title={siteTitle}
         />
-        <Promo>
-          <img src={logo} alt="FPVTIPS" />
+        <div>
+          <h1>Your one-stop spot for all FPV related things.</h1>
+          <Grid>
+            <Link to="/fpv-spots">
+              <PaperCard elevation={1}>FPV flying spots</PaperCard>
+            </Link>
+            <Link to="/dictionary">
+              <PaperCard elevation={1}>Dictionary</PaperCard>
+            </Link>
+            <Link to="/shopping-list">
+              <PaperCard elevation={1}>Shopping list</PaperCard>
+            </Link>
+            <Link to="/tools">
+              <PaperCard elevation={1}>Tools</PaperCard>
+            </Link>
+            <Link to="/blog">
+              <PaperCard elevation={1}>Blog</PaperCard>
+            </Link>
+          </Grid>
           <h3>Coming Soon™</h3>
-          <br />
-          <br />
-          <br />
-          <br />
-          Meanwhile, get a taste of what's coming by checking out some of the
-          build and troubleshooting articles at:
-          <a href="https://blog.georgi-yanev.com/news/">
-            blog.georgi-yanev.com
-          </a>
-        </Promo>
+          <p>
+            Meanwhile, get a taste of what's coming by checking out some of the
+            build and troubleshooting articles at:
+            <a href="https://blog.georgi-yanev.com/news/">
+              blog.georgi-yanev.com
+            </a>
+          </p>
+        </div>
       </Layout>
     )
   }

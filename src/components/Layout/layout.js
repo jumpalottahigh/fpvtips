@@ -6,6 +6,7 @@ import Palette from '../UI/Palette'
 
 import AppBar from '../UI/AppBar'
 import Footer from './footer'
+import Wrapper from '../UI/Wrapper'
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -23,7 +24,7 @@ const Layout = ({ children }) => (
       <React.Fragment>
         <Palette>
           <AppBar />
-          {children}
+          <Wrapper>{children}</Wrapper>
           <Footer />
         </Palette>
       </React.Fragment>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
@@ -40,23 +41,29 @@ export const mailFolderListItems = (
 
 export const otherMailFolderListItems = (
   <div>
-    <ListItem button>
-      <ListItemIcon>
-        <FaGithub />
-      </ListItemIcon>
-      <ListItemText primary="Coming soon" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <FaTwitter />
-      </ListItemIcon>
-      <ListItemText primary="Coming soon" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <FaLinkedin />
-      </ListItemIcon>
-      <ListItemText primary="Coming soon" />
-    </ListItem>
+    <a href="https://github.com/jumpalottahigh">
+      <ListItem button>
+        <ListItemIcon>
+          <FaGithub />
+        </ListItemIcon>
+        <ListItemText primary="Github" />
+      </ListItem>
+    </a>
+    <a href="https://twitter.com/jumpalottahigh">
+      <ListItem button>
+        <ListItemIcon>
+          <FaTwitter />
+        </ListItemIcon>
+        <ListItemText primary="Twitter" />
+      </ListItem>
+    </a>
+    <a href="https://www.linkedin.com/in/yanevgeorgi/">
+      <ListItem button>
+        <ListItemIcon>
+          <FaLinkedin />
+        </ListItemIcon>
+        <ListItemText primary="LinkedIn" />
+      </ListItem>
+    </a>
   </div>
 )
