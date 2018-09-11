@@ -3,6 +3,7 @@ import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import Layout from '../../components/Layout/layout'
+import PaperCard from '../../components/UI/PaperCard'
 
 class IndexPage extends React.Component {
   render() {
@@ -20,7 +21,7 @@ class IndexPage extends React.Component {
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
-            <div key={node.fields.slug}>
+            <PaperCard style={{ marginBottom: '1rem' }} key={node.fields.slug}>
               <h3>
                 <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
                   {title}
@@ -28,7 +29,12 @@ class IndexPage extends React.Component {
               </h3>
               <small>{node.frontmatter.date}</small>
               <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            </div>
+              <div>
+                <small>
+                  {node.timeToRead} min read by {node.frontmatter.author}
+                </small>
+              </div>
+            </PaperCard>
           )
         })}
       </Layout>
@@ -56,7 +62,9 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "DD MMMM, YYYY")
             title
+            author
           }
+          timeToRead
         }
       }
     }

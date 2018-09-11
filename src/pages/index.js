@@ -23,6 +23,26 @@ const Grid = styled.div`
   }
 `
 
+const FeatureList = styled.ul`
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  margin: 0 auto;
+
+  li:before {
+    content: '⭐';
+  }
+
+  li {
+    font-weight: bold;
+    text-align: left;
+  }
+
+  @media (min-width: 650px) {
+    width: 420px;
+  }
+`
+
 class IndexPage extends React.Component {
   render() {
     const siteTitle = this.props.data.site.siteMetadata.title
@@ -39,7 +59,10 @@ class IndexPage extends React.Component {
           <h1>Your one-stop spot for all FPV related things.</h1>
           <Grid>
             <Link to="/fpv-spots">
-              <PaperCard elevation={1}>FPV flying spots</PaperCard>
+              <PaperCard elevation={1}>
+                FPV flying spots
+                <sup style={{ fontSize: '1.3rem', lineHeight: '1rem' }}>🆕</sup>
+              </PaperCard>
             </Link>
             <Link to="/dictionary">
               <PaperCard elevation={1}>Dictionary</PaperCard>
@@ -51,17 +74,24 @@ class IndexPage extends React.Component {
               <PaperCard elevation={1}>Tools</PaperCard>
             </Link>
             <Link to="/blog">
-              <PaperCard elevation={1}>Blog</PaperCard>
+              <PaperCard elevation={1}>
+                Blog
+                <sup style={{ fontSize: '1.3rem', lineHeight: '1rem' }}>🆕</sup>
+              </PaperCard>
             </Link>
           </Grid>
-          <h3>Coming Soon™</h3>
-          <p>
-            Meanwhile, get a taste of what's coming by checking out some of the
-            build and troubleshooting articles at:
-            <a href="https://blog.georgi-yanev.com/news/">
-              blog.georgi-yanev.com
-            </a>
+          <p style={{ marginTop: '3rem' }}>
+            This project is a work in progress and coming soon to bring the FPV
+            community closer together and flying! Stay tuned and enjoy!
           </p>
+          <h3>Coming Soon:</h3>
+          <FeatureList>
+            <li>Add and save FPV flying spots on the map</li>
+            <li>Share location and meet other FPV pilots</li>
+            <li>Beginner friendly FPV glossary</li>
+            <li>Recommended Tools, upvoted by the community</li>
+            <li>Submit an article to the blog</li>
+          </FeatureList>
         </div>
       </Layout>
     )

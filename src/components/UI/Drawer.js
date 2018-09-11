@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/Drawer'
 import List from '@material-ui/core/List'
 import Divider from '@material-ui/core/Divider'
-import { mailFolderListItems, otherMailFolderListItems } from './tileData'
+import { mainMenuListItems, socialListItems } from './drawerData'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
 
@@ -33,17 +33,9 @@ class TemporaryDrawer extends React.Component {
 
     const sideList = (
       <div className={classes.list}>
-        <List>{mailFolderListItems}</List>
+        <List>{mainMenuListItems}</List>
         <Divider />
-        <List>{otherMailFolderListItems}</List>
-      </div>
-    )
-
-    const fullList = (
-      <div className={classes.fullList}>
-        <List>{mailFolderListItems}</List>
-        <Divider />
-        <List>{otherMailFolderListItems}</List>
+        <List>{socialListItems}</List>
       </div>
     )
 
