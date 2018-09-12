@@ -5,23 +5,7 @@ import Helmet from 'react-helmet'
 
 import Layout from '../components/Layout/layout'
 import PaperCard from '../components/UI/PaperCard'
-
-const Grid = styled.div`
-  display: grid;
-  grid-gap: 1rem;
-
-  @media (min-width: 600px) {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @media (min-width: 900px) {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-
-  @media (min-width: 1200px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-`
+import Grid from '../components/UI/Grid'
 
 const FeatureList = styled.ul`
   list-style-type: none;
@@ -65,7 +49,10 @@ class IndexPage extends React.Component {
               </PaperCard>
             </Link>
             <Link to="/dictionary">
-              <PaperCard elevation={1}>Dictionary</PaperCard>
+              <PaperCard elevation={1}>
+                Dictionary
+                <sup style={{ fontSize: '1.3rem', lineHeight: '1rem' }}>🆕</sup>
+              </PaperCard>
             </Link>
             <Link to="/shopping-list">
               <PaperCard elevation={1}>Shopping list</PaperCard>

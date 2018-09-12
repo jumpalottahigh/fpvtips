@@ -7,6 +7,12 @@ body {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+h4,
+h5,
+h6 {
+  font-weight: 500;
+}
+
 a {
   color: #0375d8;
   text-decoration: none;
