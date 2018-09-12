@@ -3,9 +3,11 @@ import styled from 'styled-components'
 import Layout from '../components/Layout/layout'
 import Grid from '../components/UI/Grid'
 import PaperCard from '../components/UI/PaperCard'
+import FAB from '../components/UI/FAB'
 
 import TextField from '@material-ui/core/TextField'
 import LinkIcon from '@material-ui/icons/link'
+import Modal from '@material-ui/core/Modal'
 
 // Example local data
 // TODO: this could come from Firebase, Contentful or a number of other sources
@@ -44,6 +46,17 @@ const StyledPaperCard = styled(PaperCard)`
   }
 `
 
+const StyledModal = styled(Modal)`
+  /* position: absolute;
+  width: 500px;
+  background-color: #fefefe;
+  padding: 2rem;
+  top: 50;
+  left: 50;
+  transform: translate(-50%, -50%); */
+  /* box-shadow: */
+`
+
 export default class DictionaryPage extends React.Component {
   constructor(props) {
     super(props)
@@ -51,7 +64,16 @@ export default class DictionaryPage extends React.Component {
     this.state = {
       search: '',
       dictionary: dictionary,
+      open: false,
     }
+  }
+
+  handleOpen = () => {
+    this.setState({ open: true })
+  }
+
+  handleClose = () => {
+    this.setState({ open: false })
   }
 
   handleSearch = e => {
@@ -88,9 +110,11 @@ export default class DictionaryPage extends React.Component {
   render() {
     return (
       <Layout>
+        {/* Page titles */}
         <h4 style={{ borderBottom: '1px solid4red' }}>Dictionary</h4>
         <h3>Abbreviations, terms and slang</h3>
 
+        {/* Search input */}
         <TextField
           placeholder="Search..."
           inputProps={{
@@ -101,6 +125,7 @@ export default class DictionaryPage extends React.Component {
           value={this.state.search}
         />
 
+        {/* Dictionary item grid list */}
         <Grid>
           {this.state.dictionary.map((item, index) => {
             return (
@@ -116,6 +141,20 @@ export default class DictionaryPage extends React.Component {
             )
           })}
         </Grid>
+
+        {/* Submit an entry FAB */}
+        <FAB onClick={this.handleOpen} />
+        <StyledModal
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+          open={this.state.open}
+          onClose={this.handleClose}
+        >
+          <PaperCard>
+            TODO: Create a form here that on submit will send items to Firebase
+            for approval
+          </PaperCard>
+        </StyledModal>
       </Layout>
     )
   }
