@@ -3,7 +3,7 @@ module.exports = {
     title: 'Fpvtips',
     author: 'Georgi Yanev',
     description: 'Fpvtips.com',
-    siteUrl: 'https://fpvtips.com/',
+    siteUrl: 'https://fpvtips.com',
   },
   plugins: [
     {
