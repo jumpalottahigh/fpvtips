@@ -8,6 +8,7 @@ import FAB from '../components/UI/FAB'
 import TextField from '@material-ui/core/TextField'
 import LinkIcon from '@material-ui/icons/Link'
 import Modal from '@material-ui/core/Modal'
+import Button from '@material-ui/core/Button'
 
 // Example local data
 // TODO: this could come from Firebase, Contentful or a number of other sources
@@ -47,8 +48,8 @@ const StyledPaperCard = styled(PaperCard)`
 `
 
 const modalDimensions = {
-  width: '300px',
-  height: '350px',
+  width: '360px',
+  height: '440px',
 }
 
 const StyledModal = styled(Modal)`
@@ -64,21 +65,41 @@ export default class DictionaryPage extends React.Component {
     super(props)
 
     this.state = {
-      search: '',
-      dictionary: dictionary,
-      filtered: [],
-      open: false,
+      search: '', // Search input
+      dictionary: dictionary, // All items
+      filtered: [], // Filtered items
+      open: false, // modal open state
+      form: {
+        // modal form fields
+        name: '',
+        title: '',
+        description: '',
+        link: '',
+      },
     }
   }
 
+  // Modal
   handleOpen = () => {
     this.setState({ open: true })
   }
 
+  // Modal
   handleClose = () => {
     this.setState({ open: false })
   }
 
+  // Modal form updates
+  handleChange = name => event => {
+    this.setState({
+      form: {
+        ...this.state.form,
+        [name]: event.target.value,
+      },
+    })
+  }
+
+  // Dictionary page search input
   handleSearch = e => {
     const value = e.target.value || ''
 
@@ -168,9 +189,58 @@ export default class DictionaryPage extends React.Component {
           open={this.state.open}
           onClose={this.handleClose}
         >
-          <PaperCard>
-            TODO: Create a form here that on submit will send items to Firebase
-            for approval
+          <PaperCard style={{ width: '100%' }}>
+            {/* TODO: Create a form here that on submit will send items to Firebase for approval */}
+            {/* TODO: add form onSubmit */}
+            <form
+              noValidate
+              autoComplete="off"
+              style={{ display: 'flex', flexDirection: 'column' }}
+            >
+              <h4 style={{ textAlign: 'center', marginBottom: 0 }}>
+                Submit a new item:
+              </h4>
+              <TextField
+                required
+                id="title"
+                label="Title"
+                value={this.state.form.title}
+                onChange={this.handleChange('title')}
+                margin="normal"
+              />
+              <TextField
+                required
+                id="description"
+                label="Description"
+                multiline
+                rowsMax="4"
+                value={this.state.form.description}
+                onChange={this.handleChange('description')}
+                margin="normal"
+              />
+              <TextField
+                id="link"
+                label="Wiki link"
+                value={this.state.form.link}
+                onChange={this.handleChange('link')}
+                margin="normal"
+              />
+              <TextField
+                id="name"
+                label="Name"
+                value={this.state.form.name}
+                onChange={this.handleChange('name')}
+                margin="normal"
+              />
+              <Button
+                variant="contained"
+                color="primary"
+                type="submit"
+                style={{ marginTop: '1rem' }}
+              >
+                Submit
+              </Button>
+            </form>
           </PaperCard>
         </StyledModal>
       </Layout>
