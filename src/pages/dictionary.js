@@ -46,15 +46,17 @@ const StyledPaperCard = styled(PaperCard)`
   }
 `
 
+const modalDimensions = {
+  width: '300px',
+  height: '350px',
+}
+
 const StyledModal = styled(Modal)`
-  /* position: absolute;
-  width: 500px;
-  background-color: #fefefe;
-  padding: 2rem;
-  top: 50;
-  left: 50;
-  transform: translate(-50%, -50%); */
-  /* box-shadow: */
+  display: flex;
+  top: calc(50% - ${modalDimensions.height} / 2) !important;
+  left: calc(50% - ${modalDimensions.width} / 2) !important;
+  height: ${modalDimensions.height};
+  width: ${modalDimensions.width};
 `
 
 export default class DictionaryPage extends React.Component {
@@ -64,6 +66,7 @@ export default class DictionaryPage extends React.Component {
     this.state = {
       search: '',
       dictionary: dictionary,
+      filtered: [],
       open: false,
     }
   }
@@ -77,9 +80,9 @@ export default class DictionaryPage extends React.Component {
   }
 
   handleSearch = e => {
-    let { value } = e.target
+    const value = e.target.value || ''
 
-    const searchResults = dictionary.filter(item => {
+    const searchResults = this.state.dictionary.filter(item => {
       if (
         item.abbr.toLowerCase().includes(value.toLowerCase()) ||
         item.description.toLowerCase().includes(value.toLowerCase())
@@ -90,7 +93,7 @@ export default class DictionaryPage extends React.Component {
 
     this.setState({
       search: value,
-      dictionary: searchResults,
+      filtered: searchResults,
     })
   }
 
@@ -99,9 +102,10 @@ export default class DictionaryPage extends React.Component {
     document.addEventListener(
       'keydown',
       e => {
-        e.code === 'Escape'
-          ? this.setState({ search: '' }, () => this.handleSearch(e))
-          : null
+        if (e.code === 'Escape') {
+          if (this.state.search == '') return
+          this.setState({ search: '' }, () => this.handleSearch(e))
+        }
       },
       false
     )
@@ -127,19 +131,33 @@ export default class DictionaryPage extends React.Component {
 
         {/* Dictionary item grid list */}
         <Grid>
-          {this.state.dictionary.map((item, index) => {
-            return (
-              <StyledPaperCard key={index}>
-                <h3>{item.abbr}</h3>
-                <p>{item.description}</p>
-                {item.link && (
-                  <a href={item.link}>
-                    <LinkIcon />
-                  </a>
-                )}
-              </StyledPaperCard>
-            )
-          })}
+          {this.state.filtered.length > 0
+            ? this.state.filtered.map((item, index) => {
+                return (
+                  <StyledPaperCard key={index}>
+                    <h3>{item.abbr}</h3>
+                    <p>{item.description}</p>
+                    {item.link && (
+                      <a href={item.link}>
+                        <LinkIcon />
+                      </a>
+                    )}
+                  </StyledPaperCard>
+                )
+              })
+            : this.state.dictionary.map((item, index) => {
+                return (
+                  <StyledPaperCard key={index}>
+                    <h3>{item.abbr}</h3>
+                    <p>{item.description}</p>
+                    {item.link && (
+                      <a href={item.link}>
+                        <LinkIcon />
+                      </a>
+                    )}
+                  </StyledPaperCard>
+                )
+              })}
         </Grid>
 
         {/* Submit an entry FAB */}
