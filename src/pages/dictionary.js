@@ -6,7 +6,7 @@ import PaperCard from '../components/UI/PaperCard'
 import FAB from '../components/UI/FAB'
 
 import TextField from '@material-ui/core/TextField'
-import LinkIcon from '@material-ui/icons/link'
+import LinkIcon from '@material-ui/icons/Link'
 import Modal from '@material-ui/core/Modal'
 
 // Example local data
