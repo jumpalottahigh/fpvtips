@@ -74,10 +74,10 @@ export default class DictionaryPage extends React.Component {
       open: false, // modal open state
       form: {
         // modal form fields
-        name: '',
         title: '',
         description: '',
         link: '',
+        author: '',
       },
     }
   }
@@ -107,7 +107,7 @@ export default class DictionaryPage extends React.Component {
     e.preventDefault()
 
     // Extract and set data
-    let { title, description, link, name } = this.state.form
+    let { title, description, link, author } = this.state.form
 
     // Basic form validation
     if (title == '' || description == '') return
@@ -116,7 +116,7 @@ export default class DictionaryPage extends React.Component {
       title,
       description,
       link,
-      name,
+      author,
     }
 
     // Send data to Firebase
@@ -132,7 +132,7 @@ export default class DictionaryPage extends React.Component {
         title: '',
         description: '',
         link: '',
-        name: '',
+        author: '',
       },
     })
   }
@@ -263,10 +263,10 @@ export default class DictionaryPage extends React.Component {
                 margin="normal"
               />
               <TextField
-                id="name"
+                id="author"
                 label="Name"
-                value={this.state.form.name}
-                onChange={this.handleChange('name')}
+                value={this.state.form.author}
+                onChange={this.handleChange('author')}
                 margin="normal"
               />
               <Button
