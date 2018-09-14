@@ -7,6 +7,7 @@
     "@material-ui/core": "^3.0.1",
     "@material-ui/icons": "^3.0.1",
     "babel-plugin-styled-components": "^1.5.1",
+    "firebase": "^5.5.0",
     "gatsby": "next",
     "gatsby-plugin-feed": "next",
     "gatsby-plugin-google-analytics": "next",
