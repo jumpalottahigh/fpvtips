@@ -1,0 +1,26 @@
+[
+  {
+    "title": "FPV",
+    "description": "First person view. Refers to the way the video feed from the drone looks.",
+    "link": "",
+    "author": ""
+  },
+  {
+    "title": "vtx",
+    "description": "Video transmitter. The module that takes your FPV camera feed and transmits it over (usually) 5.8GHz to your goggles or other video receiver.",
+    "link": "",
+    "author": "Georgi"
+  },
+  {
+    "title": "receiver",
+    "description": "Usually refers to the radio receiver module on the drone. This is the unit that receives commands from your radio transmitter (controller).",
+    "link": "",
+    "author": ""
+  },
+  {
+    "title": "transmitter",
+    "description": "Your radio transmitter controller. The unit that sends instructions over (usually) 2.4GHz to the receiver on the drone",
+    "link": "",
+    "author": ""
+  }
+]

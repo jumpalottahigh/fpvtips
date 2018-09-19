@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Layout from '../components/Layout/layout'
 import Grid from '../components/UI/Grid'
@@ -13,39 +14,20 @@ import Button from '@material-ui/core/Button'
 import fire from '../utils/firebase'
 const NODE_NAME = 'dictionary'
 
-// Example local data
-// TODO: this could come from Firebase, Contentful or a number of other sources
-const dictionary = [
-  {
-    abbr: 'FPV (First Person View)',
-    description: 'coming soon™',
-    link: 'https://en.wikipedia.org/wiki/First-person_view_(radio_control)',
-  },
-  {
-    abbr: 'vTX (Video transmitter)',
-    description: 'coming soon™',
-    link: '',
-  },
-  {
-    abbr: 'Receiver',
-    description: 'coming soon™',
-  },
-  {
-    abbr: 'Transmitter',
-    description: 'coming soon™',
-  },
-  {
-    abbr: 'Quad',
-    description: 'coming soon™',
-  },
-]
-
 const StyledPaperCard = styled(PaperCard)`
   position: relative;
 
   a {
     position: absolute;
     top: 0.5rem;
+    right: 0.5rem;
+  }
+
+  span {
+    font-size: 0.8rem;
+    color: #777;
+    position: absolute;
+    bottom: 0.5rem;
     right: 0.5rem;
   }
 `
@@ -66,6 +48,9 @@ const StyledModal = styled(Modal)`
 export default class DictionaryPage extends React.Component {
   constructor(props) {
     super(props)
+
+    // Get data from props
+    let dictionary = props.data.allDictionaryJson.edges
 
     this.state = {
       search: '', // Search input
@@ -141,12 +126,13 @@ export default class DictionaryPage extends React.Component {
   handleSearch = e => {
     const value = e.target.value || ''
 
-    const searchResults = this.state.dictionary.filter(item => {
+    const searchResults = this.state.dictionary.filter(({ node }) => {
       if (
-        item.abbr.toLowerCase().includes(value.toLowerCase()) ||
-        item.description.toLowerCase().includes(value.toLowerCase())
+        node.title.toLowerCase().includes(value.toLowerCase()) ||
+        node.description.toLowerCase().includes(value.toLowerCase()) ||
+        node.author.toLowerCase().includes(value.toLowerCase())
       ) {
-        return item
+        return node
       }
     })
 
@@ -191,29 +177,31 @@ export default class DictionaryPage extends React.Component {
         {/* Dictionary item grid list */}
         <Grid>
           {this.state.filtered.length > 0
-            ? this.state.filtered.map((item, index) => {
+            ? this.state.filtered.map(({ node }) => {
                 return (
-                  <StyledPaperCard key={index}>
-                    <h3>{item.abbr}</h3>
-                    <p>{item.description}</p>
-                    {item.link && (
-                      <a href={item.link}>
+                  <StyledPaperCard key={node.id}>
+                    <h3>{node.title}</h3>
+                    <p>{node.description}</p>
+                    {node.link && (
+                      <a href={node.link}>
                         <LinkIcon />
                       </a>
                     )}
+                    {node.author && <span>{node.author}</span>}
                   </StyledPaperCard>
                 )
               })
-            : this.state.dictionary.map((item, index) => {
+            : this.state.dictionary.map(({ node }) => {
                 return (
-                  <StyledPaperCard key={index}>
-                    <h3>{item.abbr}</h3>
-                    <p>{item.description}</p>
-                    {item.link && (
-                      <a href={item.link}>
+                  <StyledPaperCard key={node.id}>
+                    <h3>{node.title}</h3>
+                    <p>{node.description}</p>
+                    {node.link && (
+                      <a href={node.link}>
                         <LinkIcon />
                       </a>
                     )}
+                    {node.author && <span>{node.author}</span>}
                   </StyledPaperCard>
                 )
               })}
@@ -284,3 +272,19 @@ export default class DictionaryPage extends React.Component {
     )
   }
 }
+
+export const dictionaryPageQuery = graphql`
+  query dictionaryPageQuery {
+    allDictionaryJson {
+      edges {
+        node {
+          id
+          title
+          description
+          link
+          author
+        }
+      }
+    }
+  }
+`

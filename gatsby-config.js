@@ -6,6 +6,14 @@ module.exports = {
     siteUrl: 'https://fpvtips.com',
   },
   plugins: [
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/data`,
+        name: 'dictionary',
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
