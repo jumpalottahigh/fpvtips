@@ -1,11 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-// Configure open weather map API key
-import openWeatherMap from '../../.openWeatherMap.json'
 
-if (openWeatherMap.key == null) {
-  openWeatherMap.key = process.env.OPEN_WEATHER_MAP_KEY
-}
+// Configure open weather map API key
+const API_KEY = process.env.OPEN_WEATHER_MAP_KEY
 
 const WeatherList = styled.ul`
   list-style-type: none;
@@ -44,9 +41,7 @@ class WeatherInfo extends React.Component {
 
         // Get weather data from Open Weather Map
         fetch(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${
-            openWeatherMap.key
-          }`
+          `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${API_KEY}`
         )
           .then(res => res.json())
           .then(

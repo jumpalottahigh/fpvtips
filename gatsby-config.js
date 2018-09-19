@@ -1,3 +1,20 @@
+let openWeatherConfig
+
+try {
+  openWeatherConfig = require('./.openWeatherMap')
+} catch (e) {
+  openWeatherConfig = {
+    key: process.env.OPEN_WEATHER_MAP_KEY,
+  }
+} finally {
+  const { key } = openWeatherConfig
+  if (!key) {
+    throw new Error('OpenWeatherMap API key needs to be provided.')
+  }
+
+  process.env.OPEN_WEATHER_MAP_KEY = key
+}
+
 module.exports = {
   siteMetadata: {
     title: 'Fpvtips',
