@@ -1,0 +1,26 @@
+[
+  {
+    "lat": "60.295",
+    "lng": "25.306",
+    "label": "Football field",
+    "description": "Huge open field, river close by.",
+    "videoLinks": [
+      "https://www.youtube.com/watch?v=e5A7br5SCv0",
+      "https://www.youtube.com/watch?v=UtTZWqvdqEM&"
+    ]
+  },
+  {
+    "lat": "60.288",
+    "lng": "25.317",
+    "label": "Harbor and field",
+    "description": "Huge open field, harbor close by.",
+    "videoLinks": ["https://www.youtube.com/watch?v=D5vBPyCTkP8&"]
+  },
+  {
+    "lat": "60.3933",
+    "lng": "25.607",
+    "label": "Porvo FPV race track",
+    "description": "Club FPV race track.",
+    "videoLinks": ["https://www.youtube.com/watch?v=geXnCoNvBPk&"]
+  }
+]

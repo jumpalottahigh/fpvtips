@@ -10,10 +10,17 @@ class SimpleMap extends React.Component {
     },
     loading: true,
     zoom: 11,
+    markers: this.props.markers,
   }
 
   _onChildClick = (key, childProps) => {
+    // TODO: on click:
+    // - expand with all info
+    // - add button to open modal and submit video URL
+
     console.log('Marker clicked')
+    console.log(key)
+    console.log(childProps)
     // const markerId = childProps.marker.get('id')
     // const index = this.props.markers.findIndex(m => m.get('id') === markerId)
     // if (this.props.onChildClick) {
@@ -55,7 +62,7 @@ class SimpleMap extends React.Component {
   }
 
   render() {
-    const { center, loading, zoom } = this.state
+    const { center, loading, markers, zoom } = this.state
 
     if (loading) {
       return null
@@ -72,14 +79,18 @@ class SimpleMap extends React.Component {
           onChildMouseEnter={this._onChildMouseEnter}
           onChildMouseLeave={this._onChildMouseLeave}
         >
-          <Marker lat={60.295} lng={25.306} text={'FPV 1'} />
+          {markers.map(({ node: marker }) => (
+            <Marker
+              lat={marker.lat}
+              lng={marker.lng}
+              label={marker.label}
+              description={marker.description}
+              videoLinks={marker.videoLinks}
+            />
+          ))}
+          {/* <Marker lat={60.295} lng={25.306} text={'FPV 1'} />
           <Marker lat={60.288} lng={25.317} text={'FPV 2'} />
-          <Marker
-            lat={60.3933}
-            lng={25.607}
-            text={'FPV 3'}
-            onClick={this.handleMarkerClick}
-          />
+          <Marker lat={60.3933} lng={25.607} text={'FPV 3'} /> */}
         </GoogleMapReact>
       </div>
     )

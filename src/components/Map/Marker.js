@@ -1,10 +1,9 @@
 import React from 'react'
 
-// TODO: Add more props and configurations to marker - icon type, color etc.
-const Marker = ({ text, $hover }) => {
-  const greatPlaceStyle = { transform: 'none' }
-  const greatPlaceStyleHover = { transform: 'scale(2)' }
-  const style = $hover ? greatPlaceStyleHover : greatPlaceStyle
+const Marker = ({ $hover, label, description, videoLinks }) => {
+  const clearHoverStyle = { transform: 'none' }
+  const hoverStyle = { transform: 'scale(2)', zIndex: 9 }
+  const style = $hover ? hoverStyle : clearHoverStyle
 
   return (
     <div style={{ width: '52px', height: '52px', ...style }}>
@@ -23,8 +22,18 @@ const Marker = ({ text, $hover }) => {
           fill="red"
         />
         <text x="8" y="32" fill="#fff" fontSize="14px">
-          {text}
+          {label}
         </text>
+        {/* TODO:
+        description and video will only show on hover / click? */}
+        <text x="0" y="42" fill="#fff" fontSize="14px">
+          {description}
+        </text>
+        {videoLinks.map(video => (
+          <text x="0" y="52" fill="#fff" fontSize="14px">
+            {video}
+          </text>
+        ))}
       </svg>
     </div>
   )
