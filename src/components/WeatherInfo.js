@@ -2,7 +2,50 @@ import React from 'react'
 import styled from 'styled-components'
 
 // Configure open weather map API key
-const API_KEY = process.env.OPEN_WEATHER_MAP_KEY
+const API_KEY = process.env.GATSBY_OPEN_WEATHER_MAP_KEY
+
+// const dummyDevData = {
+//   coord: {
+//     lon: 25.34,
+//     lat: 60.31,
+//   },
+//   weather: [
+//     {
+//       id: 521,
+//       main: 'Rain',
+//       description: 'shower rain',
+//       icon: '09n',
+//     },
+//   ],
+//   base: 'stations',
+//   main: {
+//     temp: 288.15,
+//     pressure: 1007,
+//     humidity: 93,
+//     temp_min: 288.15,
+//     temp_max: 288.15,
+//   },
+//   visibility: 8000,
+//   wind: {
+//     speed: 4.1,
+//     deg: 210,
+//   },
+//   clouds: {
+//     all: 75,
+//   },
+//   dt: 1537473000,
+//   sys: {
+//     type: 1,
+//     id: 5019,
+//     message: 0.0021,
+//     country: 'FI',
+//     sunrise: 1537415972,
+//     sunset: 1537460563,
+//   },
+//   id: 637068,
+//   name: 'Sipoo',
+//   cod: 200,
+// }
 
 const WeatherList = styled.ul`
   list-style-type: none;
@@ -59,6 +102,12 @@ class WeatherInfo extends React.Component {
               })
             }
           )
+
+        // DEV MODE:
+        // this.setState({
+        //   weather: dummyDevData,
+        //   loading: false,
+        // })
       },
       () => {
         this.setState({ loading: false })
@@ -67,7 +116,7 @@ class WeatherInfo extends React.Component {
   }
 
   render() {
-    const { coords, loading, weather } = this.state
+    const { loading, weather } = this.state
 
     if (loading) {
       return null
