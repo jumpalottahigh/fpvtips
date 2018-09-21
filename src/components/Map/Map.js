@@ -13,6 +13,15 @@ class SimpleMap extends React.Component {
     markers: this.props.markers,
   }
 
+  _onBoundsChange = (center, zoom, bounds, marginBounds) => {
+    if (this.props.onBoundsChange) {
+      this.props.onBoundsChange({ center, zoom, bounds, marginBounds })
+    } else {
+      // this.props.onCenterChange(center)
+      // this.props.onZoomChange(zoom)
+    }
+  }
+
   _onChildClick = (key, childProps) => {
     // TODO: on click:
     // - expand with all info
@@ -75,6 +84,7 @@ class SimpleMap extends React.Component {
           bootstrapURLKeys={{ key: '' }}
           defaultCenter={center}
           defaultZoom={zoom}
+          onBoundsChange={this._onBoundsChange}
           onChildClick={this._onChildClick}
           onChildMouseEnter={this._onChildMouseEnter}
           onChildMouseLeave={this._onChildMouseLeave}
@@ -87,11 +97,9 @@ class SimpleMap extends React.Component {
               label={marker.label}
               description={marker.description}
               videoLinks={marker.videoLinks}
+              zIndex={3}
             />
           ))}
-          {/* <Marker lat={60.295} lng={25.306} text={'FPV 1'} />
-          <Marker lat={60.288} lng={25.317} text={'FPV 2'} />
-          <Marker lat={60.3933} lng={25.607} text={'FPV 3'} /> */}
         </GoogleMapReact>
       </div>
     )
