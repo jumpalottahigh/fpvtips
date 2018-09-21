@@ -27,8 +27,14 @@ module.exports = {
       resolve: `@wapps/gatsby-plugin-material-ui`,
       options: {
         theme: {
-          primaryColor: '#0375d8',
-          secondaryColor: '#f5f5f5',
+          palette: {
+            primary: {
+              main: '#0375d8',
+            },
+            secondary: {
+              main: '#f5f5f5',
+            },
+          },
         },
       },
     },
