@@ -29,8 +29,8 @@ const Marker = ({ $hover, label, description, videoLinks }) => {
         <text x="0" y="42" fill="#fff" fontSize="14px">
           {description}
         </text>
-        {videoLinks.map(video => (
-          <text x="0" y="52" fill="#fff" fontSize="14px">
+        {videoLinks.map((video, index) => (
+          <text key={index} x="0" y="52" fill="#fff" fontSize="14px">
             {video}
           </text>
         ))}

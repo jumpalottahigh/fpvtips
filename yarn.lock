@@ -810,7 +810,7 @@
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@mapbox/point-geometry/-/point-geometry-0.1.0.tgz#8a83f9335c7860effa2eeeca254332aa0aeed8f2"
 
-"@material-ui/core@^3.0.1":
+"@material-ui/core@^3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-3.1.0.tgz#40c70e0764ef27dca5e149551577eba10c2e79ce"
   dependencies:
@@ -950,6 +950,12 @@
 "@types/tmp@^0.0.32":
   version "0.0.32"
   resolved "https://registry.yarnpkg.com/@types/tmp/-/tmp-0.0.32.tgz#0d3cb31022f8427ea58c008af32b80da126ca4e3"
+
+"@wapps/gatsby-plugin-material-ui@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@wapps/gatsby-plugin-material-ui/-/gatsby-plugin-material-ui-1.0.7.tgz#a7a8421f5b19fbe15617249d409a8329cc09ebf5"
+  dependencies:
+    react-jss "^8.6.1"
 
 "@webassemblyjs/ast@1.7.6":
   version "1.7.6"
@@ -9037,7 +9043,7 @@ react-is@^16.3.1:
   version "16.5.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.5.2.tgz#e2a7b7c3f5d48062eb769fcb123505eb928722e3"
 
-react-jss@^8.1.0:
+react-jss@^8.1.0, react-jss@^8.6.1:
   version "8.6.1"
   resolved "https://registry.yarnpkg.com/react-jss/-/react-jss-8.6.1.tgz#a06e2e1d2c4d91b4d11befda865e6c07fbd75252"
   dependencies:

@@ -81,6 +81,7 @@ class SimpleMap extends React.Component {
         >
           {markers.map(({ node: marker }) => (
             <Marker
+              key={marker.id}
               lat={marker.lat}
               lng={marker.lng}
               label={marker.label}

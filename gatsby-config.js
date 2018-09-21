@@ -23,6 +23,15 @@ module.exports = {
     siteUrl: 'https://fpvtips.com',
   },
   plugins: [
+    {
+      resolve: `@wapps/gatsby-plugin-material-ui`,
+      options: {
+        theme: {
+          primaryColor: '#0375d8',
+          secondaryColor: '#f5f5f5',
+        },
+      },
+    },
     `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,
