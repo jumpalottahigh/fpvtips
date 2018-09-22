@@ -4,14 +4,14 @@ import Layout from '../components/Layout/layout'
 import Map from '../components/Map/Map'
 import WeatherInfo from '../components/WeatherInfo'
 
-const FPVSpotsPage = ({ data }) => (
+const FPVMapPage = ({ data }) => (
   <Layout>
     <Map markers={data.allMapMarkersJson.edges} />
     <WeatherInfo />
   </Layout>
 )
 
-export default FPVSpotsPage
+export default FPVMapPage
 
 export const mapMarkersQuery = graphql`
   query mapMarkersQuery {

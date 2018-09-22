@@ -44,7 +44,13 @@ class IndexPage extends React.Component {
           <Grid>
             <Link to="/fpv-spots">
               <PaperCard elevation={1}>
-                FPV flying spots
+                FPV map
+                <sup style={{ fontSize: '1.3rem', lineHeight: '1rem' }}>🆕</sup>
+              </PaperCard>
+            </Link>
+            <Link to="/blog">
+              <PaperCard elevation={1}>
+                Blog
                 <sup style={{ fontSize: '1.3rem', lineHeight: '1rem' }}>🆕</sup>
               </PaperCard>
             </Link>
@@ -60,12 +66,6 @@ class IndexPage extends React.Component {
             <Link to="/tools">
               <PaperCard elevation={1}>Tools</PaperCard>
             </Link>
-            <Link to="/blog">
-              <PaperCard elevation={1}>
-                Blog
-                <sup style={{ fontSize: '1.3rem', lineHeight: '1rem' }}>🆕</sup>
-              </PaperCard>
-            </Link>
           </Grid>
           <p style={{ marginTop: '3rem' }}>
             This project is a work in progress and coming soon to bring the FPV
@@ -75,8 +75,10 @@ class IndexPage extends React.Component {
           <FeatureList>
             <li>Add and save FPV flying spots on the map</li>
             <li>Share location and meet other FPV pilots</li>
-            <li>Beginner friendly FPV glossary</li>
+            <li>Live wind and weather conditions</li>
+            <li>Beginner friendly FPV glossary / dictionary</li>
             <li>Recommended Tools, upvoted by the community</li>
+            <li>Submit a dictionary entry</li>
             <li>Submit an article to the blog</li>
           </FeatureList>
         </div>

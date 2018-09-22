@@ -2,7 +2,7 @@ import firebase from 'firebase/app'
 import 'firebase/database'
 
 const config = {
-  apiKey: 'AIzaSyCSn9N4iYU8-7jNQpqUqDJ1Gzk3urqTnQs',
+  apiKey: process.env.GATSBY_FIREBASE_KEY,
   authDomain: 'fpvtips-com.firebaseapp.com',
   databaseURL: 'https://fpvtips-com.firebaseio.com',
   projectId: 'fpvtips-com',
