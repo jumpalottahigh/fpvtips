@@ -11,36 +11,36 @@ const dummyDevData = {
   },
   weather: [
     {
-      id: 521,
-      main: 'Rain',
-      description: 'shower rain',
-      icon: '09n',
+      id: 800,
+      main: 'Clear',
+      description: 'clear sky',
+      icon: '01n',
     },
   ],
   base: 'stations',
   main: {
-    temp: 288.15,
-    pressure: 1007,
-    humidity: 93,
-    temp_min: 288.15,
-    temp_max: 288.15,
+    temp: 284.15,
+    pressure: 997,
+    humidity: 76,
+    temp_min: 284.15,
+    temp_max: 284.15,
   },
-  visibility: 8000,
+  visibility: 10000,
   wind: {
-    speed: 4.1,
+    speed: 6.2,
     deg: 210,
   },
   clouds: {
-    all: 75,
+    all: 0,
   },
-  dt: 1537473000,
+  dt: 1537653000,
   sys: {
     type: 1,
     id: 5019,
-    message: 0.0021,
+    message: 0.061,
     country: 'FI',
-    sunrise: 1537415972,
-    sunset: 1537460563,
+    sunrise: 1537589070,
+    sunset: 1537632977,
   },
   id: 637068,
   name: 'Sipoo',
@@ -85,6 +85,7 @@ class WeatherInfo extends React.Component {
         //   .then(res => res.json())
         //   .then(
         //     result => {
+        //       console.log(result)
         //       this.setState({
         //         coords: { lat: latitude, lng: longitude },
         //         loading: false,

@@ -13,12 +13,12 @@ import { FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa'
 
 export const mainMenuListItems = (
   <div>
-    <Link to="/fpv-spots">
+    <Link to="/fpv-map">
       <ListItem button>
         <ListItemIcon>
           <LocationCity color="primary" />
         </ListItemIcon>
-        <ListItemText primary="FPV spots" />
+        <ListItemText primary="FPV map" />
       </ListItem>
     </Link>
     <Link to="/blog">

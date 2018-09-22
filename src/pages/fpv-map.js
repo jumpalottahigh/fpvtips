@@ -3,11 +3,13 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout/layout'
 import Map from '../components/Map/Map'
 import WeatherInfo from '../components/WeatherInfo'
+import SubmitForm from '../components/UI/SubmitForm'
 
 const FPVMapPage = ({ data }) => (
   <Layout>
     <Map markers={data.allMapMarkersJson.edges} />
     <WeatherInfo />
+    <SubmitForm fireNode="fpv-map" />
   </Layout>
 )
 

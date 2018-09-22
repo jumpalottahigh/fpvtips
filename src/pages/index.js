@@ -42,7 +42,7 @@ class IndexPage extends React.Component {
         <div>
           <h1>Your one-stop spot for all FPV related things.</h1>
           <Grid>
-            <Link to="/fpv-spots">
+            <Link to="/fpv-map">
               <PaperCard elevation={1}>
                 FPV map
                 <sup style={{ fontSize: '1.3rem', lineHeight: '1rem' }}>🆕</sup>

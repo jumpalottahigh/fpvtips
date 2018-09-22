@@ -13,9 +13,9 @@ class SimpleMap extends React.Component {
     markers: this.props.markers,
   }
 
-  _onBoundsChange = (center, zoom, bounds, marginBounds) => {
-    if (this.props.onBoundsChange) {
-      this.props.onBoundsChange({ center, zoom, bounds, marginBounds })
+  _onChange = (center, zoom, bounds, marginBounds) => {
+    if (this.props.onChange) {
+      this.props.onChange({ center, zoom, bounds, marginBounds })
     } else {
       // this.props.onCenterChange(center)
       // this.props.onZoomChange(zoom)
@@ -84,7 +84,7 @@ class SimpleMap extends React.Component {
           bootstrapURLKeys={{ key: '' }}
           defaultCenter={center}
           defaultZoom={zoom}
-          onBoundsChange={this._onBoundsChange}
+          onChange={this._onChange}
           onChildClick={this._onChildClick}
           onChildMouseEnter={this._onChildMouseEnter}
           onChildMouseLeave={this._onChildMouseLeave}
