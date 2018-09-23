@@ -45,7 +45,6 @@ export default class Marker extends React.Component {
             fill="#0375d8"
           />
         </svg>
-
         {$hover && (
           <MarkerInfo
             style={{ zIndex: 999 }}
