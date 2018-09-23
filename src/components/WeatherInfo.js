@@ -1,51 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import Button from '@material-ui/core/Button'
+import SyncIcon from '@material-ui/icons/Sync'
+
 // Configure open weather map API key
 const API_KEY = process.env.GATSBY_OPEN_WEATHER_MAP_KEY
-
-const dummyDevData = {
-  coord: {
-    lon: 25.34,
-    lat: 60.31,
-  },
-  weather: [
-    {
-      id: 800,
-      main: 'Clear',
-      description: 'clear sky',
-      icon: '01n',
-    },
-  ],
-  base: 'stations',
-  main: {
-    temp: 284.15,
-    pressure: 997,
-    humidity: 76,
-    temp_min: 284.15,
-    temp_max: 284.15,
-  },
-  visibility: 10000,
-  wind: {
-    speed: 6.2,
-    deg: 210,
-  },
-  clouds: {
-    all: 0,
-  },
-  dt: 1537653000,
-  sys: {
-    type: 1,
-    id: 5019,
-    message: 0.061,
-    country: 'FI',
-    sunrise: 1537589070,
-    sunset: 1537632977,
-  },
-  id: 637068,
-  name: 'Sipoo',
-  cod: 200,
-}
 
 const WeatherList = styled.ul`
   list-style-type: none;
@@ -68,67 +28,62 @@ class WeatherInfo extends React.Component {
       lat: 33.749, // Helsinki: 60.16
       lng: 84.388, // Helsinki: 24.93
     },
-    loading: true,
     weather: {},
   }
 
-  componentDidMount() {
+  handleWeatherSync = () => {
+    console.log('Fetch weather info')
     // Request user geo location
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        const { latitude, longitude } = position.coords
+    navigator.geolocation.getCurrentPosition(position => {
+      const { latitude, longitude } = position.coords
+      const PRODUCTION_WEATHER_API = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${API_KEY}`
+      const DEV_WEATHER_API = `./dummyDevData.json`
 
-        // Get weather data from Open Weather Map
-        // fetch(
-        //   `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${API_KEY}`
-        // )
-        //   .then(res => res.json())
-        //   .then(
-        //     result => {
-        //       console.log(result)
-        //       this.setState({
-        //         coords: { lat: latitude, lng: longitude },
-        //         loading: false,
-        //         weather: result,
-        //       })
-        //     },
-        //     error => {
-        //       this.setState({
-        //         loading: true,
-        //         error,
-        //       })
-        //     }
-        //   )
-
-        // DEV MODE:
-        this.setState({
-          weather: dummyDevData,
-          loading: false,
-        })
-      },
-      () => {
-        this.setState({ loading: false })
-      }
-    )
+      // Get weather data from Open Weather Map
+      fetch(DEV_WEATHER_API)
+        .then(res => res.json())
+        .then(
+          result => {
+            console.log(result)
+            this.setState({
+              coords: { lat: latitude, lng: longitude },
+              weather: result,
+            })
+          },
+          error => {
+            this.setState({
+              error,
+            })
+          }
+        )
+    })
   }
 
   render() {
-    const { loading, weather } = this.state
+    const { weather } = this.state
 
-    if (loading) {
-      return null
-    }
+    // TODO: improve validation check
+    // `weather.wind.speed`
 
     return (
       <div>
+        <Button
+          onClick={this.handleWeatherSync}
+          variant="contained"
+          color="primary"
+        >
+          Get weather info
+          <SyncIcon style={{ marginLeft: '0.5rem' }} />
+        </Button>
+
         <h4>Current weather:</h4>
         <WeatherList>
-          <li>🌤️ {weather.weather[0].description}</li>
+          {/* <li>🌤️ {weather.weather[0].description}</li>
           <li>💨 Wind speed: {weather.wind.speed}</li>
           <li>🌫️ Wind deg: {weather.wind.deg}</li>
           <li>🌡️ Temperature: {weather.main.temp}</li>
           <li>🗜️ Pressure: {weather.main.pressure}</li>
-          <li>💧 Humidity: {weather.main.humidity}</li>
+          <li>💧 Humidity: {weather.main.humidity}</li> */}
         </WeatherList>
       </div>
     )
