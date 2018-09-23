@@ -11,34 +11,22 @@ class SimpleMap extends React.Component {
     loading: true,
     zoom: 11,
     markers: this.props.markers,
-  }
-
-  _onChange = (center, zoom, bounds, marginBounds) => {
-    if (this.props.onChange) {
-      this.props.onChange({ center, zoom, bounds, marginBounds })
-    } else {
-      // this.props.onCenterChange(center)
-      // this.props.onZoomChange(zoom)
-    }
+    currentPlace: {
+      ...this.props.markers[0].node,
+    },
   }
 
   _onChildClick = (key, childProps) => {
-    // TODO: on click:
-    // - expand with all info
-    // - add button to open modal and submit video URL
-
     console.log('Marker clicked')
-    console.log(key)
     console.log(childProps)
-    // const markerId = childProps.marker.get('id')
-    // const index = this.props.markers.findIndex(m => m.get('id') === markerId)
-    // if (this.props.onChildClick) {
-    //   this.props.onChildClick(index)
-    // }
+    // Update current selected element
+    this.setState({
+      currentPlace: childProps,
+    })
   }
 
   _onChildMouseEnter = (key, childProps) => {
-    console.log('Marker mouse enter')
+    // console.log('Marker mouse enter')
     // const markerId = childProps.marker.get('id')
     // const index = this.props.markers.findIndex(m => m.get('id') === markerId)
     // if (this.props.onMarkerHover) {
@@ -47,7 +35,7 @@ class SimpleMap extends React.Component {
   }
 
   _onChildMouseLeave = () => {
-    console.log('Marker mouse leave')
+    // console.log('Marker mouse leave')
     // if (this.props.onMarkerHover) {
     //   this.props.onMarkerHover(-1)
     // }
@@ -78,29 +66,47 @@ class SimpleMap extends React.Component {
     }
 
     return (
-      // Important! Always set the container height explicitly
-      <div style={{ height: '50vh', width: '100%' }}>
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: '' }}
-          defaultCenter={center}
-          defaultZoom={zoom}
-          onChange={this._onChange}
-          onChildClick={this._onChildClick}
-          onChildMouseEnter={this._onChildMouseEnter}
-          onChildMouseLeave={this._onChildMouseLeave}
-        >
-          {markers.map(({ node: marker }) => (
-            <Marker
-              key={marker.id}
-              lat={marker.lat}
-              lng={marker.lng}
-              label={marker.label}
-              description={marker.description}
-              videoLinks={marker.videoLinks}
-              zIndex={3}
-            />
-          ))}
-        </GoogleMapReact>
+      <div style={{ height: '60vh' }}>
+        <div style={{ height: '50vh', width: '100%' }}>
+          <GoogleMapReact
+            bootstrapURLKeys={{ key: '' }}
+            defaultCenter={center}
+            defaultZoom={zoom}
+            onChildClick={this._onChildClick}
+            onChildMouseEnter={this._onChildMouseEnter}
+            onChildMouseLeave={this._onChildMouseLeave}
+          >
+            {markers.map(({ node: marker }) => (
+              <Marker
+                key={marker.id}
+                id={marker.id}
+                lat={marker.lat}
+                lng={marker.lng}
+                label={marker.label}
+                description={marker.description}
+                videoLinks={marker.videoLinks}
+                isHighlighted={
+                  marker.id == this.state.currentPlace.id ? 'true' : 'false'
+                }
+                zIndex={1}
+              />
+            ))}
+          </GoogleMapReact>
+
+          {/* Place info */}
+          {this.state.currentPlace && (
+            <div style={{ height: '10vh' }}>
+              <div>{this.state.currentPlace.label}</div>
+              <div>{this.state.currentPlace.description}</div>
+              <div>
+                {this.state.currentPlace.videoLinks &&
+                  this.state.currentPlace.videoLinks.map((item, index) => (
+                    <div key={index}>{item}</div>
+                  ))}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     )
   }
