@@ -5,9 +5,11 @@ import Tabs from '@material-ui/core/Tabs'
 import Typography from '@material-ui/core/Typography'
 import WeatherIcon from '@material-ui/icons/WbSunny'
 import PhotoIcon from '@material-ui/icons/Photo'
+import PlaceIcon from '@material-ui/icons/Place'
 import VideoIcon from '@material-ui/icons/VideoLibrary'
 
 import WeatherInfo from '../WeatherInfo'
+import Accordion from './Accordion'
 
 function TabContainer(props) {
   return (
@@ -34,7 +36,7 @@ class SimpleTabs extends React.Component {
   }
 
   render() {
-    const { classes } = this.props
+    const { classes, currentPlaceData } = this.props
     const { value } = this.state
 
     return (
@@ -47,17 +49,34 @@ class SimpleTabs extends React.Component {
           fullWidth
           onChange={this.handleChange}
         >
+          <Tab icon={<PlaceIcon />} label="Place" />
           <Tab icon={<WeatherIcon />} label="Weather" />
           <Tab icon={<PhotoIcon />} label="Photos" />
           <Tab icon={<VideoIcon />} label="Videos" />
         </Tabs>
         {value === 0 && (
           <TabContainer>
+            <div>{currentPlaceData.label}</div>
+            <div>{currentPlaceData.description}</div>
+            <div>
+              {currentPlaceData.videoLinks &&
+                currentPlaceData.videoLinks.map((item, index) => (
+                  <div key={index}>{item}</div>
+                ))}
+            </div>
+          </TabContainer>
+        )}
+        {value === 1 && (
+          <TabContainer>
             <WeatherInfo />
           </TabContainer>
         )}
-        {value === 1 && <TabContainer>Photos</TabContainer>}
-        {value === 2 && <TabContainer>Videos</TabContainer>}
+        {value === 2 && <TabContainer>Photos</TabContainer>}
+        {value === 3 && (
+          <TabContainer>
+            <Accordion videoLinks={currentPlaceData.videoLinks} />
+          </TabContainer>
+        )}
       </div>
     )
   }

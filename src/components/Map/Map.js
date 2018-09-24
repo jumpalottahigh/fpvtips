@@ -1,7 +1,7 @@
 import React from 'react'
 import GoogleMapReact from 'google-map-react'
 import Marker from './Marker'
-
+import Tabs from '../UI/Tabs'
 class SimpleMap extends React.Component {
   state = {
     center: {
@@ -66,7 +66,7 @@ class SimpleMap extends React.Component {
     }
 
     return (
-      <div style={{ height: '60vh' }}>
+      <div style={{ height: '100vh' }}>
         <div style={{ height: '50vh', width: '100%' }}>
           <GoogleMapReact
             bootstrapURLKeys={{ key: '' }}
@@ -93,19 +93,8 @@ class SimpleMap extends React.Component {
             ))}
           </GoogleMapReact>
 
-          {/* Place info */}
-          {this.state.currentPlace && (
-            <div style={{ height: '10vh' }}>
-              <div>{this.state.currentPlace.label}</div>
-              <div>{this.state.currentPlace.description}</div>
-              <div>
-                {this.state.currentPlace.videoLinks &&
-                  this.state.currentPlace.videoLinks.map((item, index) => (
-                    <div key={index}>{item}</div>
-                  ))}
-              </div>
-            </div>
-          )}
+          {/* Tabs - pass the data about the current place down via props */}
+          <Tabs currentPlaceData={this.state.currentPlace} />
         </div>
       </div>
     )
