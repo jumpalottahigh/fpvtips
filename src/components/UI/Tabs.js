@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { withStyles } from '@material-ui/core/styles'
 import Tab from '@material-ui/core/Tab'
 import Tabs from '@material-ui/core/Tabs'
@@ -9,7 +10,20 @@ import PlaceIcon from '@material-ui/icons/Place'
 import VideoIcon from '@material-ui/icons/VideoLibrary'
 
 import WeatherInfo from '../WeatherInfo'
-import Accordion from './Accordion'
+import Video from './Video'
+
+const Grid = styled.div`
+  display: grid;
+  grid-gap: 30px;
+  min-width: 380px;
+
+  @media (min-width: 800px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (min-width: 1400px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+`
 
 function TabContainer(props) {
   return (
@@ -74,7 +88,17 @@ class SimpleTabs extends React.Component {
         {value === 2 && <TabContainer>Photos</TabContainer>}
         {value === 3 && (
           <TabContainer>
-            <Accordion videoLinks={currentPlaceData.videoLinks} />
+            <Grid>
+              {currentPlaceData.videoLinks.map((video, index) => (
+                <Video
+                  key={index}
+                  src={video}
+                  width="560"
+                  height="315"
+                  title={`Video - ${video}`}
+                />
+              ))}
+            </Grid>
           </TabContainer>
         )}
       </div>
