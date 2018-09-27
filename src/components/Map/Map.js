@@ -2,6 +2,7 @@ import React from 'react'
 import GoogleMapReact from 'google-map-react'
 import Marker from './Marker'
 import Tabs from '../UI/Tabs'
+
 class SimpleMap extends React.Component {
   state = {
     center: {
@@ -11,9 +12,21 @@ class SimpleMap extends React.Component {
     loading: true,
     zoom: 11,
     markers: this.props.markers,
+    newMarker: null,
     currentPlace: {
       ...this.props.markers[0].node,
     },
+  }
+
+  _onClick = ({ x, y, lat, lng, event }) => {
+    // Save the current clicked space to LS and state
+    let newMarker = {
+      lat,
+      lng,
+    }
+
+    self.localStorage.setItem('newMarker', JSON.stringify(newMarker))
+    this.setState({ newMarker: newMarker })
   }
 
   _onChildClick = (key, childProps) => {
@@ -72,10 +85,12 @@ class SimpleMap extends React.Component {
             bootstrapURLKeys={{ key: '' }}
             defaultCenter={center}
             defaultZoom={zoom}
+            onClick={this._onClick}
             onChildClick={this._onChildClick}
             onChildMouseEnter={this._onChildMouseEnter}
             onChildMouseLeave={this._onChildMouseLeave}
           >
+            {/* Render all saved markers */}
             {markers.map(({ node: marker }) => (
               <Marker
                 key={marker.id}
@@ -91,6 +106,14 @@ class SimpleMap extends React.Component {
                 zIndex={1}
               />
             ))}
+            {/* Render a new marker if user clicked on the map */}
+            {this.state.newMarker && (
+              <Marker
+                isNewMarker={true}
+                lat={this.state.newMarker.lat}
+                lng={this.state.newMarker.lng}
+              />
+            )}
           </GoogleMapReact>
 
           {/* Tabs - pass the data about the current place down via props */}

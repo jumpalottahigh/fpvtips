@@ -68,11 +68,17 @@ export default class SubmitForm extends React.Component {
     // Basic form validation
     if (title == '' || description == '') return
 
+    // Get new marker data
+    let { lat, lng } = JSON.parse(self.localStorage.getItem('newMarker'))
+    if (!lat || !lng) return
+
     let data = {
       title,
       description,
       link,
       author,
+      lat,
+      lng,
     }
 
     // Send data to Firebase
@@ -81,6 +87,8 @@ export default class SubmitForm extends React.Component {
       .ref(this.props.fireNode)
       .push(data)
 
+    // Clear local storage
+    self.localStorage.removeItem('newMarker')
     // Clear form and state and close modal
     this.setState({
       open: false,

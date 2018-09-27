@@ -5,7 +5,7 @@ import VideoIcon from '@material-ui/icons/Subscriptions'
 
 const StyledPaperCard = styled(PaperCard)`
   display: flex;
-  justify-content: space-between;
+  justify-content: ${props => (props.videoLinks ? 'space-between' : 'center')};
   align-items: center;
   padding: 0.5rem;
 

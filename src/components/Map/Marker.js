@@ -6,6 +6,7 @@ export default class Marker extends React.Component {
   render() {
     const {
       $hover,
+      isNewMarker,
       label,
       description,
       videoLinks,
@@ -42,18 +43,21 @@ export default class Marker extends React.Component {
             r={PIN_SIZE / 2 - 2}
             stroke={$hover ? 'white' : 'black'}
             strokeWidth={isHighlighted == 'true' ? '4' : '2'}
-            fill="#0375d8"
+            fill={isNewMarker ? '#4db34d' : '#0375d8'}
           />
         </svg>
-        {$hover && (
-          <MarkerInfo
-            style={{ zIndex: 999 }}
-            label={label}
-            description={description}
-            videoLinks={videoLinks}
-            onClick={this.handleInfoExpand}
-          />
-        )}
+        {/* Hover tooltip for regular markers */}
+        {$hover &&
+          !isNewMarker && (
+            <MarkerInfo
+              style={{ zIndex: 999 }}
+              label={label}
+              description={description}
+              videoLinks={videoLinks}
+            />
+          )}
+        {/* Tooltip for new place marker */}
+        {isNewMarker && <MarkerInfo label={`Tap + to save this spot`} />}
       </div>
     )
   }

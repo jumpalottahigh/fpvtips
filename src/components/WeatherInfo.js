@@ -42,7 +42,6 @@ class WeatherInfo extends React.Component {
     navigator.geolocation.getCurrentPosition(position => {
       const { latitude, longitude } = position.coords
       const PRODUCTION_WEATHER_API = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${API_KEY}`
-      const DEV_WEATHER_API = `./dummyDevData.json`
 
       // Get weather data from Open Weather Map
       fetch(PRODUCTION_WEATHER_API)
