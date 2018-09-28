@@ -2,12 +2,10 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout/layout'
 import Map from '../components/Map/Map'
-import SubmitForm from '../components/UI/SubmitForm'
 
 const FPVMapPage = ({ data }) => (
   <Layout>
     <Map markers={data.allMapMarkersJson.edges} />
-    <SubmitForm fireNode="fpv-map" />
   </Layout>
 )
 

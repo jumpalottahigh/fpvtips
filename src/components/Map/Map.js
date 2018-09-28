@@ -2,6 +2,7 @@ import React from 'react'
 import GoogleMapReact from 'google-map-react'
 import Marker from './Marker'
 import Tabs from '../UI/Tabs'
+import SubmitForm from '../UI/SubmitForm'
 
 class SimpleMap extends React.Component {
   state = {
@@ -119,6 +120,7 @@ class SimpleMap extends React.Component {
           {/* Tabs - pass the data about the current place down via props */}
           <Tabs currentPlaceData={this.state.currentPlace} />
         </div>
+        {this.state.newMarker && <SubmitForm fireNode="fpv-map" />}
       </div>
     )
   }

@@ -21,13 +21,22 @@ const StyledPaperCard = styled(PaperCard)`
   }
 `
 
+// Emoji legend
+// 🌳 - trees
+// 🏞️️ - hills / mountains
+// 💧 - lake / water / sea
+// 🏖️ - beach
+// 🌾 - crops / tall grass
+// 🐜 - micro quad
+// 🐘 - mini quad
+
 export default class MarkerInfo extends React.Component {
   constructor(props) {
     super(props)
   }
 
   render() {
-    const { label, videoLinks } = this.props
+    const { features, label, videoLinks } = this.props
     return (
       <StyledPaperCard>
         <h4>{label}</h4>

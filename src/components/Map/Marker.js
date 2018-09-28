@@ -57,7 +57,7 @@ export default class Marker extends React.Component {
             />
           )}
         {/* Tooltip for new place marker */}
-        {isNewMarker && <MarkerInfo label={`Tap + to save this spot`} />}
+        {isNewMarker && <MarkerInfo label={`Tap ➕ to save this spot`} />}
       </div>
     )
   }
