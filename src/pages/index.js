@@ -1,31 +1,11 @@
 import React from 'react'
-import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import Layout from '../components/Layout/layout'
 import PaperCard from '../components/UI/PaperCard'
 import Grid from '../components/UI/Grid'
-
-const FeatureList = styled.ul`
-  list-style-type: none;
-  padding: 0;
-  width: 100%;
-  margin: 0 auto;
-
-  li:before {
-    content: '⭐';
-  }
-
-  li {
-    font-weight: bold;
-    text-align: left;
-  }
-
-  @media (min-width: 650px) {
-    width: 420px;
-  }
-`
+import FeatureList from '../components/UI/FeatureList'
 
 class IndexPage extends React.Component {
   render() {
@@ -66,10 +46,36 @@ class IndexPage extends React.Component {
             <Link to="/tools">
               <PaperCard elevation={1}>Tools</PaperCard>
             </Link>
+            <Link to="/getting-started">
+              <PaperCard elevation={1}>Getting started</PaperCard>
+            </Link>
+            <Link to="/quad-builder">
+              <PaperCard elevation={1}>Quad builder</PaperCard>
+            </Link>
           </Grid>
           <p style={{ marginTop: '3rem' }}>
-            This project is a work in progress and coming soon to bring the FPV
-            community closer together and flying! Stay tuned and enjoy!
+            This project is in a public beta and as such many features are still
+            not completely ready.
+            <br />
+            <em>
+              Our mission is to bring the FPV community closer together and
+              flying!
+            </em>{' '}
+            <br />
+            <br />
+            If you want to get involved,{' '}
+            <a href="mailto:georgiyanev.gy@gmail.com">get in touch</a> or check
+            out the{' '}
+            <a href="https://github.com/jumpalottahigh/fpvtips">
+              project repository
+            </a>
+            . Or,{' '}
+            <Link to="/fpv-map">
+              submit info about an FPV spot you like flying so we can put it on
+              the map.
+            </Link>
+            <br />
+            Stay tuned and enjoy!
           </p>
           <h3>Coming Soon:</h3>
           <FeatureList>
