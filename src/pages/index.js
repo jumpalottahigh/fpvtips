@@ -79,13 +79,15 @@ class IndexPage extends React.Component {
           </p>
           <h3>Coming Soon:</h3>
           <FeatureList>
-            <li>Add and save FPV flying spots on the map</li>
+            <li>Save and browse FPV flying spots on the map</li>
+            <li>Preview spots with videos and photos</li>
             <li>Share location and meet other FPV pilots</li>
             <li>Live wind and weather conditions</li>
             <li>Beginner friendly FPV glossary / dictionary</li>
-            <li>Recommended Tools, upvoted by the community</li>
+            <li>Recommended tools, upvoted by the community</li>
             <li>Submit a dictionary entry</li>
             <li>Submit an article to the blog</li>
+            <li>Quad builder - 3D model playground</li>
           </FeatureList>
         </div>
       </Layout>
