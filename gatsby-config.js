@@ -3,12 +3,13 @@ let config
 try {
   config = require('./.config')
 } catch (e) {
-  config.openWeatherMap = {
-    key: process.env.GATSBY_OPEN_WEATHER_MAP_KEY,
-  }
-
-  config.firebase = {
-    key: process.env.GATSBY_FIREBASE_KEY,
+  config = {
+    openWeatherMap: {
+      key: process.env.GATSBY_OPEN_WEATHER_MAP_KEY,
+    },
+    firebase: {
+      key: process.env.GATSBY_FIREBASE_KEY,
+    },
   }
 } finally {
   if (!config.openWeatherMap.key) {
