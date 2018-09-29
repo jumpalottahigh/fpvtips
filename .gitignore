@@ -5,5 +5,4 @@ public
 .intermediate-representation/
 .cache/
 .contentful.json
-.openweathermap.json
-.firebaseConfig.json
+.config.json

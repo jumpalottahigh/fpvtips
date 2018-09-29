@@ -1,28 +1,26 @@
-let openWeatherConfig
-let firebaseConfig
+let config
 
 try {
-  openWeatherConfig = require('./.openWeatherMap')
-  firebaseConfig = require('./.firebaseConfig')
+  config = require('./.config')
 } catch (e) {
-  openWeatherConfig = {
+  config.openWeatherMap = {
     key: process.env.GATSBY_OPEN_WEATHER_MAP_KEY,
   }
 
-  firebaseConfig = {
+  config.firebase = {
     key: process.env.GATSBY_FIREBASE_KEY,
   }
 } finally {
-  if (!openWeatherConfig.key) {
+  if (!config.openWeatherMap.key) {
     throw new Error('OpenWeatherMap API key needs to be provided.')
   }
 
-  if (!firebaseConfig.key) {
-    throw new Error('OpenWeatherMap API key needs to be provided.')
+  if (!config.firebase.key) {
+    throw new Error('Firebase API key needs to be provided.')
   }
 
-  process.env.GATSBY_OPEN_WEATHER_MAP_KEY = openWeatherConfig.key
-  process.env.GATSBY_FIREBASE_KEY = firebaseConfig.key
+  process.env.GATSBY_OPEN_WEATHER_MAP_KEY = config.openWeatherMap.key
+  process.env.GATSBY_FIREBASE_KEY = config.firebase.key
 }
 
 module.exports = {
