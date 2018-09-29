@@ -7,11 +7,15 @@ const StyledFooter = styled.footer`
   justify-content: center;
   align-items: center;
   background-color: #eee;
-  height: 3.5rem;
+  padding: 1.5rem;
   text-align: center;
 
   h5 {
     margin: 0;
+  }
+
+  a {
+    font-size: 0.9rem;
   }
 `
 
@@ -26,6 +30,12 @@ export default class Footer extends React.Component {
           <span role="img" aria-label="heart">
             ❤️
           </span>
+          <br />
+          This project is{' '}
+          <a href="https://github.com/jumpalottahigh/fpvtips">
+            open source
+          </a>{' '}
+          and available on GitHub.
         </h5>
       </StyledFooter>
     )

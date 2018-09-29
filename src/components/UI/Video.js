@@ -8,6 +8,10 @@ const VideoWrapper = styled.div`
   cursor: pointer;
   padding-bottom: 56.25%;
   height: 0;
+
+  &:hover .play-button {
+    background-color: red;
+  }
 `
 const PlayButton = styled.div`
   position: absolute;
@@ -63,6 +67,8 @@ export default class Video extends Component {
 
   render() {
     const { src, width, height, title } = this.props
+
+    if (!src) return null
 
     const fullUrl = new URL(src)
     let videoId = fullUrl.search.split('v=')[1]
