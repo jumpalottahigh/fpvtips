@@ -2,18 +2,27 @@ import styled from 'styled-components'
 
 const Grid = styled.div`
   display: grid;
-  grid-gap: 1rem;
+  grid-gap: ${props => (props.gap ? props.gap : '1rem')};
 
   @media (min-width: 600px) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(
+      ${props => (props.col600 ? props.col600 : 2)},
+      1fr
+    );
   }
 
   @media (min-width: 900px) {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(
+      ${props => (props.col900 ? props.col900 : 3)},
+      1fr
+    );
   }
 
   @media (min-width: 1200px) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(
+      ${props => (props.col1200 ? props.col1200 : 4)},
+      1fr
+    );
   }
 `
 

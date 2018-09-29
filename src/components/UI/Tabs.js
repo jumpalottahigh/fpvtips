@@ -11,19 +11,7 @@ import VideoIcon from '@material-ui/icons/VideoLibrary'
 
 import WeatherInfo from '../WeatherInfo'
 import Video from './Video'
-
-const Grid = styled.div`
-  display: grid;
-  grid-gap: 30px;
-  min-width: 380px;
-
-  @media (min-width: 800px) {
-    grid-template-columns: 1fr 1fr;
-  }
-  @media (min-width: 1400px) {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-`
+import Grid from '../UI/Grid'
 
 function TabContainer(props) {
   return (
@@ -88,7 +76,13 @@ class SimpleTabs extends React.Component {
         {value === 2 && <TabContainer>Photos</TabContainer>}
         {value === 3 && (
           <TabContainer>
-            <Grid>
+            <Grid
+              gap="30px"
+              col600="1"
+              col900="2"
+              col1200="3"
+              style={{ minWidth: '380px' }}
+            >
               {currentPlaceData.videoLinks.map((video, index) => (
                 <Video
                   key={index}

@@ -76,11 +76,12 @@ class SimpleMap extends React.Component {
     const { center, loading, markers, zoom } = this.state
 
     if (loading) {
-      return null
+      // TODO: implement a loading spinner
+      return <div>loading</div>
     }
 
     return (
-      <div style={{ height: '100vh' }}>
+      <div style={{ minHeight: '100vh' }}>
         <div style={{ height: '50vh', width: '100%' }}>
           <GoogleMapReact
             bootstrapURLKeys={{ key: '' }}

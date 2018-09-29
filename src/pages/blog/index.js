@@ -1,9 +1,20 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import Layout from '../../components/Layout/layout'
 import PaperCard from '../../components/UI/PaperCard'
+import Grid from '../../components/UI/Grid'
+
+const StyledBlogLink = styled(Link)`
+  font-size: 1rem;
+
+  p,
+  small {
+    color: initial;
+  }
+`
 
 class IndexPage extends React.Component {
   render() {
@@ -18,25 +29,25 @@ class IndexPage extends React.Component {
           meta={[{ name: 'description', content: siteDescription }]}
           title={siteTitle}
         />
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <PaperCard style={{ marginBottom: '1rem' }} key={node.fields.slug}>
-              <h3>
-                <Link style={{ boxShadow: 'none' }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-              <div>
-                <small>
-                  {node.timeToRead} min read by {node.frontmatter.author}
-                </small>
-              </div>
-            </PaperCard>
-          )
-        })}
+        <Grid gap="3rem" col600="1" col900="2" col1200="3">
+          {posts.map(({ node }) => {
+            const title = node.frontmatter.title || node.fields.slug
+            return (
+              <StyledBlogLink to={node.fields.slug} key={node.fields.slug}>
+                <PaperCard hoverable="true">
+                  <h3>{title}</h3>
+                  <small>{node.frontmatter.date}</small>
+                  <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+                  <div>
+                    <small>
+                      {node.timeToRead} min read by {node.frontmatter.author}
+                    </small>
+                  </div>
+                </PaperCard>
+              </StyledBlogLink>
+            )
+          })}
+        </Grid>
       </Layout>
     )
   }
