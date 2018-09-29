@@ -21,6 +21,7 @@ export const mapMarkersQuery = graphql`
           lng
           label
           description
+          features
           videoLinks
         }
       }

@@ -9,7 +9,7 @@ export default class Marker extends React.Component {
       isNewMarker,
       label,
       description,
-      videoLinks,
+      features,
       isHighlighted,
       zIndex,
     } = this.props
@@ -53,7 +53,7 @@ export default class Marker extends React.Component {
               style={{ zIndex: 999 }}
               label={label}
               description={description}
-              videoLinks={videoLinks}
+              features={features}
             />
           )}
         {/* Tooltip for new place marker */}

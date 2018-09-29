@@ -101,6 +101,7 @@ class SimpleMap extends React.Component {
                 lng={marker.lng}
                 label={marker.label}
                 description={marker.description}
+                features={marker.features}
                 videoLinks={marker.videoLinks}
                 isHighlighted={
                   marker.id == this.state.currentPlace.id ? 'true' : 'false'

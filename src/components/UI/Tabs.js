@@ -8,14 +8,16 @@ import WeatherIcon from '@material-ui/icons/WbSunny'
 import PhotoIcon from '@material-ui/icons/Photo'
 import PlaceIcon from '@material-ui/icons/Place'
 import VideoIcon from '@material-ui/icons/VideoLibrary'
+import Divider from '@material-ui/core/Divider'
 
+import MapLegend from '../Map/MapLegend'
 import WeatherInfo from '../WeatherInfo'
 import Video from './Video'
 import Grid from '../UI/Grid'
 
 function TabContainer(props) {
   return (
-    <Typography component="div" style={{ padding: 8 * 3, minHeight: '15rem' }}>
+    <Typography component="div" style={{ padding: 8 * 3, height: '15rem' }}>
       {props.children}
     </Typography>
   )
@@ -27,6 +29,24 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.paper,
   },
 })
+
+const Place = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  text-align: left;
+  gap: 3rem;
+
+  h4 {
+    font-size: 1rem;
+    line-height: 1rem;
+    margin: 0;
+  }
+
+  @media (min-width: 600px) {
+    gap: 2rem;
+    grid-template-columns: 3fr 1fr;
+  }
+`
 
 class SimpleTabs extends React.Component {
   state = {
@@ -58,14 +78,14 @@ class SimpleTabs extends React.Component {
         </Tabs>
         {value === 0 && (
           <TabContainer>
-            <div>{currentPlaceData.label}</div>
-            <div>{currentPlaceData.description}</div>
-            <div>
-              {currentPlaceData.videoLinks &&
-                currentPlaceData.videoLinks.map((item, index) => (
-                  <div key={index}>{item}</div>
-                ))}
-            </div>
+            <Place>
+              <div>
+                <h4>{currentPlaceData.label}</h4>
+                <p>{currentPlaceData.description}</p>
+                <div>{currentPlaceData.features}</div>
+              </div>
+              <MapLegend />
+            </Place>
           </TabContainer>
         )}
         {value === 1 && (

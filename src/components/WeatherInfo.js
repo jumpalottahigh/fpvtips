@@ -107,7 +107,14 @@ class WeatherInfo extends React.Component {
     const { weather } = this.state
 
     return (
-      <div>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          height: '100%',
+          justifyContent: 'center',
+        }}
+      >
         {this.state.cacheTimestamp ? (
           // If we have a cached data, render it
           <React.Fragment>
