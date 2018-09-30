@@ -22,34 +22,34 @@ class IndexPage extends React.Component {
         <div>
           <h1>Your one-stop spot for all FPV related things.</h1>
           <Grid>
-            <Link to="/fpv-map">
+            <Link to="/fpv-map/">
               <PaperCard hoverable="true">
                 FPV map
                 <sup style={{ fontSize: '1.3rem', lineHeight: '1rem' }}>🆕</sup>
               </PaperCard>
             </Link>
-            <Link to="/blog">
+            <Link to="/blog/">
               <PaperCard hoverable="true">
                 Blog
                 <sup style={{ fontSize: '1.3rem', lineHeight: '1rem' }}>🆕</sup>
               </PaperCard>
             </Link>
-            <Link to="/dictionary">
+            <Link to="/dictionary/">
               <PaperCard hoverable="true">
                 Dictionary
                 <sup style={{ fontSize: '1.3rem', lineHeight: '1rem' }}>🆕</sup>
               </PaperCard>
             </Link>
-            <Link to="/shopping-list">
+            <Link to="/shopping-list/">
               <PaperCard hoverable="true">Shopping list</PaperCard>
             </Link>
-            <Link to="/tools">
+            <Link to="/tools/">
               <PaperCard hoverable="true">Tools</PaperCard>
             </Link>
-            <Link to="/getting-started">
+            <Link to="/getting-started/">
               <PaperCard hoverable="true">Getting started</PaperCard>
             </Link>
-            <Link to="/quad-builder">
+            <Link to="/quad-builder/">
               <PaperCard hoverable="true">Quad builder</PaperCard>
             </Link>
           </Grid>
@@ -70,7 +70,7 @@ class IndexPage extends React.Component {
               project repository
             </a>
             . Or,{' '}
-            <Link to="/fpv-map">
+            <Link to="/fpv-map/">
               submit info about an FPV spot you like flying so we can put it on
               the map.
             </Link>

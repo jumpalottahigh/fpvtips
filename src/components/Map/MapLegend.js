@@ -1,6 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 import PaperCard from '../UI/PaperCard'
+import mapLegendData from '../../data/mapLegendData'
+
+// Emoji legend
+// 🌳 - trees
+// 🏞️️ - hills / mountains
+// 💧 - lake / water / sea
+// 🏖️ - beach
+// 🛣️ - road / cars
+// 🌾 - crops / tall grass
+// 🐜 - micro quad
+// 🐘 - mini quad
 
 const StyledPaperCard = styled(PaperCard)`
   display: flex;
@@ -30,51 +41,6 @@ const StyledPaperCard = styled(PaperCard)`
     width: 80%;
   }
 `
-
-// Emoji legend
-// 🌳 - trees
-// 🏞️️ - hills / mountains
-// 💧 - lake / water / sea
-// 🏖️ - beach
-// 🛣️ - road / cars
-// 🌾 - crops / tall grass
-// 🐜 - micro quad
-// 🐘 - mini quad
-
-const mapLegendData = [
-  {
-    symbol: '🌳',
-    label: 'trees',
-  },
-  {
-    symbol: '🏞️️',
-    label: 'hills / mountains',
-  },
-  {
-    symbol: '💧',
-    label: 'lake / sea / river',
-  },
-  {
-    symbol: '🏖️',
-    label: 'beach',
-  },
-  {
-    symbol: '🛣️',
-    label: 'road / traffic',
-  },
-  {
-    symbol: '🌾',
-    label: 'crops / high grass',
-  },
-  {
-    symbol: '🐜',
-    label: 'good for micro quads',
-  },
-  {
-    symbol: '🐘',
-    label: 'good for mini quads',
-  },
-]
 
 export default class MapLegend extends React.Component {
   constructor(props) {

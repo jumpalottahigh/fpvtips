@@ -131,7 +131,7 @@ export default class DictionaryPage extends React.Component {
         </Grid>
 
         {/* Submit an entry FAB and Modal */}
-        <SubmitForm {...formStrings} fireNode="dictionary" />
+        <SubmitForm {...formStrings} fireNode="dictionary" noFeaturesInput />
       </Layout>
     )
   }

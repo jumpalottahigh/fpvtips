@@ -6,12 +6,28 @@ import FAB from './FAB'
 import TextField from '@material-ui/core/TextField'
 import Modal from '@material-ui/core/Modal'
 import Button from '@material-ui/core/Button'
+import Select from '@material-ui/core/Select'
+import Checkbox from '@material-ui/core/Checkbox'
+import Input from '@material-ui/core/Input'
+import InputLabel from '@material-ui/core/InputLabel'
+import MenuItem from '@material-ui/core/MenuItem'
+import ListItemText from '@material-ui/core/ListItemText'
 
 import fire from '../../utils/firebase'
+import mapLegendData from '../../data/mapLegendData'
 
 const modalDimensions = {
   width: '360px',
-  height: '440px',
+  height: '500px',
+}
+
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: 48 * 4.5 + 8,
+      width: 250,
+    },
+  },
 }
 
 const StyledModal = styled(Modal)`
@@ -32,6 +48,7 @@ export default class SubmitForm extends React.Component {
         // modal form fields
         title: '',
         description: '',
+        features: [],
         link: '',
         author: '',
       },
@@ -63,7 +80,7 @@ export default class SubmitForm extends React.Component {
     e.preventDefault()
 
     // Extract and set data
-    let { title, description, link, author } = this.state.form
+    let { title, description, features, link, author } = this.state.form
 
     // Basic form validation
     if (title == '' || description == '') return
@@ -75,6 +92,7 @@ export default class SubmitForm extends React.Component {
     let data = {
       title,
       description,
+      features,
       link,
       author,
       lat,
@@ -95,6 +113,7 @@ export default class SubmitForm extends React.Component {
       form: {
         title: '',
         description: '',
+        features: [],
         link: '',
         author: '',
       },
@@ -107,6 +126,7 @@ export default class SubmitForm extends React.Component {
       heading = 'Submit a new item:',
       title = 'Title',
       description = 'Description',
+      features = 'Features',
       link = 'YouTube link',
       author = 'Your name',
       submit = 'Submit',
@@ -150,6 +170,32 @@ export default class SubmitForm extends React.Component {
                 onChange={this.handleChange('description')}
                 margin="normal"
               />
+              {!this.props.noFeaturesInput && (
+                <React.Fragment>
+                  <InputLabel htmlFor="select-multiple-checkbox">
+                    {features}
+                  </InputLabel>
+                  <Select
+                    multiple
+                    value={this.state.form.features}
+                    onChange={this.handleChange('features')}
+                    input={<Input id="select-multiple-checkbox" />}
+                    renderValue={selected => selected.join(', ')}
+                    MenuProps={MenuProps}
+                  >
+                    {mapLegendData.map(({ symbol, label }) => (
+                      <MenuItem key={symbol} value={symbol}>
+                        <Checkbox
+                          checked={
+                            this.state.form.features.indexOf(symbol) > -1
+                          }
+                        />
+                        <ListItemText primary={`${symbol} - ${label}`} />
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </React.Fragment>
+              )}
               <TextField
                 id="link"
                 label={link}
