@@ -4,6 +4,9 @@ import Marker from './Marker'
 import Tabs from '../UI/Tabs'
 import SubmitForm from '../UI/SubmitForm'
 
+const formStrings = {
+  heading: 'Submit a new FPV spot',
+}
 class SimpleMap extends React.Component {
   state = {
     center: {
@@ -122,7 +125,9 @@ class SimpleMap extends React.Component {
           {/* Tabs - pass the data about the current place down via props */}
           <Tabs currentPlaceData={this.state.currentPlace} />
         </div>
-        {this.state.newMarker && <SubmitForm fireNode="fpv-map" />}
+        {this.state.newMarker && (
+          <SubmitForm {...formStrings} fireNode="fpv-map" />
+        )}
       </div>
     )
   }

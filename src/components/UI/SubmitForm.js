@@ -102,6 +102,16 @@ export default class SubmitForm extends React.Component {
   }
 
   render() {
+    // Get strings from props or assign defaults otherwise
+    let {
+      heading = 'Submit a new item:',
+      title = 'Title',
+      description = 'Description',
+      link = 'YouTube link',
+      author = 'Your name',
+      submit = 'Submit',
+    } = this.props
+
     return (
       <React.Fragment>
         {/* Submit an entry FAB */}
@@ -120,12 +130,12 @@ export default class SubmitForm extends React.Component {
               style={{ display: 'flex', flexDirection: 'column' }}
             >
               <h4 style={{ textAlign: 'center', marginBottom: 0 }}>
-                Submit a new item:
+                {heading}
               </h4>
               <TextField
                 required
                 id="title"
-                label="Title"
+                label={title}
                 value={this.state.form.title}
                 onChange={this.handleChange('title')}
                 margin="normal"
@@ -133,7 +143,7 @@ export default class SubmitForm extends React.Component {
               <TextField
                 required
                 id="description"
-                label="Description"
+                label={description}
                 multiline
                 rowsMax="4"
                 value={this.state.form.description}
@@ -142,14 +152,14 @@ export default class SubmitForm extends React.Component {
               />
               <TextField
                 id="link"
-                label="YouTube/Wiki link"
+                label={link}
                 value={this.state.form.link}
                 onChange={this.handleChange('link')}
                 margin="normal"
               />
               <TextField
                 id="author"
-                label="Name"
+                label={author}
                 value={this.state.form.author}
                 onChange={this.handleChange('author')}
                 margin="normal"
@@ -160,7 +170,7 @@ export default class SubmitForm extends React.Component {
                 type="submit"
                 style={{ marginTop: '1rem' }}
               >
-                Submit
+                {submit}
               </Button>
             </form>
           </PaperCard>

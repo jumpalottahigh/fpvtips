@@ -27,6 +27,10 @@ const StyledPaperCard = styled(PaperCard)`
   }
 `
 
+const formStrings = {
+  link: 'Wiki link',
+}
+
 export default class DictionaryPage extends React.Component {
   constructor(props) {
     super(props)
@@ -127,7 +131,7 @@ export default class DictionaryPage extends React.Component {
         </Grid>
 
         {/* Submit an entry FAB and Modal */}
-        <SubmitForm fireNode="dictionary" />
+        <SubmitForm {...formStrings} fireNode="dictionary" />
       </Layout>
     )
   }
