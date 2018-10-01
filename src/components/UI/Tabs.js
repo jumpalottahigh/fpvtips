@@ -8,11 +8,11 @@ import WeatherIcon from '@material-ui/icons/WbSunny'
 import PhotoIcon from '@material-ui/icons/Photo'
 import PlaceIcon from '@material-ui/icons/Place'
 import VideoIcon from '@material-ui/icons/VideoLibrary'
-import Divider from '@material-ui/core/Divider'
 
 import MapLegend from '../Map/MapLegend'
 import WeatherInfo from '../WeatherInfo'
 import Video from './Video'
+import Photo from './Photo'
 import Grid from '../UI/Grid'
 
 function TabContainer(props) {
@@ -93,7 +93,22 @@ class SimpleTabs extends React.Component {
             <WeatherInfo />
           </TabContainer>
         )}
-        {value === 2 && <TabContainer>Photos</TabContainer>}
+        {value === 2 && (
+          <TabContainer>
+            <Grid
+              gap="30px"
+              col600="1"
+              col900="2"
+              col1200="3"
+              style={{ minWidth: '380px' }}
+            >
+              {currentPlaceData.photoLinks &&
+                currentPlaceData.photoLinks.map((photo, index) => (
+                  <Photo key={index} src={photo} />
+                ))}
+            </Grid>
+          </TabContainer>
+        )}
         {value === 3 && (
           <TabContainer>
             <Grid
@@ -103,15 +118,16 @@ class SimpleTabs extends React.Component {
               col1200="3"
               style={{ minWidth: '380px' }}
             >
-              {currentPlaceData.videoLinks.map((video, index) => (
-                <Video
-                  key={index}
-                  src={video}
-                  width="560"
-                  height="315"
-                  title={`Video - ${video}`}
-                />
-              ))}
+              {currentPlaceData.videoLinks &&
+                currentPlaceData.videoLinks.map((video, index) => (
+                  <Video
+                    key={index}
+                    src={video}
+                    width="560"
+                    height="315"
+                    title={`Video - ${video}`}
+                  />
+                ))}
             </Grid>
           </TabContainer>
         )}

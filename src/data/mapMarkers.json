@@ -8,7 +8,8 @@
     "videoLinks": [
       "https://www.youtube.com/watch?v=e5A7br5SCv0",
       "https://www.youtube.com/watch?v=UtTZWqvdqEM&"
-    ]
+    ],
+    "photoLinks": ["https://www.instagram.com/p/BoXbO0VFn_r/"]
   },
   {
     "lat": "60.288",
@@ -16,7 +17,11 @@
     "label": "Harbor and field",
     "description": "Huge open field, harbor close by.",
     "features": "🌳️️💧🌾🐘",
-    "videoLinks": ["https://www.youtube.com/watch?v=D5vBPyCTkP8&"]
+    "videoLinks": ["https://www.youtube.com/watch?v=D5vBPyCTkP8&"],
+    "photoLinks": [
+      "https://www.instagram.com/p/BoXbO0VFn_r/?taken-by=fpvtips",
+      "https://www.instagram.com/p/BnzG_OEhua0/?taken-by=fpvtips"
+    ]
   },
   {
     "lat": "60.3933",
@@ -24,7 +29,8 @@
     "label": "Porvo FPV race track",
     "description": "Club FPV race track.",
     "features": "🌳🌾🐜🐘",
-    "videoLinks": ["https://www.youtube.com/watch?v=geXnCoNvBPk&"]
+    "videoLinks": ["https://www.youtube.com/watch?v=geXnCoNvBPk&"],
+    "photoLinks": ["https://www.instagram.com/p/BnzG_OEhua0/?taken-by=fpvtips"]
   },
   {
     "lat": "60.2644395",
@@ -32,7 +38,8 @@
     "label": "Field near stable",
     "description": "Huge open field close to a stable, surrounder by forest and near a highway (but not too near)",
     "features": "🌳️️🛣️🌾🐘",
-    "videoLinks": [""]
+    "videoLinks": [""],
+    "photoLinks": [""]
   },
   {
     "lat": "60.225339",
@@ -40,7 +47,8 @@
     "label": "Leppavaara park open fields",
     "description": "Huge open fields next to a small football field and a park.",
     "features": "🌳️️️🌾🐘",
-    "videoLinks": [""]
+    "videoLinks": [""],
+    "photoLinks": [""]
   },
   {
     "lat": "60.1616957",
@@ -48,7 +56,8 @@
     "label": "Ruoholahti park",
     "description": "Very small mini park close to a daycare playground. Good for micros only.",
     "features": "🌳💧🐜",
-    "videoLinks": [""]
+    "videoLinks": [""],
+    "photoLinks": [""]
   },
   {
     "lat": "60.306075",
@@ -56,6 +65,7 @@
     "label": "Field near Sipoo school yard",
     "description": "Many, really huge open fields near a school playground. Some trees and a basketball court for diversity.",
     "features": "🌳️️️🌾🐘",
-    "videoLinks": [""]
+    "videoLinks": [""],
+    "photoLinks": [""]
   }
 ]

@@ -23,6 +23,7 @@ export const mapMarkersQuery = graphql`
           description
           features
           videoLinks
+          photoLinks
         }
       }
     }
