@@ -29,7 +29,6 @@ class SimpleMap extends React.Component {
       lng,
     }
 
-    self.localStorage.setItem('newMarker', JSON.stringify(newMarker))
     this.setState({ newMarker: newMarker })
   }
 
@@ -42,21 +41,9 @@ class SimpleMap extends React.Component {
     })
   }
 
-  _onChildMouseEnter = (key, childProps) => {
-    // console.log('Marker mouse enter')
-    // const markerId = childProps.marker.get('id')
-    // const index = this.props.markers.findIndex(m => m.get('id') === markerId)
-    // if (this.props.onMarkerHover) {
-    //   this.props.onMarkerHover(index)
-    // }
-  }
+  _onChildMouseEnter = (key, childProps) => {}
 
-  _onChildMouseLeave = () => {
-    // console.log('Marker mouse leave')
-    // if (this.props.onMarkerHover) {
-    //   this.props.onMarkerHover(-1)
-    // }
-  }
+  _onChildMouseLeave = () => {}
 
   componentDidMount() {
     // Request user geo location
@@ -126,7 +113,11 @@ class SimpleMap extends React.Component {
           <Tabs currentPlaceData={this.state.currentPlace} />
         </div>
         {this.state.newMarker && (
-          <SubmitForm {...formStrings} fireNode="fpv-map" />
+          <SubmitForm
+            {...formStrings}
+            fireNode="fpv-map"
+            newMarker={this.state.newMarker}
+          />
         )}
       </div>
     )

@@ -51,6 +51,7 @@ export default class SubmitForm extends React.Component {
         features: [],
         link: '',
         author: '',
+        newMarker: this.props.newMarker || null,
       },
     }
   }
@@ -86,7 +87,7 @@ export default class SubmitForm extends React.Component {
     if (title == '' || description == '') return
 
     // Get new marker data
-    let { lat, lng } = JSON.parse(self.localStorage.getItem('newMarker'))
+    let { lat, lng } = this.state.form.newMarker
     if (!lat || !lng) return
 
     let data = {
@@ -105,8 +106,6 @@ export default class SubmitForm extends React.Component {
       .ref(this.props.fireNode)
       .push(data)
 
-    // Clear local storage
-    self.localStorage.removeItem('newMarker')
     // Clear form and state and close modal
     this.setState({
       open: false,
@@ -116,6 +115,7 @@ export default class SubmitForm extends React.Component {
         features: [],
         link: '',
         author: '',
+        newMarker: this.props.newMarker || null,
       },
     })
   }
