@@ -12,6 +12,7 @@ import Input from '@material-ui/core/Input'
 import InputLabel from '@material-ui/core/InputLabel'
 import MenuItem from '@material-ui/core/MenuItem'
 import ListItemText from '@material-ui/core/ListItemText'
+import Snackbar from '@material-ui/core/Snackbar'
 
 import fire from '../../utils/firebase'
 import mapLegendData from '../../data/mapLegendData'
@@ -44,6 +45,7 @@ export default class SubmitForm extends React.Component {
 
     this.state = {
       open: false, // modal open state
+      formSubmitted: false,
       form: {
         // modal form fields
         title: '',
@@ -107,17 +109,28 @@ export default class SubmitForm extends React.Component {
       .push(data)
 
     // Clear form and state and close modal
-    this.setState({
-      open: false,
-      form: {
-        title: '',
-        description: '',
-        features: [],
-        link: '',
-        author: '',
-        newMarker: this.props.newMarker || null,
+    this.setState(
+      {
+        open: false,
+        formSubmitted: true,
+        form: {
+          title: '',
+          description: '',
+          features: [],
+          link: '',
+          author: '',
+          newMarker: {
+            lat,
+            lng,
+          },
+        },
       },
-    })
+      () => {
+        self.setTimeout(() => {
+          this.setState({ formSubmitted: false })
+        }, 3000)
+      }
+    )
   }
 
   render() {
@@ -136,6 +149,23 @@ export default class SubmitForm extends React.Component {
       <React.Fragment>
         {/* Submit an entry FAB */}
         <FAB onClick={this.handleOpen} />
+
+        {/* Status snackbar */}
+        {this.state.formSubmitted && (
+          <Snackbar
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'left',
+            }}
+            open={this.state.formSubmitted}
+            autoHideDuration={3000}
+            ContentProps={{
+              'aria-describedby': 'message-id',
+            }}
+            message={<span id="message-id">Saved</span>}
+          />
+        )}
+
         <StyledModal
           aria-labelledby="simple-modal-title"
           aria-describedby="simple-modal-description"
