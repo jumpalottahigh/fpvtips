@@ -1,11 +1,62 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Helmet from 'react-helmet'
+import { Fade } from 'react-reveal'
 
 import Layout from '../components/Layout/layout'
 import PaperCard from '../components/UI/PaperCard'
 import Grid from '../components/UI/Grid'
 import FeatureList from '../components/UI/FeatureList'
+
+const featureListContent = [
+  'Save and browse FPV flying spots on the map',
+  'Preview spots with videos and photos',
+  'Share location and meet other FPV pilots',
+  'Live wind and weather conditions',
+  'Beginner friendly FPV glossary / dictionary',
+  'Recommended tools, upvoted by the community',
+  'Submit a dictionary entry',
+  'Submit an article to the blog',
+  'Quad builder - 3D model playground',
+]
+
+const pageList = [
+  {
+    image: '️️🗺️',
+    link: '/fpv-map/',
+    title: 'FPV map',
+  },
+  {
+    image: '📰',
+    link: '/blog/',
+    title: 'Blog',
+  },
+  {
+    image: '📖',
+    link: '/dictionary/',
+    title: 'Dictionary',
+  },
+  {
+    image: '🛒',
+    link: '/shopping-list/',
+    title: 'Shopping list',
+  },
+  {
+    image: '🛠️',
+    link: '/tools/',
+    title: 'Tools',
+  },
+  {
+    image: '🔰',
+    link: '/getting-started/',
+    title: 'Getting started',
+  },
+  {
+    image: '🗜️',
+    link: '/quad-builder/',
+    title: 'Quad builder',
+  },
+]
 
 class IndexPage extends React.Component {
   render() {
@@ -20,49 +71,37 @@ class IndexPage extends React.Component {
           title={siteTitle}
         />
         <div>
-          <h1>Your one-stop spot for all FPV related things.</h1>
+          <h1>Let's bring the FPV community closer together and flying!</h1>
           <Grid>
-            <Link to="/fpv-map/">
-              <PaperCard hoverable="true">
-                FPV map
-                <sup style={{ fontSize: '1.3rem', lineHeight: '1rem' }}>🆕</sup>
-              </PaperCard>
-            </Link>
-            <Link to="/blog/">
-              <PaperCard hoverable="true">
-                Blog
-                <sup style={{ fontSize: '1.3rem', lineHeight: '1rem' }}>🆕</sup>
-              </PaperCard>
-            </Link>
-            <Link to="/dictionary/">
-              <PaperCard hoverable="true">
-                Dictionary
-                <sup style={{ fontSize: '1.3rem', lineHeight: '1rem' }}>🆕</sup>
-              </PaperCard>
-            </Link>
-            <Link to="/shopping-list/">
-              <PaperCard hoverable="true">Shopping list</PaperCard>
-            </Link>
-            <Link to="/tools/">
-              <PaperCard hoverable="true">Tools</PaperCard>
-            </Link>
-            <Link to="/getting-started/">
-              <PaperCard hoverable="true">Getting started</PaperCard>
-            </Link>
-            <Link to="/quad-builder/">
-              <PaperCard hoverable="true">Quad builder</PaperCard>
-            </Link>
+            {pageList.map((page, index) => (
+              <Fade key={index} bottom delay={index * 25}>
+                <Link to={page.link}>
+                  <PaperCard hoverable="true" scale="true">
+                    <span style={{ fontSize: '7rem' }}>{page.image}</span>
+                    <br />
+                    {page.title}
+                  </PaperCard>
+                </Link>
+              </Fade>
+            ))}
           </Grid>
-          <p style={{ marginTop: '3rem' }}>
-            This project is in a public beta and as such many features are still
-            not completely ready.
-            <br />
-            <em>
-              Our mission is to bring the FPV community closer together and
-              flying!
-            </em>{' '}
-            <br />
-            <br />
+          <Fade bottom duration={2000}>
+            <p style={{ margin: '3rem 0' }}>
+              This project is in a public beta and as such many features are
+              still not completely ready.
+            </p>
+          </Fade>
+          <Fade bottom duration={2000}>
+            <h3>Coming Soon:</h3>
+          </Fade>
+          <FeatureList>
+            {featureListContent.map((item, index) => (
+              <Fade key={index} bottom delay={index * 55}>
+                <li>{item}</li>
+              </Fade>
+            ))}
+          </FeatureList>
+          <p style={{ margin: '3rem 0' }}>
             If you want to get involved,{' '}
             <a href="mailto:georgiyanev.gy@gmail.com">get in touch</a> or check
             out the{' '}
@@ -77,18 +116,6 @@ class IndexPage extends React.Component {
             <br />
             Stay tuned and enjoy!
           </p>
-          <h3>Coming Soon:</h3>
-          <FeatureList>
-            <li>Save and browse FPV flying spots on the map</li>
-            <li>Preview spots with videos and photos</li>
-            <li>Share location and meet other FPV pilots</li>
-            <li>Live wind and weather conditions</li>
-            <li>Beginner friendly FPV glossary / dictionary</li>
-            <li>Recommended tools, upvoted by the community</li>
-            <li>Submit a dictionary entry</li>
-            <li>Submit an article to the blog</li>
-            <li>Quad builder - 3D model playground</li>
-          </FeatureList>
         </div>
       </Layout>
     )

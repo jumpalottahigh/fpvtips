@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import { Fade } from 'react-reveal'
 
 import Layout from '../../components/Layout/layout'
 import PaperCard from '../../components/UI/PaperCard'
@@ -30,21 +31,23 @@ class IndexPage extends React.Component {
           title={siteTitle}
         />
         <Grid gap="3rem" col600="1" col900="2" col1200="3">
-          {posts.map(({ node }) => {
+          {posts.map(({ node }, index) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
-              <StyledBlogLink to={node.fields.slug} key={node.fields.slug}>
-                <PaperCard hoverable="true">
-                  <h3>{title}</h3>
-                  <small>{node.frontmatter.date}</small>
-                  <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-                  <div>
-                    <small>
-                      {node.timeToRead} min read by {node.frontmatter.author}
-                    </small>
-                  </div>
-                </PaperCard>
-              </StyledBlogLink>
+              <Fade key={node.fields.slug} bottom>
+                <StyledBlogLink to={node.fields.slug}>
+                  <PaperCard hoverable="true">
+                    <h3>{title}</h3>
+                    <small>{node.frontmatter.date}</small>
+                    <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+                    <div>
+                      <small>
+                        {node.timeToRead} min read by {node.frontmatter.author}
+                      </small>
+                    </div>
+                  </PaperCard>
+                </StyledBlogLink>
+              </Fade>
             )
           })}
         </Grid>
