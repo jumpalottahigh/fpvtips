@@ -8,6 +8,16 @@ import PaperCard from '../components/UI/PaperCard'
 import Grid from '../components/UI/Grid'
 import FeatureList from '../components/UI/FeatureList'
 
+import {
+  bolts,
+  box,
+  earthNA,
+  openBook,
+  paperAndPencil,
+  hammer,
+  gettingStarted,
+} from '../utils/svg'
+
 const featureListContent = [
   'Save and browse FPV flying spots on the map',
   'Preview spots with videos and photos',
@@ -22,37 +32,37 @@ const featureListContent = [
 
 const pageList = [
   {
-    image: '️️🗺️',
+    image: earthNA,
     link: '/fpv-map/',
     title: 'FPV map',
   },
   {
-    image: '📰',
+    image: paperAndPencil,
     link: '/blog/',
     title: 'Blog',
   },
   {
-    image: '📖',
+    image: openBook,
     link: '/dictionary/',
     title: 'Dictionary',
   },
   {
-    image: '🛒',
+    image: box,
     link: '/shopping-list/',
     title: 'Shopping list',
   },
   {
-    image: '🛠️',
+    image: hammer,
     link: '/tools/',
     title: 'Tools',
   },
   {
-    image: '🔰',
+    image: gettingStarted,
     link: '/getting-started/',
     title: 'Getting started',
   },
   {
-    image: '🗜️',
+    image: bolts,
     link: '/quad-builder/',
     title: 'Quad builder',
   },
@@ -77,7 +87,7 @@ class IndexPage extends React.Component {
               <Fade key={index} bottom delay={index * 25}>
                 <Link to={page.link}>
                   <PaperCard hoverable="true" scale="true">
-                    <span style={{ fontSize: '7rem' }}>{page.image}</span>
+                    <img src={page.image} style={{ width: '150px' }} />
                     <br />
                     {page.title}
                   </PaperCard>
