@@ -4,6 +4,7 @@ import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
+import Button from '@material-ui/core/Button'
 import Toolbar from '@material-ui/core/Toolbar'
 
 import Drawer from './Drawer'
@@ -31,6 +32,14 @@ const Brand = styled(Link)`
   }
 `
 
+const NavLinks = styled.div`
+  display: none;
+
+  @media (min-width: 600px) {
+    display: block;
+  }
+`
+
 function ButtonAppBar(props) {
   const { classes } = props
   return (
@@ -42,6 +51,17 @@ function ButtonAppBar(props) {
               <img src={logo} style={{ height: '48px' }} alt="FPVTIPS" />
             </Brand>
           </div>
+          <NavLinks>
+            <Link to="/fpv-map/">
+              <Button color="primary">Map</Button>
+            </Link>
+            <Link to="/blog/">
+              <Button color="default">Blog</Button>
+            </Link>
+            <Link to="/dictionary/">
+              <Button color="default">Dictionary</Button>
+            </Link>
+          </NavLinks>
           <Drawer />
         </Toolbar>
       </AppBar>

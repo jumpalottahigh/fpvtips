@@ -8,6 +8,9 @@ import Work from '@material-ui/icons/Work'
 import List from '@material-ui/icons/List'
 import LibraryBooks from '@material-ui/icons/LibraryBooks'
 import Translate from '@material-ui/icons/Translate'
+import ShoppingCart from '@material-ui/icons/ShoppingCart'
+import Build from '@material-ui/icons/Build'
+import Check from '@material-ui/icons/Check'
 
 import { FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa'
 
@@ -47,10 +50,26 @@ export const mainMenuListItems = (
     </Link>
     <Link to="/shopping-list">
       <ListItem button>
-        <ListItemIcon>
+        <ShoppingCart>
           <List color="primary" />
-        </ListItemIcon>
+        </ShoppingCart>
         <ListItemText primary="Shopping list" />
+      </ListItem>
+    </Link>
+    <Link to="/quad-builder">
+      <ListItem button>
+        <Build>
+          <List color="primary" />
+        </Build>
+        <ListItemText primary="Quad builder" />
+      </ListItem>
+    </Link>
+    <Link to="/getting-started">
+      <ListItem button>
+        <Check>
+          <List color="primary" />
+        </Check>
+        <ListItemText primary="Getting started" />
       </ListItem>
     </Link>
   </div>
