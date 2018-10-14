@@ -28,7 +28,7 @@ module.exports = {
   siteMetadata: {
     title: 'Fpvtips',
     author: 'Georgi Yanev',
-    description: 'Fpvtips.com',
+    description: 'Let\'s bring the FPV community closer together and help new people get into the hobby!',
     siteUrl: 'https://fpvtips.com',
   },
   plugins: [

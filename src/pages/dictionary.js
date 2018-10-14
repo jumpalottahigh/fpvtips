@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Layout from '../components/Layout/layout'
@@ -29,6 +30,14 @@ const StyledPaperCard = styled(PaperCard)`
 
 const formStrings = {
   link: 'Wiki link',
+}
+
+const helmetStrings = {
+  title: 'Fpvtips | Dictionary',
+  description:
+    'Dictionary, abbreviations, terms and slag, we cover it all. The FPV drone flying hobby could be a bit heavy on the terminology side at first, but this should easy you in.',
+  keywords:
+    'transmitter, receiver, fpv spot, fpv footage, drone pictures, quad build, build a drone, custom drone build, micro, mini, BNF, bind and fly, plug and play, set, soldering iron, fpv, quad, drone, community, dictionary, fpv terms, fpv blog, fpv getting started, fpv tools, tools, vtx, receiver, battery, flight controller, fc, quad builder, map, places, fpv video, fpv pictures, fpv freestyle, fpv drone',
 }
 
 export default class DictionaryPage extends React.Component {
@@ -82,7 +91,21 @@ export default class DictionaryPage extends React.Component {
   render() {
     return (
       <Layout>
-        {/* Page titles */}
+        <Helmet
+          title={helmetStrings.title}
+          meta={[
+            {
+              name: 'description',
+              content: helmetStrings.description,
+            },
+            {
+              name: 'keywords',
+              content: helmetStrings.keywords,
+            },
+          ]}
+        />
+
+        {/* Page headings */}
         <h4>Dictionary</h4>
         <h3>Abbreviations, terms and slang</h3>
 

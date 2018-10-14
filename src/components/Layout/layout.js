@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
 import './layout.css'
@@ -21,6 +22,16 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <React.Fragment>
+        <Helmet
+          htmlAttributes={{ lang: 'en' }}
+          title={data.site.siteMetadata.title}
+          meta={[
+            {
+              name: 'description',
+              content: data.site.siteMetadata.description,
+            },
+          ]}
+        />
         <AppBar />
         <Wrapper>{children}</Wrapper>
         <Footer />

@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { Link } from 'gatsby'
 import Helmet from 'react-helmet'
 import { Fade } from 'react-reveal'
 
@@ -68,17 +68,24 @@ const pageList = [
   },
 ]
 
+const helmetStrings = {
+  title: 'Fpvtips',
+  keywords:
+    'transmitter, receiver, fpv spot, fpv footage, drone pictures, quad build, build a drone, custom drone build, micro, mini, BNF, bind and fly, plug and play, set, soldering iron, fpv, quad, drone, community, dictionary, fpv terms, fpv blog, fpv getting started, fpv tools, tools, vtx, receiver, battery, flight controller, fc, quad builder, map, places, fpv video, fpv pictures, fpv freestyle, fpv drone',
+}
+
 class IndexPage extends React.Component {
   render() {
-    const siteTitle = this.props.data.site.siteMetadata.title
-    const siteDescription = this.props.data.site.siteMetadata.description
-
     return (
       <Layout location={this.props.location}>
         <Helmet
-          htmlAttributes={{ lang: 'en' }}
-          meta={[{ name: 'description', content: siteDescription }]}
-          title={siteTitle}
+          title={helmetStrings.title}
+          meta={[
+            {
+              name: 'keywords',
+              content: helmetStrings.keywords,
+            },
+          ]}
         />
         <div>
           <h1>Let's bring the FPV community closer together and flying!</h1>
@@ -133,14 +140,3 @@ class IndexPage extends React.Component {
 }
 
 export default IndexPage
-
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
-  }
-`
