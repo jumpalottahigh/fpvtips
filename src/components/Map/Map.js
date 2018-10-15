@@ -1,15 +1,37 @@
 import React from 'react'
+import styled from 'styled-components'
 import GoogleMapReact from 'google-map-react'
 import Marker from './Marker'
 import Tabs from '../UI/Tabs'
 import SubmitForm from '../UI/SubmitForm'
 import Button from '@material-ui/core/Button'
 import Dice from '@material-ui/icons/Casino'
+import { earthLines } from '../../utils/svg'
 
 const formStrings = {
   heading: 'Submit a new FPV spot',
   link: 'YouTube / Instagram link',
 }
+
+const Loader = styled.div`
+  display: flex;
+  height: 70vh;
+  justify-content: center;
+
+  img {
+    animation: infinite-spinning 2s infinite;
+    width: 10rem;
+  }
+
+  @keyframes infinite-spinning {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+`
 class SimpleMap extends React.Component {
   state = {
     center: {
@@ -81,8 +103,14 @@ class SimpleMap extends React.Component {
     const { center, loading, markers, zoom } = this.state
 
     if (loading) {
-      // TODO: implement a loading spinner
-      return <div>loading</div>
+      return (
+        <Loader>
+          <img
+            src={earthLines}
+            alt="earth parallels and meridians illustration"
+          />
+        </Loader>
+      )
     }
 
     return (

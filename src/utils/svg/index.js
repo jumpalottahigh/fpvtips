@@ -4,6 +4,7 @@ import box from './box.svg'
 import clouds from './clouds.svg'
 import earthAfrica from './earth-africa.svg'
 import earthAustralia from './earth-australia.svg'
+import earthLines from './earth-lines.svg'
 import earthNA from './earth-na.svg'
 import gettingStarted from './getting-started.svg'
 import hammer from './hammer.svg'
@@ -21,6 +22,7 @@ export {
   clouds,
   earthAfrica,
   earthAustralia,
+  earthLines,
   earthNA,
   gettingStarted,
   hammer,
