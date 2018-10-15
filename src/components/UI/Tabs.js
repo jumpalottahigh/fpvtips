@@ -95,13 +95,7 @@ class SimpleTabs extends React.Component {
         )}
         {value === 2 && (
           <TabContainer>
-            <Grid
-              gap="30px"
-              col600="1"
-              col900="2"
-              col1200="3"
-              style={{ minWidth: '380px' }}
-            >
+            <Grid gap="30px" col600="1" col900="2" col1200="3">
               {currentPlaceData.photoLinks &&
                 currentPlaceData.photoLinks.map((photo, index) => (
                   <Photo key={index} src={photo} />
@@ -111,13 +105,7 @@ class SimpleTabs extends React.Component {
         )}
         {value === 3 && (
           <TabContainer>
-            <Grid
-              gap="30px"
-              col600="1"
-              col900="2"
-              col1200="3"
-              style={{ minWidth: '380px' }}
-            >
+            <Grid gap="30px" col600="1" col900="2" col1200="3">
               {currentPlaceData.videoLinks &&
                 currentPlaceData.videoLinks.map((video, index) => (
                   <Video

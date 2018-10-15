@@ -43,8 +43,11 @@ const NavLinks = styled.div`
 function ButtonAppBar(props) {
   const { classes } = props
   return (
-    <div className={classes.root}>
-      <AppBar position="static" color="secondary">
+    <div
+      className={classes.root}
+      style={{ top: 0, position: 'sticky', zIndex: 99 }}
+    >
+      <AppBar position="sticky" color="secondary">
         <Toolbar>
           <div className={classes.flex}>
             <Brand to="/">
