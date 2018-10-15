@@ -17,7 +17,7 @@ import Grid from '../UI/Grid'
 
 function TabContainer(props) {
   return (
-    <Typography component="div" style={{ padding: 8 * 3, height: '15rem' }}>
+    <Typography component="div" style={{ padding: 8 * 3 }}>
       {props.children}
     </Typography>
   )

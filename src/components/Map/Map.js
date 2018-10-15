@@ -6,6 +6,7 @@ import SubmitForm from '../UI/SubmitForm'
 
 const formStrings = {
   heading: 'Submit a new FPV spot',
+  link: 'YouTube / Instagram link',
 }
 class SimpleMap extends React.Component {
   state = {
@@ -71,7 +72,8 @@ class SimpleMap extends React.Component {
     }
 
     return (
-      <div style={{ minHeight: '100vh' }}>
+      <div>
+        <h3>Tap the map to add a spot</h3>
         <div style={{ height: '50vh', width: '100%' }}>
           <GoogleMapReact
             bootstrapURLKeys={{ key: '' }}
@@ -109,10 +111,9 @@ class SimpleMap extends React.Component {
               />
             )}
           </GoogleMapReact>
-
-          {/* Tabs - pass the data about the current place down via props */}
-          <Tabs currentPlaceData={this.state.currentPlace} />
         </div>
+        {/* Tabs - pass the data about the current place down via props */}
+        <Tabs currentPlaceData={this.state.currentPlace} />
         {this.state.newMarker && (
           <SubmitForm
             {...formStrings}
