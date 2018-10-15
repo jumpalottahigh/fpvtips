@@ -45,18 +45,29 @@ const StyledPaperCard = styled(PaperCard)`
 export default class MapLegend extends React.Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      showLegend: false,
+    }
+  }
+
+  handleToggleLegend = () => {
+    this.setState({
+      showLegend: !this.state.showLegend,
+    })
   }
 
   render() {
     return (
-      <StyledPaperCard>
+      <StyledPaperCard onClick={this.handleToggleLegend}>
         <h4>Legend:</h4>
-        {mapLegendData.map((item, index) => (
-          <div className="legend-content" key={index}>
-            <span className="legend-symbol">{item.symbol}</span>
-            <span className="legend-label">{item.label}</span>
-          </div>
-        ))}
+        {this.state.showLegend &&
+          mapLegendData.map((item, index) => (
+            <div className="legend-content" key={index}>
+              <span className="legend-symbol">{item.symbol}</span>
+              <span className="legend-label">{item.label}</span>
+            </div>
+          ))}
       </StyledPaperCard>
     )
   }
