@@ -1,34 +1,45 @@
+import {
+  treeWideleaf,
+  hillsMountains,
+  beach,
+  urban,
+  cropsHighGrass,
+  micro,
+  mini,
+  waterDrop,
+} from '../utils/svg'
+
 const mapLegendData = [
   {
-    symbol: '🌳',
+    symbol: treeWideleaf,
     label: 'trees',
   },
   {
-    symbol: '🏞️️',
+    symbol: hillsMountains,
     label: 'hills / mountains',
   },
   {
-    symbol: '💧',
+    symbol: waterDrop,
     label: 'lake / sea / river',
   },
   {
-    symbol: '🏖️',
+    symbol: beach,
     label: 'beach',
   },
   {
-    symbol: '🛣️',
+    symbol: urban,
     label: 'road / traffic',
   },
   {
-    symbol: '🌾',
+    symbol: cropsHighGrass,
     label: 'crops / high grass',
   },
   {
-    symbol: '🐜',
+    symbol: micro,
     label: 'good for micro quads',
   },
   {
-    symbol: '🐘',
+    symbol: mini,
     label: 'good for mini quads',
   },
 ]

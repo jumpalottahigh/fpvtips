@@ -19,6 +19,7 @@ const StyledPaperCard = styled(PaperCard)`
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
+  cursor: pointer;
 
   h4 {
     margin: 0;
@@ -32,13 +33,15 @@ const StyledPaperCard = styled(PaperCard)`
   }
 
   .legend-symbol {
-    font-size: 22px;
     width: 20%;
+    height: 20%;
     margin-right: 1rem;
   }
 
   .legend-label {
     width: 80%;
+    font-size: 18px;
+    line-height: 3rem;
   }
 `
 
@@ -64,7 +67,7 @@ export default class MapLegend extends React.Component {
         {this.state.showLegend &&
           mapLegendData.map((item, index) => (
             <div className="legend-content" key={index}>
-              <span className="legend-symbol">{item.symbol}</span>
+              <img className="legend-symbol" src={item.symbol} />
               <span className="legend-label">{item.label}</span>
             </div>
           ))}
