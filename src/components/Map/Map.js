@@ -3,6 +3,8 @@ import GoogleMapReact from 'google-map-react'
 import Marker from './Marker'
 import Tabs from '../UI/Tabs'
 import SubmitForm from '../UI/SubmitForm'
+import Button from '@material-ui/core/Button'
+import Dice from '@material-ui/icons/Casino'
 
 const formStrings = {
   heading: 'Submit a new FPV spot',
@@ -34,8 +36,6 @@ class SimpleMap extends React.Component {
   }
 
   _onChildClick = (key, childProps) => {
-    console.log('Marker clicked')
-    console.log(childProps)
     // Update current selected element
     this.setState({
       currentPlace: childProps,
@@ -45,6 +45,20 @@ class SimpleMap extends React.Component {
   _onChildMouseEnter = (key, childProps) => {}
 
   _onChildMouseLeave = () => {}
+
+  handleDiscoverNewSpot = () => {
+    // Get lat and lng from a random fpv spot
+    let randomIndex = Math.floor(Math.random() * this.state.markers.length)
+
+    // Extract spot coordinates
+    let { lat, lng } = this.state.markers[randomIndex].node
+
+    // Update state to new spot
+    this.setState({
+      center: { lat: parseFloat(lat), lng: parseFloat(lng) },
+      currentPlace: this.state.markers[randomIndex].node,
+    })
+  }
 
   componentDidMount() {
     // Request user geo location
@@ -73,11 +87,24 @@ class SimpleMap extends React.Component {
 
     return (
       <div>
-        <h3>Tap the map to add a spot</h3>
+        <h3>
+          <span style={{ color: '#0375d8' }}>Tap the map</span>
+          {` `}
+          to add your spot, or {` `}
+          <Button
+            variant="contained"
+            color="primary"
+            style={{ marginLeft: '0.5rem' }}
+            onClick={this.handleDiscoverNewSpot}
+          >
+            Discover a new FPV spot
+            <Dice style={{ marginLeft: '0.5rem' }} />
+          </Button>
+        </h3>
         <div style={{ height: '50vh', width: '100%' }}>
           <GoogleMapReact
             bootstrapURLKeys={{ key: '' }}
-            defaultCenter={center}
+            center={center}
             defaultZoom={zoom}
             onClick={this._onClick}
             onChildClick={this._onChildClick}
