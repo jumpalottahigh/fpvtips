@@ -4,7 +4,7 @@
     "lng": "25.306",
     "label": "Football field",
     "description": "Huge open field, river close by.",
-    "features": "🌳🏞️️💧🏖️🌾🐜🐘",
+    "features": ["trees", "water", "crops", "micro", "mini"],
     "videoLinks": [
       "https://www.youtube.com/watch?v=e5A7br5SCv0",
       "https://www.youtube.com/watch?v=UtTZWqvdqEM&"
@@ -16,7 +16,7 @@
     "lng": "25.317",
     "label": "Harbor and field",
     "description": "Huge open field, harbor close by.",
-    "features": "🌳️️💧🌾🐘",
+    "features": ["trees", "water", "crops", "mini"],
     "videoLinks": ["https://www.youtube.com/watch?v=D5vBPyCTkP8&"],
     "photoLinks": [
       "https://www.instagram.com/p/BoXbO0VFn_r/?taken-by=fpvtips",
@@ -28,7 +28,7 @@
     "lng": "25.607",
     "label": "Porvo FPV race track",
     "description": "Club FPV race track.",
-    "features": "🌳🌾🐜🐘",
+    "features": ["trees", "crops", "micro", "mini"],
     "videoLinks": ["https://www.youtube.com/watch?v=geXnCoNvBPk&"],
     "photoLinks": ["https://www.instagram.com/p/BnzG_OEhua0/?taken-by=fpvtips"]
   },
@@ -37,7 +37,7 @@
     "lng": "25.2032662",
     "label": "Field near stable",
     "description": "Huge open field close to a stable, surrounder by forest and near a highway (but not too near)",
-    "features": "🌳️️🛣️🌾🐘",
+    "features": ["trees", "crops", "mini"],
     "videoLinks": [""],
     "photoLinks": [""]
   },
@@ -46,7 +46,7 @@
     "lng": "24.799384",
     "label": "Leppavaara park open fields",
     "description": "Huge open fields next to a small football field and a park.",
-    "features": "🌳️️️🌾🐘",
+    "features": ["trees", "crops", "mini"],
     "videoLinks": [""],
     "photoLinks": [""]
   },
@@ -55,7 +55,7 @@
     "lng": "24.9105249",
     "label": "Ruoholahti park",
     "description": "Very small mini park close to a daycare playground. Good for micros only.",
-    "features": "🌳💧🐜",
+    "features": ["trees", "water", "micro"],
     "videoLinks": [""],
     "photoLinks": [""]
   },
@@ -64,7 +64,7 @@
     "lng": "25.3887936",
     "label": "Field near Sipoo school yard",
     "description": "Many, really huge open fields near a school playground. Some trees and a basketball court for diversity.",
-    "features": "🌳️️️🌾🐘",
+    "features": ["trees", "crops", "mini"],
     "videoLinks": [""],
     "photoLinks": [""]
   }

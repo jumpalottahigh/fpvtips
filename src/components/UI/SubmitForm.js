@@ -213,14 +213,18 @@ export default class SubmitForm extends React.Component {
                     renderValue={selected => selected.join(', ')}
                     MenuProps={MenuProps}
                   >
-                    {mapLegendData.map(({ symbol, label }) => (
-                      <MenuItem key={symbol} value={symbol}>
+                    {mapLegendData.map(({ label, symbol, value }) => (
+                      <MenuItem key={symbol} value={value}>
                         <Checkbox
-                          checked={
-                            this.state.form.features.indexOf(symbol) > -1
-                          }
+                          color="primary"
+                          checked={this.state.form.features.indexOf(value) > -1}
                         />
-                        <ListItemText primary={`${symbol} - ${label}`} />
+                        <img
+                          src={symbol}
+                          alt={label}
+                          style={{ height: '1.5rem' }}
+                        />
+                        <ListItemText primary={label} />
                       </MenuItem>
                     ))}
                   </Select>

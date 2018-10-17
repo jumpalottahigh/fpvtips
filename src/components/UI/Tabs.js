@@ -15,6 +15,8 @@ import Video from './Video'
 import Photo from './Photo'
 import Grid from '../UI/Grid'
 
+import mapLegendData from '../../data/mapLegendData'
+
 function TabContainer(props) {
   return (
     <Typography component="div" style={{ padding: 8 * 3 }}>
@@ -36,10 +38,17 @@ const Place = styled.div`
   text-align: left;
   gap: 3rem;
 
-  h4 {
-    font-size: 1rem;
-    line-height: 1rem;
+  h3 {
+    font-size: 1.25rem;
+    line-height: 1.25rem;
     margin: 0;
+  }
+
+  span {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #0375d8cc;
   }
 
   @media (min-width: 600px) {
@@ -80,12 +89,34 @@ class SimpleTabs extends React.Component {
           <TabContainer>
             <Place>
               <div>
-                <h4>{currentPlaceData.label}</h4>
-                <p>{currentPlaceData.description}</p>
-                <div>{currentPlaceData.features}</div>
+                <h3>
+                  <span>Label: </span>
+                  {currentPlaceData.label}
+                </h3>
+                <p>
+                  <span>Description: </span>
+                  {currentPlaceData.description}
+                </p>
+                <div>
+                  <span>Features: </span>
+                  {mapLegendData
+                    .filter(item => {
+                      if (currentPlaceData.features.includes(item.value)) {
+                        return item
+                      }
+                    })
+                    .map((item, index) => (
+                      <img
+                        key={index}
+                        src={item.symbol}
+                        style={{ height: '2rem' }}
+                        alt={item.label}
+                      />
+                    ))}
+                </div>
               </div>
-              <MapLegend />
             </Place>
+            <MapLegend />
           </TabContainer>
         )}
         {value === 1 && (

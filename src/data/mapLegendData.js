@@ -12,35 +12,43 @@ import {
 const mapLegendData = [
   {
     symbol: treeWideleaf,
-    label: 'trees',
+    label: 'Trees',
+    value: 'trees',
   },
   {
     symbol: hillsMountains,
-    label: 'hills / mountains',
+    label: 'Hills / Mountains',
+    value: 'hills',
   },
   {
     symbol: waterDrop,
-    label: 'lake / sea / river',
+    label: 'Water',
+    value: 'water',
   },
   {
     symbol: beach,
-    label: 'beach',
+    label: 'Beach',
+    value: 'beach',
   },
   {
     symbol: urban,
-    label: 'road / traffic',
+    label: 'Urban',
+    value: 'urban',
   },
   {
     symbol: cropsHighGrass,
-    label: 'crops / high grass',
+    label: 'Crops / High grass',
+    value: 'crops',
   },
   {
     symbol: micro,
-    label: 'good for micro quads',
+    label: 'Good for micro quads',
+    value: 'micro',
   },
   {
     symbol: mini,
-    label: 'good for mini quads',
+    label: 'Good for mini quads',
+    value: 'mini',
   },
 ]
 
