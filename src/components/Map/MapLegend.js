@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PaperCard from '../UI/PaperCard'
 import mapLegendData from '../../data/mapLegendData'
+import Grid from '../UI/Grid'
 
 // Emoji legend
 // 🌳 - trees
@@ -19,6 +20,7 @@ const StyledPaperCard = styled(PaperCard)`
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
+  margin-top: 2rem;
   cursor: pointer;
 
   h4 {
@@ -33,8 +35,8 @@ const StyledPaperCard = styled(PaperCard)`
   }
 
   .legend-symbol {
-    width: 20%;
-    height: 20%;
+    width: 48px;
+    height: 48px;
     margin-right: 1rem;
   }
 
@@ -42,6 +44,7 @@ const StyledPaperCard = styled(PaperCard)`
     width: 80%;
     font-size: 18px;
     line-height: 3rem;
+    text-align: left;
   }
 `
 
@@ -50,7 +53,7 @@ export default class MapLegend extends React.Component {
     super(props)
 
     this.state = {
-      showLegend: false,
+      showLegend: true,
     }
   }
 
@@ -63,14 +66,16 @@ export default class MapLegend extends React.Component {
   render() {
     return (
       <StyledPaperCard onClick={this.handleToggleLegend}>
-        <h4>Legend:</h4>
-        {this.state.showLegend &&
-          mapLegendData.map((item, index) => (
-            <div className="legend-content" key={index}>
-              <img className="legend-symbol" src={item.symbol} />
-              <span className="legend-label">{item.label}</span>
-            </div>
-          ))}
+        <h3>Legend:</h3>
+        <Grid style={{ width: '100%' }}>
+          {this.state.showLegend &&
+            mapLegendData.map((item, index) => (
+              <div className="legend-content" key={index}>
+                <img className="legend-symbol" src={item.symbol} />
+                <span className="legend-label">{item.label}</span>
+              </div>
+            ))}
+        </Grid>
       </StyledPaperCard>
     )
   }
