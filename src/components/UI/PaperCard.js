@@ -4,6 +4,9 @@ import Paper from '@material-ui/core/Paper'
 const PaperCard = styled(Paper)`
   padding: 1rem;
   min-width: 200px;
+  color: ${props => (props.color ? props.color + '!important' : '')};
+  background-color: ${props =>
+    props.bgColor ? props.bgColor + '!important' : ''};
 
   :hover {
     transition: 275ms;

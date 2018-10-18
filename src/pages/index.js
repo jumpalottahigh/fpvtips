@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Link } from 'gatsby'
 import Helmet from 'react-helmet'
 import { Fade } from 'react-reveal'
@@ -74,6 +75,21 @@ const helmetStrings = {
     'transmitter, receiver, fpv spot, fpv footage, drone pictures, quad build, build a drone, custom drone build, micro, mini, BNF, bind and fly, plug and play, set, soldering iron, fpv, quad, drone, community, dictionary, fpv terms, fpv blog, fpv getting started, fpv tools, tools, vtx, receiver, battery, flight controller, fc, quad builder, map, places, fpv video, fpv pictures, fpv freestyle, fpv drone',
 }
 
+const AnnouncementCard = styled.div`
+  margin: 3rem auto;
+  width: 80%;
+  font-size: 18px;
+
+  span {
+    text-transform: uppercase;
+    color: #f4900e;
+
+    sup {
+      text-transform: none;
+    }
+  }
+`
+
 class IndexPage extends React.Component {
   render() {
     return (
@@ -102,11 +118,17 @@ class IndexPage extends React.Component {
               </Fade>
             ))}
           </Grid>
-          <Fade bottom duration={2000}>
-            <p style={{ margin: '3rem 0' }}>
-              This project is in a public beta and as such many features are
-              still not completely ready.
-            </p>
+          <Fade bottom duration={1500}>
+            <AnnouncementCard>
+              <PaperCard color="#fff" bgColor="#677680">
+                This project is still in <span>public beta</span> and some
+                features might be still missing. The official launch date is{' '}
+                <span>
+                  Nov 3<sup>rd</sup> 2018
+                </span>
+                .
+              </PaperCard>
+            </AnnouncementCard>
           </Fade>
           <Fade bottom duration={2000}>
             <h3>Coming Soon:</h3>
