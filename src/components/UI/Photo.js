@@ -1,7 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
+import Zoom from './Zoom'
 
-// TODO: style the photos
+const StyledImage = styled.img`
+  transition: 1s all;
+
+  &:hover {
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+      0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  }
+`
 
 export default class Photo extends React.Component {
   render() {
@@ -27,9 +35,9 @@ export default class Photo extends React.Component {
     fullUrl.href += 'media'
 
     return (
-      <div>
-        <img src={fullUrl.href} />
-      </div>
+      <Zoom>
+        <StyledImage src={fullUrl.href} draggable="false" />
+      </Zoom>
     )
   }
 }
