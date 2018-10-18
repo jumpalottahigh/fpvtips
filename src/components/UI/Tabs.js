@@ -14,8 +14,7 @@ import WeatherInfo from '../WeatherInfo'
 import Video from './Video'
 import Photo from './Photo'
 import Grid from '../UI/Grid'
-
-import mapLegendData from '../../data/mapLegendData'
+import FeatureIcons from '../Map/FeatureIcons'
 
 function TabContainer(props) {
   return (
@@ -99,20 +98,7 @@ class SimpleTabs extends React.Component {
                 </p>
                 <div>
                   <span>Features: </span>
-                  {mapLegendData
-                    .filter(item => {
-                      if (currentPlaceData.features.includes(item.value)) {
-                        return item
-                      }
-                    })
-                    .map((item, index) => (
-                      <img
-                        key={index}
-                        src={item.symbol}
-                        style={{ height: '2rem' }}
-                        alt={item.label}
-                      />
-                    ))}
+                  <FeatureIcons place={currentPlaceData.features} />
                 </div>
               </div>
             </Place>

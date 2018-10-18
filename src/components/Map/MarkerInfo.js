@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import FeatureIcons from './FeatureIcons'
 import PaperCard from '../UI/PaperCard'
 
 const StyledPaperCard = styled(PaperCard)`
@@ -35,7 +36,7 @@ export default class MarkerInfo extends React.Component {
     return (
       <StyledPaperCard>
         <h5>{label}</h5>
-        {features && <span>{features}</span>}
+        {features && <FeatureIcons place={features} size="1" />}
       </StyledPaperCard>
     )
   }
