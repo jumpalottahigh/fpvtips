@@ -28,7 +28,8 @@ module.exports = {
   siteMetadata: {
     title: 'Fpvtips',
     author: 'Georgi Yanev',
-    description: 'Let\'s bring the FPV community closer together and help new people get into the hobby!',
+    description:
+      "Let's bring the FPV community closer together and help new people get into the hobby!",
     siteUrl: 'https://fpvtips.com',
   },
   plugins: [
@@ -109,7 +110,7 @@ module.exports = {
         icon: `src/assets/fpvtips-logo-512.png`,
       },
     },
-    `gatsby-plugin-offline`,
+    // `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
   ],
 }
