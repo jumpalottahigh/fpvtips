@@ -91,6 +91,17 @@ const AnnouncementCard = styled.div`
 `
 
 class IndexPage extends React.Component {
+  // Force remove SW instance
+  componentDidMount() {
+    self.navigator.serviceWorker
+      .getRegistrations()
+      .then(function(registrations) {
+        for (let registration of registrations) {
+          registration.unregister()
+        }
+      })
+  }
+
   render() {
     return (
       <Layout location={this.props.location}>
