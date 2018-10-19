@@ -3,10 +3,12 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import Helmet from 'react-helmet'
 import { Fade } from 'react-reveal'
+import Button from '@material-ui/core/Button'
 
 import Layout from '../components/Layout/layout'
 import PaperCard from '../components/UI/PaperCard'
 import Grid from '../components/UI/Grid'
+import Section from '../components/UI/Section'
 import FeatureList from '../components/UI/FeatureList'
 
 import {
@@ -20,15 +22,45 @@ import {
 } from '../utils/svg'
 
 const featureListContent = [
-  'Save and browse FPV flying spots on the map',
-  'Preview spots with videos and photos',
-  'Share location and meet other FPV pilots',
-  'Live wind and weather conditions',
-  'Beginner friendly FPV glossary / dictionary',
-  'Recommended tools, upvoted by the community',
-  'Submit a dictionary entry',
-  'Submit an article to the blog',
-  'Quad builder - 3D model playground',
+  {
+    label: 'Save and browse FPV flying spots on the map',
+    completed: true,
+  },
+  {
+    label: 'Preview spots with videos and photos',
+
+    completed: true,
+  },
+  {
+    label: 'Share location and meet other FPV pilots',
+
+    completed: false,
+  },
+  {
+    label: 'Live wind and weather conditions',
+
+    completed: true,
+  },
+  {
+    label: 'Beginner friendly FPV glossary / dictionary',
+    completed: false,
+  },
+  {
+    label: 'Recommended tools, upvoted by the community',
+    completed: false,
+  },
+  {
+    label: 'Submit a dictionary entry',
+    completed: true,
+  },
+  {
+    label: 'Submit an article to the blog',
+    completed: false,
+  },
+  {
+    label: 'Quad builder - 3D model playground',
+    completed: false,
+  },
 ]
 
 const pageList = [
@@ -82,11 +114,22 @@ const AnnouncementCard = styled.div`
 
   span {
     text-transform: uppercase;
-    color: #f4900e;
+    /* color: #f4900e; */
+    color: #efb93f;
 
     sup {
       text-transform: none;
     }
+  }
+`
+
+const StyledFeatureList = styled(FeatureList)`
+  li:before {
+    content: '🔳';
+  }
+
+  li.completed:before {
+    content: '✅';
   }
 `
 
@@ -131,7 +174,7 @@ class IndexPage extends React.Component {
           </Grid>
           <Fade bottom duration={1500}>
             <AnnouncementCard>
-              <PaperCard color="#fff" bgColor="#677680">
+              <PaperCard color="#fff" bgcolor="#576A70">
                 This project is still in <span>public beta</span> and some
                 features might be still missing. The official launch date is{' '}
                 <span>
@@ -141,16 +184,53 @@ class IndexPage extends React.Component {
               </PaperCard>
             </AnnouncementCard>
           </Fade>
-          <Fade bottom duration={2000}>
-            <h3>Coming Soon:</h3>
+          <Fade bottom duration={1000}>
+            <Section color="#000" bgcolor="#fff">
+              <h3>How to get involved?</h3>
+              <p>
+                It's still early days and all help is very appreciated. Some of
+                the easiest ways to contribute are:
+              </p>
+              <div className="cta-container">
+                <Link to="/dictionary">
+                  <Button
+                    variant="contained"
+                    color="default"
+                    style={{
+                      marginLeft: '0.5rem',
+                      marginTop: '0.5rem',
+                      minWidth: '240px',
+                    }}
+                  >
+                    Submit a dictionary item
+                  </Button>
+                </Link>
+                <Link to="/fpv-map">
+                  <Button
+                    variant="contained"
+                    color="default"
+                    style={{
+                      marginLeft: '0.5rem',
+                      marginTop: '0.5rem',
+                      minWidth: '240px',
+                    }}
+                  >
+                    Submit a FPV spot
+                  </Button>
+                </Link>
+              </div>
+            </Section>
           </Fade>
-          <FeatureList>
-            {featureListContent.map((item, index) => (
+          <Fade bottom duration={2500}>
+            <h3>Current progress:</h3>
+          </Fade>
+          <StyledFeatureList>
+            {featureListContent.map(({ label, completed }, index) => (
               <Fade key={index} bottom delay={index * 55}>
-                <li>{item}</li>
+                <li className={completed ? 'completed' : ''}>{label}</li>
               </Fade>
             ))}
-          </FeatureList>
+          </StyledFeatureList>
           <p style={{ margin: '3rem 0' }}>
             If you want to get involved,{' '}
             <a href="mailto:georgiyanev.gy@gmail.com">get in touch</a> or check

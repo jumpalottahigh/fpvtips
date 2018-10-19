@@ -6,7 +6,7 @@ const PaperCard = styled(Paper)`
   min-width: 200px;
   color: ${props => (props.color ? props.color + '!important' : '')};
   background-color: ${props =>
-    props.bgColor ? props.bgColor + '!important' : ''};
+    props.bgcolor ? props.bgcolor + '!important' : ''};
 
   :hover {
     transition: 275ms;
