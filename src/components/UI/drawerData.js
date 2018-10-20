@@ -4,6 +4,7 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import LocationCity from '@material-ui/icons/LocationCity'
+import Home from '@material-ui/icons/Home'
 import Work from '@material-ui/icons/Work'
 import List from '@material-ui/icons/List'
 import LibraryBooks from '@material-ui/icons/LibraryBooks'
@@ -16,6 +17,14 @@ import { FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa'
 
 export const mainMenuListItems = (
   <div>
+    <Link to="/">
+      <ListItem button>
+        <ListItemIcon>
+          <Home color="primary" />
+        </ListItemIcon>
+        <ListItemText primary="Home" />
+      </ListItem>
+    </Link>
     <Link to="/fpv-map">
       <ListItem button>
         <ListItemIcon>

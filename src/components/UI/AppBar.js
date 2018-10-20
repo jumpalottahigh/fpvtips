@@ -35,7 +35,7 @@ const Brand = styled(Link)`
 const NavLinks = styled.div`
   display: none;
 
-  @media (min-width: 600px) {
+  @media (min-width: 650px) {
     display: block;
   }
 `
@@ -55,8 +55,11 @@ function ButtonAppBar(props) {
             </Brand>
           </div>
           <NavLinks>
+            <Link to="/">
+              <Button color="primary">Home</Button>
+            </Link>
             <Link to="/fpv-map/">
-              <Button color="primary">Map</Button>
+              <Button color="default">Map</Button>
             </Link>
             <Link to="/blog/">
               <Button color="default">Blog</Button>
