@@ -1,0 +1,21 @@
+[
+  {
+    "title": "How to get involved?",
+    "content": "It's still early days and all help is very appreciated. Some of the easiest ways to contribute are:",
+    "color": "#000",
+    "bgcolor": "#fff",
+    "buttons": [
+      {
+        "link": "/dictionary/",
+        "label": "Submit a dictionary item",
+        "variant": "contained",
+        "color": "default",
+        "minWidth": "240px"
+      },
+      {
+        "link": "/fpv-map/",
+        "label": "Submit a FPV spot"
+      }
+    ]
+  }
+]

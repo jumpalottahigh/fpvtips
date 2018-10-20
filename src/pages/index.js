@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Helmet from 'react-helmet'
 import { Fade } from 'react-reveal'
-import Button from '@material-ui/core/Button'
 
 import Layout from '../components/Layout/layout'
 import PaperCard from '../components/UI/PaperCard'
@@ -109,7 +108,7 @@ const helmetStrings = {
 
 const AnnouncementCard = styled.div`
   margin: 3rem auto;
-  width: 80%;
+  width: 65ch;
   font-size: 18px;
 
   span {
@@ -134,18 +133,9 @@ const StyledFeatureList = styled(FeatureList)`
 `
 
 class IndexPage extends React.Component {
-  // Force remove SW instance
-  componentDidMount() {
-    self.navigator.serviceWorker
-      .getRegistrations()
-      .then(function(registrations) {
-        for (let registration of registrations) {
-          registration.unregister()
-        }
-      })
-  }
-
   render() {
+    const homePageSections = this.props.data.allHomePageSectionsJson.edges
+
     return (
       <Layout location={this.props.location}>
         <Helmet
@@ -184,43 +174,12 @@ class IndexPage extends React.Component {
               </PaperCard>
             </AnnouncementCard>
           </Fade>
-          <Fade bottom duration={1000}>
-            <Section color="#000" bgcolor="#fff">
-              <h3>How to get involved?</h3>
-              <p>
-                It's still early days and all help is very appreciated. Some of
-                the easiest ways to contribute are:
-              </p>
-              <div className="cta-container">
-                <Link to="/dictionary">
-                  <Button
-                    variant="contained"
-                    color="default"
-                    style={{
-                      marginLeft: '0.5rem',
-                      marginTop: '0.5rem',
-                      minWidth: '240px',
-                    }}
-                  >
-                    Submit a dictionary item
-                  </Button>
-                </Link>
-                <Link to="/fpv-map">
-                  <Button
-                    variant="contained"
-                    color="default"
-                    style={{
-                      marginLeft: '0.5rem',
-                      marginTop: '0.5rem',
-                      minWidth: '240px',
-                    }}
-                  >
-                    Submit a FPV spot
-                  </Button>
-                </Link>
-              </div>
-            </Section>
-          </Fade>
+          {/* Home Page Sections */}
+          {homePageSections.map(section => (
+            <Fade key={section.node.id} bottom delay={250}>
+              <Section data={section.node} />
+            </Fade>
+          ))}
           <Fade bottom duration={2500}>
             <h3>Current progress:</h3>
           </Fade>
@@ -231,7 +190,7 @@ class IndexPage extends React.Component {
               </Fade>
             ))}
           </StyledFeatureList>
-          <p style={{ margin: '3rem 0' }}>
+          <p style={{ margin: '3rem auto', width: '65ch' }}>
             If you want to get involved,{' '}
             <a href="mailto:georgiyanev.gy@gmail.com">get in touch</a> or check
             out the{' '}
@@ -253,3 +212,26 @@ class IndexPage extends React.Component {
 }
 
 export default IndexPage
+
+export const homePageSectionsQuery = graphql`
+  query homePageSectionsQuery {
+    allHomePageSectionsJson {
+      edges {
+        node {
+          id
+          title
+          content
+          color
+          bgcolor
+          buttons {
+            link
+            label
+            variant
+            color
+            minWidth
+          }
+        }
+      }
+    }
+  }
+`
