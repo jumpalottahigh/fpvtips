@@ -108,7 +108,7 @@ const helmetStrings = {
 
 const AnnouncementCard = styled.div`
   margin: 3rem auto;
-  width: 65ch;
+  max-width: 65ch;
   font-size: 18px;
 
   span {
@@ -190,7 +190,7 @@ class IndexPage extends React.Component {
               </Fade>
             ))}
           </StyledFeatureList>
-          <p style={{ margin: '3rem auto', width: '65ch' }}>
+          <p style={{ margin: '3rem auto', maxWidth: '65ch' }}>
             If you want to get involved,{' '}
             <a href="mailto:georgiyanev.gy@gmail.com">get in touch</a> or check
             out the{' '}
@@ -223,6 +223,8 @@ export const homePageSectionsQuery = graphql`
           content
           color
           bgcolor
+          bgimage
+          video
           buttons {
             link
             label
