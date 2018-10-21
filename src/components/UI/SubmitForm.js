@@ -174,7 +174,7 @@ export default class SubmitForm extends React.Component {
         >
           <PaperCard style={{ width: '100%' }}>
             <form
-              netlify
+              netlify="true"
               autoComplete="off"
               noValidate
               onSubmit={this.handleFormSubmit}
