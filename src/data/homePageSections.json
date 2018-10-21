@@ -2,8 +2,10 @@
   {
     "title": "How to get involved?",
     "content": "It's still early days and all help is very appreciated. Some of the easiest ways to contribute are:",
-    "color": "#000",
-    "bgcolor": "#fff",
+    "color": "#fff",
+    "bgcolor": "#dedede",
+    "bgimage": "bg-pattern-square-versatiles.svg",
+    "video": "",
     "buttons": [
       {
         "link": "/dictionary/",
@@ -14,6 +16,7 @@
       },
       {
         "link": "/fpv-map/",
+        "color": "default",
         "label": "Submit a FPV spot"
       }
     ]
