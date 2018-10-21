@@ -172,6 +172,7 @@ class SimpleMap extends React.Component {
         {this.state.newMarker && (
           <SubmitForm
             {...formStrings}
+            name="submit-fpv-spot"
             fireNode="fpv-map"
             newMarker={this.state.newMarker}
           />
