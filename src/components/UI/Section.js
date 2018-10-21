@@ -20,6 +20,10 @@ const StyledSection = styled.section`
     margin: 0 auto;
   }
 
+  .content-container {
+    text-align: left;
+  }
+
   .cta-container {
     margin-top: 2rem;
   }
@@ -44,9 +48,17 @@ export default class Section extends React.Component {
     return (
       <StyledSection color={color} bgcolor={bgcolor} bgimage={bgimage}>
         <h3>{title}</h3>
-        <p>{content}</p>
+        {content && (
+          <div className="content-container">
+            {content.map((chunk, index) => (
+              <p key={index} style={index > 0 ? { marginTop: '1rem' } : {}}>
+                {chunk}
+              </p>
+            ))}
+          </div>
+        )}
         {video && (
-          <div style={{ maxWidth: '640px', margin: '0 auto' }}>
+          <div style={{ maxWidth: '640px', margin: '2rem auto' }}>
             <iframe
               width="100%"
               height="315"
@@ -67,22 +79,41 @@ export default class Section extends React.Component {
                 button.variant == null ? 'contained' : button.variant
               let color = button.color == null ? 'default' : button.color
               let minWidth = button.minWidth == null ? '240px' : button.minWidth
+              let external = button.external == null ? false : button.external
 
-              return (
-                <Link key={index} to={link}>
-                  <Button
-                    variant={variant}
-                    color={color}
-                    style={{
-                      marginLeft: '0.5rem',
-                      marginTop: '0.5rem',
-                      minWidth,
-                    }}
-                  >
-                    {label}
-                  </Button>
-                </Link>
-              )
+              if (external) {
+                return (
+                  <a key={index} href={link}>
+                    <Button
+                      variant={variant}
+                      color={color}
+                      style={{
+                        marginLeft: '0.5rem',
+                        marginTop: '0.5rem',
+                        minWidth,
+                      }}
+                    >
+                      {label}
+                    </Button>
+                  </a>
+                )
+              } else {
+                return (
+                  <Link key={index} to={link}>
+                    <Button
+                      variant={variant}
+                      color={color}
+                      style={{
+                        marginLeft: '0.5rem',
+                        marginTop: '0.5rem',
+                        minWidth,
+                      }}
+                    >
+                      {label}
+                    </Button>
+                  </Link>
+                )
+              }
             })}
           </div>
         )}

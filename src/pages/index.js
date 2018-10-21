@@ -174,22 +174,25 @@ class IndexPage extends React.Component {
               </PaperCard>
             </AnnouncementCard>
           </Fade>
+          <Fade bottom duration={2500}>
+            <div style={{ paddingBottom: '3.5rem' }}>
+              <h3>Current progress:</h3>
+              <StyledFeatureList>
+                {featureListContent.map(({ label, completed }, index) => (
+                  <li key={index} className={completed ? 'completed' : ''}>
+                    {label}
+                  </li>
+                ))}
+              </StyledFeatureList>
+            </div>
+          </Fade>
           {/* Home Page Sections */}
           {homePageSections.map(section => (
             <Fade key={section.node.id} bottom delay={250}>
               <Section data={section.node} />
             </Fade>
           ))}
-          <Fade bottom duration={2500}>
-            <h3>Current progress:</h3>
-          </Fade>
-          <StyledFeatureList>
-            {featureListContent.map(({ label, completed }, index) => (
-              <Fade key={index} bottom delay={index * 55}>
-                <li className={completed ? 'completed' : ''}>{label}</li>
-              </Fade>
-            ))}
-          </StyledFeatureList>
+
           <p style={{ margin: '3rem auto', maxWidth: '65ch' }}>
             If you want to get involved,{' '}
             <a href="mailto:georgiyanev.gy@gmail.com">get in touch</a> or check
@@ -227,6 +230,7 @@ export const homePageSectionsQuery = graphql`
           video
           buttons {
             link
+            external
             label
             variant
             color

@@ -1,10 +1,12 @@
 [
   {
     "title": "How to get involved?",
-    "content": "It's still early days and all help is very appreciated. Some of the easiest ways to contribute are:",
-    "color": "#fff",
-    "bgcolor": "#dedede",
-    "bgimage": "bg-pattern-square-versatiles.svg",
+    "content": [
+      "It's still early days and all help is very appreciated. Some of the easiest ways to contribute are:"
+    ],
+    "color": "#000",
+    "bgcolor": "#fff",
+    "bgimage": "",
     "video": "",
     "buttons": [
       {
@@ -18,6 +20,51 @@
         "link": "/fpv-map/",
         "color": "default",
         "label": "Submit a FPV spot"
+      }
+    ]
+  },
+  {
+    "title": "What is FPV?",
+    "content": [
+      "FPV means First Person View and refers to the perspective or point of view when flying a FPV freestyle or a racing drone (quadcopter). Pilots use goggles to receive a live video feed, transmitted from the drone's camera which also translates into a 'flying from the cockpit' feeling.",
+      "As a broader term, FPV is an awesome fast-paced hobby, allowing you to fly drones (quads), planes, wings using a radio transmitter and enjoying the out of body experience through the first person view camera.",
+      "Have a look at this video to get an idea, but don't let my poor flying skills fool you and definitely checkout some of these excellent, excellent pilots:"
+    ],
+    "color": "#000",
+    "bgcolor": "#f2f1f0",
+    "video": "https://www.youtube.com/embed/W_TeQMJbjgM?rel=0",
+    "buttons": [
+      {
+        "link": "https://www.youtube.com/user/MrSteeledavis",
+        "external": true,
+        "label": "Mr Steele",
+        "variant": "text",
+        "color": "primary",
+        "minWidth": "240px"
+      },
+      {
+        "link": "https://www.youtube.com/channel/UCHxiKnzTyzE9Qez8ZGpQbPQ",
+        "external": true,
+        "label": "Le Drib",
+        "variant": "text",
+        "color": "primary",
+        "minWidth": "240px"
+      },
+      {
+        "link": "https://www.youtube.com/user/loraan",
+        "external": true,
+        "label": "Joshua Bardwell",
+        "variant": "text",
+        "color": "primary",
+        "minWidth": "240px"
+      },
+      {
+        "link": "https://www.youtube.com/channel/UC3ioIOr3tH6Yz8qzr418R-g",
+        "external": true,
+        "label": "Stew (UAVfutures)",
+        "variant": "text",
+        "color": "primary",
+        "minWidth": "240px"
       }
     ]
   }
