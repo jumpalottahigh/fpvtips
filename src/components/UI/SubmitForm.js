@@ -89,8 +89,13 @@ export default class SubmitForm extends React.Component {
     if (title == '' || description == '') return
 
     // Get new marker data
-    let { lat, lng } = this.state.form.newMarker
-    if (!lat || !lng) return
+    let lat = 0
+    let lng = 0
+
+    if (this.state.form.newMarker != null) {
+      lat = this.state.form.newMarker.lat
+      lng = this.state.form.newMarker.lng
+    }
 
     let data = {
       title,
