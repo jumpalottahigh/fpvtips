@@ -4,7 +4,8 @@ import { Link } from 'gatsby'
 import Button from '@material-ui/core/Button'
 
 const StyledSection = styled.section`
-  padding: 3.5rem 0;
+  margin: 0 -1rem;
+  padding: 3.5rem 1rem;
   color: ${props => (props.color ? props.color + '!important' : '')};
   background-color: ${props =>
     props.bgcolor ? props.bgcolor + '!important' : ''};

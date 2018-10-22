@@ -6,8 +6,6 @@
     ],
     "color": "#000",
     "bgcolor": "#fff",
-    "bgimage": "",
-    "video": "",
     "buttons": [
       {
         "link": "/dictionary/",
@@ -67,5 +65,21 @@
         "minWidth": "240px"
       }
     ]
+  },
+
+  {
+    "title": "Why fly FPV and who is this for?",
+    "content": [
+      "Cause it's fun! And it's for everyone! No, seriously! FPV is fun and can be enjoyed by people of all ages. There are all sorts of drones - from the most timid micros to the fastest beasts that punch a whole in the sky™ (Stew)."
+    ],
+    "bgimage": "data:image/svg+xml;base64,77u/PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMTknIGhlaWdodD0nMTE5JyB2aWV3Qm94PScwIDAgMjAwIDIwMCc+PHJlY3QgZmlsbD0nI2ZmZmZmZicgd2lkdGg9JzIwMCcgaGVpZ2h0PScyMDAnLz48cG9seWdvbiBmaWxsPScjRENFRkZBJyBmaWxsLW9wYWNpdHk9JzAuMTEnIHBvaW50cz0nMTAwIDAgMCAxMDAgMTAwIDEwMCAxMDAgMjAwIDIwMCAxMDAgMjAwIDAnLz48L3N2Zz4="
+  },
+  {
+    "title": "Where does FPVTIPS fit in?",
+    "content": [
+      "FPVTIPS wants to be there when you need information. The maybe one slight downside of the hobby is that it could seem a bit intimidating at first. Don't worry though, it's not that hard and no, you don't need to know all the stuff.",
+      "It would be nice to have a place to search for beginner friendly information. It would also be nice to find easily the exact answers to your questions. Enter, FPVTIPS!"
+    ],
+    "bgimage": "data:image/svg+xml;base64,77u/PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMTknIGhlaWdodD0nMTE5JyB2aWV3Qm94PScwIDAgMjAwIDIwMCc+PHJlY3QgZmlsbD0nI2ZmZmZmZicgd2lkdGg9JzIwMCcgaGVpZ2h0PScyMDAnLz48cG9seWdvbiBmaWxsPScjRENFRkZBJyBmaWxsLW9wYWNpdHk9JzAuMTEnIHBvaW50cz0nMTAwIDAgMCAxMDAgMTAwIDEwMCAxMDAgMjAwIDIwMCAxMDAgMjAwIDAnLz48L3N2Zz4="
   }
 ]
