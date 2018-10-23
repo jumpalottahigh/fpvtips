@@ -110,6 +110,7 @@ module.exports = {
         icon: `src/assets/fpvtips-logo-512.png`,
       },
     },
+    `gatsby-plugin-remove-serviceworker`,
     // `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
   ],
