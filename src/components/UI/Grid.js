@@ -12,6 +12,8 @@ const Grid = styled.div`
   }
 
   @media (min-width: 900px) {
+    width: 80%;
+    margin: 0 auto;
     grid-template-columns: repeat(
       ${props => (props.col900 ? props.col900 : 3)},
       1fr

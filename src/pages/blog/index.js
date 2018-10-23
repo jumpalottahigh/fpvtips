@@ -49,7 +49,7 @@ class IndexPage extends React.Component {
             return (
               <Fade key={node.fields.slug} bottom>
                 <StyledBlogLink to={node.fields.slug}>
-                  <PaperCard hoverable="true">
+                  <PaperCard hoverable="true" style={{ height: '100%' }}>
                     <h3>{title}</h3>
                     <small>{node.frontmatter.date}</small>
                     <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />

@@ -117,7 +117,7 @@ const Intro = styled.div`
 const Bio = styled.div`
   margin: -1rem;
   padding: 3.5rem 1rem;
-  background-color: #fafafa;
+  background-color: #eee;
 
   img {
     width: 7rem;
