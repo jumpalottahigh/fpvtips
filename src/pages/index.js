@@ -148,6 +148,7 @@ const Bio = styled.div`
     height: auto;
     z-index: -100;
     max-width: 70ch;
+    cursor: pointer;
   }
 `
 
@@ -177,6 +178,12 @@ const StyledFeatureList = styled(FeatureList)`
 `
 
 class IndexPage extends React.Component {
+  handleBioVideoClick = e => {
+    e.target.pause()
+    e.target.currentTime = 0
+    e.target.load()
+  }
+
   render() {
     const homePageSections = this.props.data.allHomePageSectionsJson.edges
 
@@ -266,7 +273,13 @@ class IndexPage extends React.Component {
               I write about life, goals, software and flying FPV drones.
             </p>
             <div className="video-wrapper">
-              <video autoPlay loop id="video-background" muted playsInline>
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                onClick={this.handleBioVideoClick}
+              >
                 <source
                   src="https://www.georgi-yanev.com/static/landing-a-quad-1-a959ba1dfed1d6abe2e8052b61bfb0b4.mp4"
                   type="video/mp4"
