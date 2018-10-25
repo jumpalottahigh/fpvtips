@@ -8,6 +8,9 @@ import Button from '@material-ui/core/Button'
 import Dice from '@material-ui/icons/Casino'
 import { earthLines } from '../../utils/svg'
 
+// Setup Google Maps API key
+const API_KEY = process.env.GATSBY_GOOGLE_MAPS_KEY || ''
+
 const formStrings = {
   heading: 'Submit a new FPV spot',
   link: 'YouTube / Instagram link',
@@ -131,7 +134,7 @@ class SimpleMap extends React.Component {
         </h3>
         <div style={{ height: '50vh', width: '100%' }}>
           <GoogleMapReact
-            bootstrapURLKeys={{ key: '' }}
+            bootstrapURLKeys={{ key: API_KEY }}
             center={center}
             defaultZoom={zoom}
             onClick={this._onClick}

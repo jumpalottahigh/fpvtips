@@ -10,6 +10,9 @@ try {
     firebase: {
       key: process.env.GATSBY_FIREBASE_KEY,
     },
+    googleMaps: {
+      key: process.env.GATSBY_GOOGLE_MAPS_KEY,
+    },
   }
 } finally {
   if (!config.openWeatherMap.key) {
@@ -18,6 +21,10 @@ try {
 
   if (!config.firebase.key) {
     throw new Error('Firebase API key needs to be provided.')
+  }
+
+  if (config.googleMaps) {
+    process.env.GATSBY_GOOGLE_MAPS_KEY = config.googleMaps.key
   }
 
   process.env.GATSBY_OPEN_WEATHER_MAP_KEY = config.openWeatherMap.key
