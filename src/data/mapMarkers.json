@@ -22,10 +22,14 @@
     "label": "Harbor and field",
     "description": "Huge open field, harbor close by.",
     "features": ["trees", "water", "crops", "mini"],
-    "videoLinks": ["https://www.youtube.com/watch?v=D5vBPyCTkP8&"],
+    "videoLinks": [
+      "https://www.youtube.com/watch?v=70tXXAfs-ks",
+      "https://www.youtube.com/watch?v=p_OVnSWcVzU"
+    ],
     "photoLinks": [
-      "https://www.instagram.com/p/BoXbO0VFn_r/?taken-by=fpvtips",
-      "https://www.instagram.com/p/BnzG_OEhua0/?taken-by=fpvtips"
+      "https://www.instagram.com/p/BpaTx_gHQEc/?taken-by=fpvtips",
+      "https://www.instagram.com/p/BpaT23bn8aI/?taken-by=fpvtips",
+      "https://www.instagram.com/p/BpaT5i5HSOJ/?taken-by=fpvtips"
     ]
   },
   {
@@ -70,7 +74,16 @@
     "label": "Field near Sipoo school yard",
     "description": "Many, really huge open fields near a school playground. Some trees and a basketball court for diversity.",
     "features": ["trees", "crops", "mini"],
-    "videoLinks": [""],
-    "photoLinks": [""]
+    "videoLinks": [
+      "https://www.youtube.com/watch?v=aASDUpVy3zM",
+      "https://www.youtube.com/watch?v=dd4Ou1v3DWg"
+    ],
+    "photoLinks": [
+      "https://www.instagram.com/p/BpaWYt_HBWu/?taken-by=fpvtips",
+      "https://www.instagram.com/p/BpaWbU_nK_Q/?taken-by=fpvtips",
+      "https://www.instagram.com/p/BpaWedhnVsu/?taken-by=fpvtips",
+      "https://www.instagram.com/p/BpaWhm4nVZX/?taken-by=fpvtips",
+      "https://www.instagram.com/p/BpaWl6VnnVN/?taken-by=fpvtips"
+    ]
   }
 ]
