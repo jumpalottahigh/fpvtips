@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import Layout from '../components/Layout/layout'
 import Grid from '../components/UI/Grid'
 import PaperCard from '../components/UI/PaperCard'
-import SubmitForm from '../components/UI/SubmitForm'
+import FormDictionary from '../components/UI/FormDictionary'
 
 import TextField from '@material-ui/core/TextField'
 import LinkIcon from '@material-ui/icons/Link'
@@ -154,7 +154,7 @@ export default class DictionaryPage extends React.Component {
         </Grid>
 
         {/* Submit an entry FAB and Modal */}
-        <SubmitForm
+        <FormDictionary
           {...formStrings}
           name="submit-dictionary-item"
           fireNode="dictionary"

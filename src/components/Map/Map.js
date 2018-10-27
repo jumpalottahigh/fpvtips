@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import GoogleMapReact from 'google-map-react'
 import Marker from './Marker'
 import Tabs from '../UI/Tabs'
-import SubmitForm from '../UI/SubmitForm'
+import FormFPVSpot from '../UI/FormFPVSpot'
 import Button from '@material-ui/core/Button'
 import Dice from '@material-ui/icons/Casino'
 import { earthLines } from '../../utils/svg'
@@ -173,7 +173,7 @@ class SimpleMap extends React.Component {
         {/* Tabs - pass the data about the current place down via props */}
         <Tabs currentPlaceData={this.state.currentPlace} />
         {this.state.newMarker && (
-          <SubmitForm
+          <FormFPVSpot
             {...formStrings}
             name="submit-fpv-spot"
             fireNode="fpv-map"
