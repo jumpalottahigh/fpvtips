@@ -28,10 +28,6 @@ const StyledPaperCard = styled(PaperCard)`
   }
 `
 
-const formStrings = {
-  link: 'Wiki link',
-}
-
 const helmetStrings = {
   title: 'Fpvtips | Dictionary',
   description:
@@ -154,12 +150,7 @@ export default class DictionaryPage extends React.Component {
         </Grid>
 
         {/* Submit an entry FAB and Modal */}
-        <FormDictionary
-          {...formStrings}
-          name="submit-dictionary-item"
-          fireNode="dictionary"
-          noFeaturesInput
-        />
+        <FormDictionary name="submit-dictionary-item" fireNode="dictionary" />
       </Layout>
     )
   }

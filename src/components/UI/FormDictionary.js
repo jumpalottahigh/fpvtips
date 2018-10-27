@@ -6,29 +6,13 @@ import FAB from './FAB'
 import TextField from '@material-ui/core/TextField'
 import Modal from '@material-ui/core/Modal'
 import Button from '@material-ui/core/Button'
-import Select from '@material-ui/core/Select'
-import Checkbox from '@material-ui/core/Checkbox'
-import Input from '@material-ui/core/Input'
-import InputLabel from '@material-ui/core/InputLabel'
-import MenuItem from '@material-ui/core/MenuItem'
-import ListItemText from '@material-ui/core/ListItemText'
 import Snackbar from '@material-ui/core/Snackbar'
 
 import fire from '../../utils/firebase'
-import mapLegendData from '../../data/mapLegendData'
 
 const modalDimensions = {
   width: '360px',
   height: '500px',
-}
-
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: 48 * 4.5 + 8,
-      width: 250,
-    },
-  },
 }
 
 const StyledModal = styled(Modal)`
@@ -53,7 +37,6 @@ export default class SubmitForm extends React.Component {
         features: [],
         link: '',
         author: '',
-        newMarker: this.props.newMarker || null,
       },
     }
   }
@@ -83,28 +66,16 @@ export default class SubmitForm extends React.Component {
     e.preventDefault()
 
     // Extract and set data
-    let { title, description, features, link, author } = this.state.form
+    let { title, description, link, author } = this.state.form
 
     // Basic form validation
     if (title == '' || description == '') return
 
-    // Get new marker data
-    let lat = 0
-    let lng = 0
-
-    if (this.state.form.newMarker != null) {
-      lat = this.state.form.newMarker.lat
-      lng = this.state.form.newMarker.lng
-    }
-
     let data = {
       title,
       description,
-      features,
       link,
       author,
-      lat,
-      lng,
     }
 
     // Send data to Firebase
@@ -121,13 +92,8 @@ export default class SubmitForm extends React.Component {
         form: {
           title: '',
           description: '',
-          features: [],
           link: '',
           author: '',
-          newMarker: {
-            lat,
-            lng,
-          },
         },
       },
       () => {
@@ -144,8 +110,7 @@ export default class SubmitForm extends React.Component {
       heading = 'Submit a new item:',
       title = 'Title',
       description = 'Description',
-      features = 'Features',
-      link = 'YouTube link',
+      link = 'Wiki link',
       author = 'Your name',
       submit = 'Submit',
     } = this.props
@@ -167,7 +132,7 @@ export default class SubmitForm extends React.Component {
             ContentProps={{
               'aria-describedby': 'message-id',
             }}
-            message={<span id="message-id">Saved</span>}
+            message={<span id="message-id">Submitted!</span>}
           />
         )}
 
@@ -198,6 +163,7 @@ export default class SubmitForm extends React.Component {
                 value={this.state.form.title}
                 onChange={this.handleChange('title')}
                 margin="normal"
+                variant="outlined"
               />
               <TextField
                 required
@@ -208,43 +174,15 @@ export default class SubmitForm extends React.Component {
                 value={this.state.form.description}
                 onChange={this.handleChange('description')}
                 margin="normal"
+                variant="outlined"
               />
-              {!this.props.noFeaturesInput && (
-                <React.Fragment>
-                  <InputLabel htmlFor="select-multiple-checkbox">
-                    {features}
-                  </InputLabel>
-                  <Select
-                    multiple
-                    value={this.state.form.features}
-                    onChange={this.handleChange('features')}
-                    input={<Input id="select-multiple-checkbox" />}
-                    renderValue={selected => selected.join(', ')}
-                    MenuProps={MenuProps}
-                  >
-                    {mapLegendData.map(({ label, symbol, value }) => (
-                      <MenuItem key={symbol} value={value}>
-                        <Checkbox
-                          color="primary"
-                          checked={this.state.form.features.indexOf(value) > -1}
-                        />
-                        <img
-                          src={symbol}
-                          alt={label}
-                          style={{ height: '1.5rem' }}
-                        />
-                        <ListItemText primary={label} />
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </React.Fragment>
-              )}
               <TextField
                 id="link"
                 label={link}
                 value={this.state.form.link}
                 onChange={this.handleChange('link')}
                 margin="normal"
+                variant="outlined"
               />
               <TextField
                 id="author"
@@ -252,6 +190,7 @@ export default class SubmitForm extends React.Component {
                 value={this.state.form.author}
                 onChange={this.handleChange('author')}
                 margin="normal"
+                variant="outlined"
               />
               <Button
                 variant="contained"

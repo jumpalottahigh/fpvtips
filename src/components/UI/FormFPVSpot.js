@@ -20,12 +20,12 @@ import mapLegendData from '../../data/mapLegendData'
 
 const modalDimensions = {
   width: '360px',
-  height: '550px',
+  height: '620px',
 }
 
 const modalDimensions900 = {
   width: '560px',
-  height: '650px',
+  height: '660px',
 }
 
 const MenuProps = {
@@ -175,7 +175,7 @@ export default class SubmitFormFPVSpot extends React.Component {
   render() {
     // Get strings from props or assign defaults otherwise
     let {
-      heading = 'Submit a new item:',
+      heading = 'Submit a new FPV spot:',
       title = 'Title',
       description = 'Description',
       features = 'Features',
@@ -212,7 +212,7 @@ export default class SubmitFormFPVSpot extends React.Component {
           open={this.state.open}
           onClose={this.handleClose}
         >
-          <PaperCard style={{ width: '100%', overflow: 'scroll' }}>
+          <PaperCard style={{ width: '100%', overflow: 'auto' }}>
             <form
               name={this.props.name}
               data-netlify="true"

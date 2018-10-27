@@ -11,11 +11,6 @@ import { earthLines } from '../../utils/svg'
 // Setup Google Maps API key
 const API_KEY = process.env.GATSBY_GOOGLE_MAPS_KEY || ''
 
-const formStrings = {
-  heading: 'Submit a new FPV spot',
-  link: 'YouTube / Instagram link',
-}
-
 const Loader = styled.div`
   display: flex;
   height: 70vh;
@@ -174,7 +169,6 @@ class SimpleMap extends React.Component {
         <Tabs currentPlaceData={this.state.currentPlace} />
         {this.state.newMarker && (
           <FormFPVSpot
-            {...formStrings}
             name="submit-fpv-spot"
             fireNode="fpv-map"
             newMarker={this.state.newMarker}
