@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { FaTwitter, FaInstagram } from 'react-icons/fa'
 
 const StyledFooter = styled.footer`
   display: flex;
@@ -19,10 +20,40 @@ const StyledFooter = styled.footer`
   }
 `
 
+const SocialIcons = styled.div`
+  margin-bottom: 1rem;
+
+  .icon {
+    margin-right: 1rem;
+    font-size: 2rem;
+  }
+
+  .icon:hover {
+    transform: scale(1.2);
+    transition: all ease-in 175ms;
+  }
+`
+
 export default class Footer extends React.Component {
   render() {
     return (
       <StyledFooter>
+        <SocialIcons>
+          <a
+            href="https://www.instagram.com/fpvtips"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaInstagram className="icon" />
+          </a>
+          <a
+            href="https://twitter.com/fpvtips"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaTwitter className="icon" />
+          </a>
+        </SocialIcons>
         <h5>
           Copyright &copy; 2018 Georgi Yanev.
           <br />
