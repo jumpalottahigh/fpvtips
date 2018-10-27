@@ -44,6 +44,7 @@ export const mapMarkersQuery = graphql`
           label
           description
           features
+          author
           videoLinks
           photoLinks
         }

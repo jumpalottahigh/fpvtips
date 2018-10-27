@@ -14,7 +14,8 @@
       "https://www.instagram.com/p/BpXrDG6nwkM/?taken-by=fpvtips",
       "https://www.instagram.com/p/BpXq9rkne7j/?taken-by=fpvtips",
       "https://www.instagram.com/p/BpXrA2fHTEA/?taken-by=fpvtips"
-    ]
+    ],
+    "author": "Jumpalottahigh"
   },
   {
     "lat": "60.288",
@@ -30,7 +31,8 @@
       "https://www.instagram.com/p/BpaTx_gHQEc/?taken-by=fpvtips",
       "https://www.instagram.com/p/BpaT23bn8aI/?taken-by=fpvtips",
       "https://www.instagram.com/p/BpaT5i5HSOJ/?taken-by=fpvtips"
-    ]
+    ],
+    "author": "Jumpalottahigh"
   },
   {
     "lat": "60.3933",
@@ -39,7 +41,8 @@
     "description": "Club FPV race track.",
     "features": ["trees", "crops", "micro", "mini"],
     "videoLinks": ["https://www.youtube.com/watch?v=geXnCoNvBPk&"],
-    "photoLinks": ["https://www.instagram.com/p/BnzG_OEhua0/?taken-by=fpvtips"]
+    "photoLinks": ["https://www.instagram.com/p/BnzG_OEhua0/?taken-by=fpvtips"],
+    "author": "Jumpalottahigh"
   },
   {
     "lat": "60.2644395",
@@ -48,7 +51,8 @@
     "description": "Huge open field close to a stable, surrounder by forest and near a highway (but not too near)",
     "features": ["trees", "crops", "mini"],
     "videoLinks": [""],
-    "photoLinks": [""]
+    "photoLinks": [""],
+    "author": "Jumpalottahigh"
   },
   {
     "lat": "60.225339",
@@ -57,7 +61,8 @@
     "description": "Huge open fields next to a small football field and a park.",
     "features": ["trees", "crops", "mini"],
     "videoLinks": [""],
-    "photoLinks": [""]
+    "photoLinks": [""],
+    "author": "Jumpalottahigh"
   },
   {
     "lat": "60.1616957",
@@ -66,7 +71,8 @@
     "description": "Very small mini park close to a daycare playground. Good for micros only.",
     "features": ["trees", "water", "micro"],
     "videoLinks": [""],
-    "photoLinks": [""]
+    "photoLinks": [""],
+    "author": "Jumpalottahigh"
   },
   {
     "lat": "60.306075",
@@ -84,6 +90,7 @@
       "https://www.instagram.com/p/BpaWedhnVsu/?taken-by=fpvtips",
       "https://www.instagram.com/p/BpaWhm4nVZX/?taken-by=fpvtips",
       "https://www.instagram.com/p/BpaWl6VnnVN/?taken-by=fpvtips"
-    ]
+    ],
+    "author": "Jumpalottahigh"
   }
 ]

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import PaperCard from './PaperCard'
 import FAB from './FAB'
 
+import { FaInstagram, FaYoutube } from 'react-icons/fa'
 import TextField from '@material-ui/core/TextField'
 import Modal from '@material-ui/core/Modal'
 import Button from '@material-ui/core/Button'
@@ -13,19 +14,27 @@ import InputLabel from '@material-ui/core/InputLabel'
 import MenuItem from '@material-ui/core/MenuItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import Snackbar from '@material-ui/core/Snackbar'
-import { FaInstagram, FaYoutube } from 'react-icons/fa'
+import InputAdornment from '@material-ui/core/InputAdornment'
+import IconButton from '@material-ui/core/IconButton'
+import AddBox from '@material-ui/icons/AddBox'
+import Clear from '@material-ui/icons/Clear'
 
 import fire from '../../utils/firebase'
 import mapLegendData from '../../data/mapLegendData'
 
 const modalDimensions = {
   width: '360px',
-  height: '620px',
+  height: '720px',
+}
+
+const modalDimensions700 = {
+  width: '450px',
+  height: '720px',
 }
 
 const modalDimensions900 = {
   width: '560px',
-  height: '660px',
+  height: '720px',
 }
 
 const MenuProps = {
@@ -43,6 +52,13 @@ const StyledModal = styled(Modal)`
   left: calc(50% - ${modalDimensions.width} / 2) !important;
   height: ${modalDimensions.height};
   width: ${modalDimensions.width};
+
+  @media (min-width: 700px) {
+    top: calc(50% - ${modalDimensions700.height} / 2) !important;
+    left: calc(50% - ${modalDimensions700.width} / 2) !important;
+    width: ${modalDimensions700.width};
+    height: ${modalDimensions700.height};
+  }
 
   @media (min-width: 900px) {
     top: calc(50% - ${modalDimensions900.height} / 2) !important;
@@ -63,6 +79,19 @@ const IconLabel = styled.div`
   }
 `
 
+const UploadedLink = styled.div`
+  display: flex;
+  align-items: center;
+  font-size: 0.7rem;
+  color: forestgreen;
+
+  .uploaded-link__clear {
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #000;
+  }
+`
+
 export default class SubmitFormFPVSpot extends React.Component {
   constructor(props) {
     super(props)
@@ -75,6 +104,8 @@ export default class SubmitFormFPVSpot extends React.Component {
         title: '',
         description: '',
         features: [],
+        currentYoutubeLink: '',
+        currentInstagramLink: '',
         instagramLinks: [],
         youtubeLinks: [],
         author: '',
@@ -106,18 +137,18 @@ export default class SubmitFormFPVSpot extends React.Component {
   // Modal form submit
   handleFormSubmit = e => {
     e.preventDefault()
-
     // Extract and set data
     let {
       title,
       description,
       features,
-      instagramLinks,
-      youtubeLinks,
+      instagramLinks = [],
+      youtubeLinks = [],
       author,
     } = this.state.form
 
     // Basic form validation
+    // Check for required fields
     if (title == '' || description == '') return
 
     // Get new marker data
@@ -170,6 +201,78 @@ export default class SubmitFormFPVSpot extends React.Component {
         }, 3000)
       }
     )
+  }
+
+  handleAddMoreInstagramLinks = () => {
+    // Extract elements from state
+    let { instagramLinks, currentInstagramLink } = this.state.form
+    let instagramLinkRegex = /(https?:\/\/www\.)?instagram\.com(\/p\/\w+\/?)/
+
+    // Accept only valid links
+    if (currentInstagramLink.match(instagramLinkRegex)) {
+      instagramLinks = [...instagramLinks, currentInstagramLink]
+    } else {
+      currentInstagramLink = ''
+    }
+
+    this.setState({
+      form: {
+        ...this.state.form,
+        instagramLinks,
+        currentInstagramLink: '',
+      },
+    })
+  }
+
+  handleAddMoreYoutubeLinks = () => {
+    // Extract elements from state
+    let { youtubeLinks, currentYoutubeLink } = this.state.form
+    let youtubeLinkRegex = /^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+$/
+
+    // Accept only valid links
+    if (currentYoutubeLink.match(youtubeLinkRegex)) {
+      youtubeLinks = [...youtubeLinks, currentYoutubeLink]
+    } else {
+      currentYoutubeLink = ''
+    }
+
+    this.setState({
+      form: {
+        ...this.state.form,
+        youtubeLinks,
+        currentYoutubeLink: '',
+      },
+    })
+  }
+
+  handleRemoveInstagramLink = e => {
+    let { instagramLinks } = this.state.form
+
+    // Remove the element with the specific ID
+    instagramLinks.splice(e.target.dataset.linkId, 1)
+
+    // Update state
+    this.setState({
+      form: {
+        ...this.state.form,
+        instagramLinks,
+      },
+    })
+  }
+
+  handleRemoveYoutubeLink = e => {
+    let { youtubeLinks } = this.state.form
+
+    // Remove the element with the specific ID
+    youtubeLinks.splice(e.target.dataset.linkId, 1)
+
+    // Update state
+    this.setState({
+      form: {
+        ...this.state.form,
+        youtubeLinks,
+      },
+    })
   }
 
   render() {
@@ -281,8 +384,6 @@ export default class SubmitFormFPVSpot extends React.Component {
                   </Select>
                 </React.Fragment>
               )}
-              {/* TODO: These will need to be extensible to be able to add more than 1 link */}
-
               <TextField
                 id="instagramLinks"
                 label={
@@ -291,11 +392,36 @@ export default class SubmitFormFPVSpot extends React.Component {
                     <span className="text">{instagramLinks}</span>
                   </IconLabel>
                 }
-                value={this.state.form.instagramLinks}
-                onChange={this.handleChange('instagramLinks')}
+                value={this.state.form.currentInstagramLink}
+                onChange={this.handleChange('currentInstagramLink')}
                 margin="normal"
                 variant="outlined"
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="Add more items"
+                        onClick={this.handleAddMoreInstagramLinks}
+                      >
+                        <AddBox />
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
               />
+
+              {/* Render list of successfully uploaded instagram links */}
+              {this.state.form.instagramLinks.map((link, index) => (
+                <UploadedLink key={index}>
+                  {link}{' '}
+                  <Clear
+                    className="uploaded-link__clear"
+                    data-link-id={index}
+                    onClick={this.handleRemoveInstagramLink}
+                  />
+                </UploadedLink>
+              ))}
+
               <TextField
                 id="youtubeLinks"
                 label={
@@ -304,11 +430,36 @@ export default class SubmitFormFPVSpot extends React.Component {
                     <span className="text">{youtubeLinks}</span>
                   </IconLabel>
                 }
-                value={this.state.form.youtubeLinks}
-                onChange={this.handleChange('youtubeLinks')}
+                value={this.state.form.currentYoutubeLink}
+                onChange={this.handleChange('currentYoutubeLink')}
                 margin="normal"
                 variant="outlined"
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="Add more items"
+                        onClick={this.handleAddMoreYoutubeLinks}
+                      >
+                        <AddBox />
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
               />
+
+              {/* Render list of successfully uploaded youtube links */}
+              {this.state.form.youtubeLinks.map((link, index) => (
+                <UploadedLink key={index}>
+                  {link}{' '}
+                  <Clear
+                    className="uploaded-link__clear"
+                    data-link-id={index}
+                    onClick={this.handleRemoveYoutubeLink}
+                  />
+                </UploadedLink>
+              ))}
+
               <TextField
                 id="author"
                 label={author}

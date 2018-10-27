@@ -100,6 +100,12 @@ class SimpleTabs extends React.Component {
                   <span>Features: </span>
                   <FeatureIcons place={currentPlaceData.features} />
                 </div>
+                {currentPlaceData.author && (
+                  <p>
+                    <span>Added by: </span>
+                    {currentPlaceData.author}
+                  </p>
+                )}
               </div>
             </Place>
             <MapLegend />
