@@ -22,6 +22,9 @@ import Clear from '@material-ui/icons/Clear'
 import fire from '../../utils/firebase'
 import mapLegendData from '../../data/mapLegendData'
 
+const INSTAGRAM_LINK_REGEX = /(https?:\/\/www\.)?instagram\.com(\/p\/\w+\/?)/
+const YOUTUBE_LINK_REGEX = /^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+$/
+
 const modalDimensions = {
   width: '360px',
   height: '720px',
@@ -142,7 +145,9 @@ export default class SubmitFormFPVSpot extends React.Component {
       title,
       description,
       features,
+      currentInstagramLink,
       instagramLinks = [],
+      currentYoutubeLink,
       youtubeLinks = [],
       author,
     } = this.state.form
@@ -160,6 +165,17 @@ export default class SubmitFormFPVSpot extends React.Component {
       lng = this.state.form.newMarker.lng
     }
 
+    // Accept only valid links
+    if (currentInstagramLink.match(INSTAGRAM_LINK_REGEX)) {
+      instagramLinks = [...instagramLinks, currentInstagramLink]
+    }
+
+    // Accept only valid links
+    if (currentYoutubeLink.match(YOUTUBE_LINK_REGEX)) {
+      youtubeLinks = [...youtubeLinks, currentYoutubeLink]
+    }
+
+    // Prepare data object
     let data = {
       title,
       description,
@@ -188,6 +204,8 @@ export default class SubmitFormFPVSpot extends React.Component {
           features: [],
           instagramLinks: [],
           youtubeLinks: [],
+          currentInstagramLink: '',
+          currentYoutubeLink: '',
           author: '',
           newMarker: {
             lat,
@@ -206,10 +224,9 @@ export default class SubmitFormFPVSpot extends React.Component {
   handleAddMoreInstagramLinks = () => {
     // Extract elements from state
     let { instagramLinks, currentInstagramLink } = this.state.form
-    let instagramLinkRegex = /(https?:\/\/www\.)?instagram\.com(\/p\/\w+\/?)/
 
     // Accept only valid links
-    if (currentInstagramLink.match(instagramLinkRegex)) {
+    if (currentInstagramLink.match(INSTAGRAM_LINK_REGEX)) {
       instagramLinks = [...instagramLinks, currentInstagramLink]
     } else {
       currentInstagramLink = ''
@@ -227,10 +244,9 @@ export default class SubmitFormFPVSpot extends React.Component {
   handleAddMoreYoutubeLinks = () => {
     // Extract elements from state
     let { youtubeLinks, currentYoutubeLink } = this.state.form
-    let youtubeLinkRegex = /^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+$/
 
     // Accept only valid links
-    if (currentYoutubeLink.match(youtubeLinkRegex)) {
+    if (currentYoutubeLink.match(YOUTUBE_LINK_REGEX)) {
       youtubeLinks = [...youtubeLinks, currentYoutubeLink]
     } else {
       currentYoutubeLink = ''
