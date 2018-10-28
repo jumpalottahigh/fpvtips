@@ -6,17 +6,18 @@
     ],
     "color": "#000",
     "bgcolor": "#fff",
+    "video": "https://www.youtube.com/embed/yJbo2Nqh6IM?rel=0",
     "buttons": [
       {
         "link": "/dictionary/",
         "label": "Submit a dictionary item",
         "variant": "contained",
-        "color": "default",
+        "color": "primary",
         "minWidth": "240px"
       },
       {
         "link": "/fpv-map/",
-        "color": "default",
+        "color": "primary",
         "label": "Submit a FPV spot"
       }
     ]
