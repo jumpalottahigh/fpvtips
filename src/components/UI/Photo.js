@@ -1,9 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
-import Zoom from './Zoom'
+import Modal from '@material-ui/core/Modal'
+
+const modalDimensions = {
+  width: '360px',
+  height: '400px',
+}
+
+const StyledModal = styled(Modal)`
+  display: flex;
+  top: calc(50% - ${modalDimensions.height} / 2) !important;
+  left: calc(50% - ${modalDimensions.width} / 2) !important;
+  height: ${modalDimensions.height};
+  width: ${modalDimensions.width};
+`
 
 const StyledImage = styled.img`
-  transition: 1s all;
+  cursor: pointer;
+  max-width: 100%;
+  transition: 500ms all;
 
   &:hover {
     box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
@@ -11,7 +26,30 @@ const StyledImage = styled.img`
   }
 `
 
+const StyledModalImage = styled.img`
+  max-width: 100%;
+  transform: scale(2);
+`
+
 export default class Photo extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      open: false,
+    }
+  }
+
+  // Modal
+  handleOpen = () => {
+    this.setState({ open: true })
+  }
+
+  // Modal
+  handleClose = () => {
+    this.setState({ open: false })
+  }
+
   render() {
     const { src } = this.props
 
@@ -35,9 +73,26 @@ export default class Photo extends React.Component {
     fullUrl.href += 'media'
 
     return (
-      <Zoom>
-        <StyledImage src={fullUrl.href} draggable="false" />
-      </Zoom>
+      <React.Fragment>
+        <div>
+          <StyledImage
+            src={fullUrl.href}
+            draggable="false"
+            onClick={this.handleOpen}
+          />
+        </div>
+
+        <StyledModal
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+          open={this.state.open}
+          onClose={this.handleClose}
+        >
+          <div>
+            <StyledModalImage src={fullUrl.href} draggable="false" />
+          </div>
+        </StyledModal>
+      </React.Fragment>
     )
   }
 }
