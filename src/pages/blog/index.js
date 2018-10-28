@@ -47,7 +47,7 @@ class IndexPage extends React.Component {
           {posts.map(({ node }, index) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
-              <Fade key={node.fields.slug} bottom>
+              <Fade key={node.fields.slug} bottom ssrFadeout={true}>
                 <StyledBlogLink to={node.fields.slug}>
                   <PaperCard hoverable="true" style={{ height: '100%' }}>
                     <h3>{title}</h3>

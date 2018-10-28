@@ -203,7 +203,7 @@ class IndexPage extends React.Component {
             <h1>Let's bring the FPV community closer together and flying!</h1>
             <Grid>
               {pageList.map((page, index) => (
-                <Fade key={index} bottom delay={index * 25}>
+                <Fade key={index} bottom delay={index * 25} ssrFadeout={true}>
                   <Link to={page.link}>
                     <PaperCard hoverable="true" scale="true">
                       <img src={page.image} style={{ width: '150px' }} />
@@ -214,7 +214,7 @@ class IndexPage extends React.Component {
                 </Fade>
               ))}
             </Grid>
-            <Fade bottom duration={1500}>
+            <Fade bottom duration={1500} ssrFadeout={true}>
               <AnnouncementCard>
                 <PaperCard color="#fff" bgcolor="#576A70">
                   This project is still in <span>public beta</span> and some
@@ -226,7 +226,7 @@ class IndexPage extends React.Component {
                 </PaperCard>
               </AnnouncementCard>
             </Fade>
-            <Fade bottom duration={2500}>
+            <Fade bottom duration={2500} ssrFadeout={true}>
               <div style={{ paddingBottom: '3.5rem' }}>
                 <h3>Current progress:</h3>
                 <StyledFeatureList>
