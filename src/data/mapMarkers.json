@@ -11,9 +11,10 @@
       "https://www.youtube.com/watch?v=TkdUIZi9ay8"
     ],
     "photoLinks": [
-      "https://www.instagram.com/p/BpXrDG6nwkM/?taken-by=fpvtips",
-      "https://www.instagram.com/p/BpXq9rkne7j/?taken-by=fpvtips",
-      "https://www.instagram.com/p/BpXrA2fHTEA/?taken-by=fpvtips"
+      "https://www.instagram.com/p/BpXrDG6nwkM",
+      "https://www.instagram.com/p/BpXq9rkne7j",
+      "https://www.instagram.com/p/BpXrA2fHTEA",
+      "https://www.instagram.com/p/Bpeq0fkHIMh"
     ],
     "author": "Jumpalottahigh"
   },
@@ -28,9 +29,9 @@
       "https://www.youtube.com/watch?v=p_OVnSWcVzU"
     ],
     "photoLinks": [
-      "https://www.instagram.com/p/BpaTx_gHQEc/?taken-by=fpvtips",
-      "https://www.instagram.com/p/BpaT23bn8aI/?taken-by=fpvtips",
-      "https://www.instagram.com/p/BpaT5i5HSOJ/?taken-by=fpvtips"
+      "https://www.instagram.com/p/BpaTx_gHQEc",
+      "https://www.instagram.com/p/BpaT23bn8aI",
+      "https://www.instagram.com/p/BpaT5i5HSOJ"
     ],
     "author": "Jumpalottahigh"
   },
@@ -40,8 +41,14 @@
     "label": "Porvo FPV race track",
     "description": "Club FPV race track.",
     "features": ["trees", "crops", "micro", "mini"],
-    "videoLinks": ["https://www.youtube.com/watch?v=geXnCoNvBPk"],
-    "photoLinks": ["https://www.instagram.com/p/BnzG_OEhua0/?taken-by=fpvtips"],
+    "videoLinks": [
+      "https://www.youtube.com/watch?v=geXnCoNvBPk",
+      "https://www.youtube.com/watch?v=WSS3_00TVT8"
+    ],
+    "photoLinks": [
+      "https://www.instagram.com/p/BpepsQYHSmV",
+      "https://www.instagram.com/p/BpepkB9nHfj"
+    ],
     "author": "Jumpalottahigh"
   },
   {
@@ -52,8 +59,8 @@
     "features": ["trees", "crops", "mini"],
     "videoLinks": ["https://www.youtube.com/watch?v=g9CZeOO2yjw"],
     "photoLinks": [
-      "https://www.instagram.com/p/BpeliQqH3bD/?taken-by=fpvtips",
-      "https://www.instagram.com/p/Bpel8v6nhtR/?taken-by=fpvtips"
+      "https://www.instagram.com/p/BpeliQqH3bD",
+      "https://www.instagram.com/p/Bpel8v6nhtR"
     ],
     "author": "Jumpalottahigh"
   },
@@ -73,8 +80,16 @@
     "label": "Ruoholahti park",
     "description": "Very small mini park close to a daycare playground. Good for micros only.",
     "features": ["trees", "water", "micro"],
-    "videoLinks": [""],
-    "photoLinks": [""],
+    "videoLinks": [
+      "https://www.youtube.com/watch?v=euq1b4cHLAc",
+      "https://www.youtube.com/watch?v=2uUvhZCnxKk",
+      "https://www.youtube.com/watch?v=F6gXNQNMXDU"
+    ],
+    "photoLinks": [
+      "https://www.instagram.com/p/BpesVYon3hb",
+      "https://www.instagram.com/p/BpesSz1ndXi",
+      "https://www.instagram.com/p/BpesQhhnwGb"
+    ],
     "author": "Jumpalottahigh"
   },
   {
@@ -88,11 +103,11 @@
       "https://www.youtube.com/watch?v=dd4Ou1v3DWg"
     ],
     "photoLinks": [
-      "https://www.instagram.com/p/BpaWYt_HBWu/?taken-by=fpvtips",
-      "https://www.instagram.com/p/BpaWbU_nK_Q/?taken-by=fpvtips",
-      "https://www.instagram.com/p/BpaWedhnVsu/?taken-by=fpvtips",
-      "https://www.instagram.com/p/BpaWhm4nVZX/?taken-by=fpvtips",
-      "https://www.instagram.com/p/BpaWl6VnnVN/?taken-by=fpvtips"
+      "https://www.instagram.com/p/BpaWYt_HBWu",
+      "https://www.instagram.com/p/BpaWbU_nK_Q",
+      "https://www.instagram.com/p/BpaWedhnVsu",
+      "https://www.instagram.com/p/BpaWhm4nVZX",
+      "https://www.instagram.com/p/BpaWl6VnnVN"
     ],
     "author": "Jumpalottahigh"
   }
