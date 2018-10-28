@@ -40,7 +40,7 @@
     "label": "Porvo FPV race track",
     "description": "Club FPV race track.",
     "features": ["trees", "crops", "micro", "mini"],
-    "videoLinks": ["https://www.youtube.com/watch?v=geXnCoNvBPk&"],
+    "videoLinks": ["https://www.youtube.com/watch?v=geXnCoNvBPk"],
     "photoLinks": ["https://www.instagram.com/p/BnzG_OEhua0/?taken-by=fpvtips"],
     "author": "Jumpalottahigh"
   },
@@ -50,8 +50,11 @@
     "label": "Field near stable",
     "description": "Huge open field close to a stable, surrounder by forest and near a highway (but not too near)",
     "features": ["trees", "crops", "mini"],
-    "videoLinks": [""],
-    "photoLinks": [""],
+    "videoLinks": ["https://www.youtube.com/watch?v=g9CZeOO2yjw"],
+    "photoLinks": [
+      "https://www.instagram.com/p/BpeliQqH3bD/?taken-by=fpvtips",
+      "https://www.instagram.com/p/Bpel8v6nhtR/?taken-by=fpvtips"
+    ],
     "author": "Jumpalottahigh"
   },
   {

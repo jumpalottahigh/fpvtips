@@ -47,20 +47,20 @@ class IndexPage extends React.Component {
           {posts.map(({ node }, index) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
-              <Fade key={node.fields.slug} bottom ssrFadeout={true}>
-                <StyledBlogLink to={node.fields.slug}>
-                  <PaperCard hoverable="true" style={{ height: '100%' }}>
-                    <h3>{title}</h3>
-                    <small>{node.frontmatter.date}</small>
-                    <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-                    <div>
-                      <small>
-                        {node.timeToRead} min read by {node.frontmatter.author}
-                      </small>
-                    </div>
-                  </PaperCard>
-                </StyledBlogLink>
-              </Fade>
+              // <Fade key={node.fields.slug} bottom ssrFadeout={true}>
+              <StyledBlogLink key={node.fields.slug} to={node.fields.slug}>
+                <PaperCard hoverable="true" style={{ height: '100%' }}>
+                  <h3>{title}</h3>
+                  <small>{node.frontmatter.date}</small>
+                  <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+                  <div>
+                    <small>
+                      {node.timeToRead} min read by {node.frontmatter.author}
+                    </small>
+                  </div>
+                </PaperCard>
+              </StyledBlogLink>
+              // </Fade>
             )
           })}
         </Grid>

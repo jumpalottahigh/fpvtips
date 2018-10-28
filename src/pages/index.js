@@ -203,41 +203,41 @@ class IndexPage extends React.Component {
             <h1>Let's bring the FPV community closer together and flying!</h1>
             <Grid>
               {pageList.map((page, index) => (
-                <Fade key={index} bottom delay={index * 25} ssrFadeout={true}>
-                  <Link to={page.link}>
-                    <PaperCard hoverable="true" scale="true">
-                      <img src={page.image} style={{ width: '150px' }} />
-                      <br />
-                      {page.title}
-                    </PaperCard>
-                  </Link>
-                </Fade>
+                // <Fade key={index} bottom delay={index * 25} ssrFadeout={true}>
+                <Link key={index} to={page.link}>
+                  <PaperCard hoverable="true" scale="true">
+                    <img src={page.image} style={{ width: '150px' }} />
+                    <br />
+                    {page.title}
+                  </PaperCard>
+                </Link>
+                // </Fade>
               ))}
             </Grid>
-            <Fade bottom duration={1500} ssrFadeout={true}>
-              <AnnouncementCard>
-                <PaperCard color="#fff" bgcolor="#576A70">
-                  This project is still in <span>public beta</span> and some
-                  features might be still missing. The official launch date is{' '}
-                  <span>
-                    Nov 3<sup>rd</sup> 2018
-                  </span>
-                  .
-                </PaperCard>
-              </AnnouncementCard>
-            </Fade>
-            <Fade bottom duration={2500} ssrFadeout={true}>
-              <div style={{ paddingBottom: '3.5rem' }}>
-                <h3>Current progress:</h3>
-                <StyledFeatureList>
-                  {featureListContent.map(({ label, completed }, index) => (
-                    <li key={index} className={completed ? 'completed' : ''}>
-                      {label}
-                    </li>
-                  ))}
-                </StyledFeatureList>
-              </div>
-            </Fade>
+            {/* <Fade bottom duration={1500} ssrFadeout={true}> */}
+            <AnnouncementCard>
+              <PaperCard color="#fff" bgcolor="#576A70">
+                This project is still in <span>public beta</span> and some
+                features might be still missing. The official launch date is{' '}
+                <span>
+                  Nov 3<sup>rd</sup> 2018
+                </span>
+                .
+              </PaperCard>
+            </AnnouncementCard>
+            {/* </Fade> */}
+            {/* <Fade bottom duration={2500} ssrFadeout={true}> */}
+            <div style={{ paddingBottom: '3.5rem' }}>
+              <h3>Current progress:</h3>
+              <StyledFeatureList>
+                {featureListContent.map(({ label, completed }, index) => (
+                  <li key={index} className={completed ? 'completed' : ''}>
+                    {label}
+                  </li>
+                ))}
+              </StyledFeatureList>
+            </div>
+            {/* </Fade> */}
           </Intro>
           {/* Home Page Sections */}
           {homePageSections.map(section => (
