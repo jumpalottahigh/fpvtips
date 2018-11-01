@@ -4,24 +4,35 @@ import styled from 'styled-components'
 import Button from '@material-ui/core/Button'
 import SyncIcon from '@material-ui/icons/Sync'
 
+import {
+  waterDrop,
+  wind,
+  bolts,
+  arrowUp,
+  hillsMountains,
+  urban,
+} from '../utils/svg'
+
 // Configure open weather map API key
 const API_KEY = process.env.GATSBY_OPEN_WEATHER_MAP_KEY
 const LS_KEY_WEATHER_DATA = 'fpvtips_weather_data'
 const LS_KEY_CACHE_TIMESTAMP = 'fpvtips_cache_timestamp'
 const TIME_TO_CACHE = 3600 // in seconds
 
-const WeatherList = styled.ul`
-  list-style-type: none;
-  padding: 0;
-  width: 100%;
-  margin: 0 auto;
-
-  li {
-    text-align: left;
+const WeatherSection = styled.div`
+  span {
+    font-weight: 500;
+    font-size: 16px;
+  }
+  h4 span {
+    text-transform: uppercase;
+    font-size: 18px;
   }
 
-  @media (min-width: 650px) {
-    width: 250px;
+  img {
+    width: 32px;
+    height: 32px;
+    margin-right: 1rem;
   }
 `
 
@@ -72,6 +83,45 @@ class WeatherInfo extends React.Component {
     })
   }
 
+  // Takes in kelvin temperature and returns C and F values
+  convertTemperature = kelvin => {
+    if (!kelvin) return
+
+    let temperatureString = ''
+    let celsius = kelvin - 273.15
+    let farenhein = (celsius * 9) / 5 + 32
+
+    temperatureString = `${celsius}°C | ${farenhein}°F
+    `
+    return temperatureString
+  }
+
+  // Takes in a timestamp and returns hour and minute
+  timestampToTime = ts => {
+    if (!ts) return
+
+    ts = ts * 1000
+    let dateString = ''
+    let date = new Date(ts)
+
+    dateString = `${date.getHours()}:${date.getMinutes()}`
+
+    return dateString
+  }
+
+  // Takes in a timestamp and returns full year, month, day, hour and minute
+  timestampToDate = ts => {
+    if (!ts) return
+
+    ts = ts * 1000
+    let dateString = ''
+    let date = new Date(ts)
+
+    dateString = `${date.toDateString()} ${date.getHours()}:${date.getMinutes()}`
+
+    return dateString
+  }
+
   componentDidMount() {
     // Check LS for cached data
     const cachedData = JSON.parse(
@@ -106,6 +156,45 @@ class WeatherInfo extends React.Component {
   render() {
     const { weather } = this.state
 
+    // Calculate time since last update
+    const lastUpdateAt = this.timestampToDate(weather.dt)
+    let humidity = ''
+    let pressure = ''
+    let temperature = ''
+    let windDeg = ''
+    let windSpeed = ''
+    let sunrise = ''
+    let sunset = ''
+
+    // Get main weather data
+    if (weather.main) {
+      // Calculate temperature in C and F
+      temperature = this.convertTemperature(weather.main.temp)
+
+      // Grab humidity
+      humidity = weather.main.humidity
+
+      // Grab pressure
+      pressure = weather.main.pressure
+    }
+
+    // Get wind data
+    if (weather.wind) {
+      // Grab wind direction
+      windDeg = weather.wind.deg
+
+      // Grab windSpeed
+      windSpeed = weather.wind.speed
+    }
+
+    // Get sunrise and sunset data
+    if (weather.sys) {
+      // Grab the sunrise data
+      sunrise = this.timestampToTime(weather.sys.sunrise)
+      // Grab the sunset data
+      sunset = this.timestampToTime(weather.sys.sunset)
+    }
+
     return (
       <div
         style={{
@@ -115,18 +204,61 @@ class WeatherInfo extends React.Component {
           justifyContent: 'center',
         }}
       >
-        {this.state.cacheTimestamp ? (
-          // If we have a cached data, render it
+        {this.state.cacheTimestamp && weather ? (
+          // If we have cached data, render it
           <React.Fragment>
-            <h4>Current weather:</h4>
-            <WeatherList>
-              <li>🌤️ {weather.weather[0].description}</li>
-              <li>💨 Wind speed: {weather.wind.speed}</li>
-              <li>🌫️ Wind deg: {weather.wind.deg}</li>
-              <li>🌡️ Temperature: {weather.main.temp}</li>
-              <li>🗜️ Pressure: {weather.main.pressure}</li>
-              <li>💧 Humidity: {weather.main.humidity}</li>
-            </WeatherList>
+            {/*
+              Data available in the open weather API:
+              ---------------------------------------
+              location / location name
+              dt - timestamp of info update from API
+              temperature
+              humidity
+              pressure
+              wind speed
+              wind deg
+              sunrise
+              sunset
+            */}
+            <WeatherSection>
+              <h4>
+                Current weather in <span>{weather.name}</span>:
+              </h4>
+              <div>
+                updated at:{' '}
+                <span>{lastUpdateAt != undefined ? lastUpdateAt : ''}</span>
+              </div>
+              <div>
+                temperature:{' '}
+                <span>{temperature != undefined ? temperature : ''}</span>
+              </div>
+              <div>
+                <img src={waterDrop} alt="Humidity icon" />
+                humidity: <span>{humidity != undefined ? humidity : ''}</span>
+              </div>
+              <div>
+                <img src={bolts} alt="Pressure icon" />
+                pressure: <span>{pressure != undefined ? pressure : ''}</span>
+              </div>
+              <div>
+                <img src={wind} alt="Wind icon" />
+                wind speed:{' '}
+                <span>{windSpeed != undefined ? windSpeed : ''}</span>
+              </div>
+              <div>
+                <img src={arrowUp} alt="Wind direction icon" />
+                wind direction:{' '}
+                <span>{windDeg != undefined ? windDeg : ''}</span>
+              </div>
+              <div>
+                <img src={hillsMountains} alt="Sunrise icon" />
+                sunrise: <span>{sunrise != undefined ? sunrise : ''}</span>
+              </div>
+              <div>
+                <img src={urban} alt="Sunset icon" />
+                sunset: <span>{sunset != undefined ? sunset : ''}</span>
+              </div>
+            </WeatherSection>
           </React.Fragment>
         ) : (
           // Otherwise display the fetch button

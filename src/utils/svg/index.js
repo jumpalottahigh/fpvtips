@@ -1,3 +1,4 @@
+import arrowUp from './arrowUp.svg'
 import beach from './beach.svg'
 import bolts from './bolts.svg'
 import bookmarkedPage from './bookmarked-page.svg'
@@ -24,6 +25,7 @@ import waterDroplets from './water-droplets.svg'
 import wind from './wind.svg'
 
 export {
+  arrowUp,
   beach,
   bolts,
   bookmarkedPage,
