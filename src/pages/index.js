@@ -26,14 +26,8 @@ const featureListContent = [
     completed: true,
   },
   {
-    label: 'Preview spots with videos and photos',
-
+    label: 'Watch videos and photos from FPV spots',
     completed: true,
-  },
-  {
-    label: 'Share location and meet other FPV pilots',
-
-    completed: false,
   },
   {
     label: 'Live wind and weather conditions',
@@ -41,7 +35,11 @@ const featureListContent = [
     completed: true,
   },
   {
-    label: 'Beginner friendly FPV glossary / dictionary',
+    label: 'Submit a dictionary entry',
+    completed: true,
+  },
+  {
+    label: 'Beginner friendly FPV dictionary',
     completed: false,
   },
   {
@@ -49,8 +47,8 @@ const featureListContent = [
     completed: false,
   },
   {
-    label: 'Submit a dictionary entry',
-    completed: true,
+    label: 'Shopping list',
+    completed: false,
   },
   {
     label: 'Submit an article to the blog',
@@ -58,6 +56,14 @@ const featureListContent = [
   },
   {
     label: 'Quad builder - 3D model playground',
+    completed: false,
+  },
+  {
+    label: 'Share location and meet other FPV pilots',
+    completed: false,
+  },
+  {
+    label: 'Pilot accounts',
     completed: false,
   },
 ]
@@ -214,21 +220,9 @@ class IndexPage extends React.Component {
                 // </Fade>
               ))}
             </Grid>
-            {/* <Fade bottom duration={1500} ssrFadeout={true}> */}
-            <AnnouncementCard>
-              <PaperCard color="#fff" bgcolor="#576A70">
-                This project is still in <span>public beta</span> and some
-                features might be still missing. The official launch date is{' '}
-                <span>
-                  Nov 3<sup>rd</sup> 2018
-                </span>
-                .
-              </PaperCard>
-            </AnnouncementCard>
-            {/* </Fade> */}
             {/* <Fade bottom duration={2500} ssrFadeout={true}> */}
-            <div style={{ paddingBottom: '3.5rem' }}>
-              <h3>Current progress:</h3>
+            <div style={{ padding: '3rem 0' }}>
+              <h3>Features:</h3>
               <StyledFeatureList>
                 {featureListContent.map(({ label, completed }, index) => (
                   <li key={index} className={completed ? 'completed' : ''}>
