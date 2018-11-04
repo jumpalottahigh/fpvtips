@@ -125,7 +125,7 @@ export default class DictionaryPage extends React.Component {
                     <h3>{node.title}</h3>
                     <p>{node.description}</p>
                     {node.link && (
-                      <a href={node.link}>
+                      <a href={node.link} target="_blank" rel="noreferrer">
                         <LinkIcon />
                       </a>
                     )}
@@ -139,7 +139,7 @@ export default class DictionaryPage extends React.Component {
                     <h3>{node.title}</h3>
                     <p>{node.description}</p>
                     {node.link && (
-                      <a href={node.link}>
+                      <a href={node.link} target="_blank" rel="noreferrer">
                         <LinkIcon />
                       </a>
                     )}
