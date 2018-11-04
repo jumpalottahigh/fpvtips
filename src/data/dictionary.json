@@ -46,5 +46,17 @@
     "description": "Stands for Flight Controller. The main \"brain\" of the quadcopter that takes radio input from the receiver, signal from gyroscopes and accelerometers, and controls the angle of the drone. ",
     "link": "",
     "title": "FC"
+  },
+  {
+    "author": "Power_FPV",
+    "description": "Abbreviation for On Screen Display. This overlays important flight statistics (battery voltage, RSSI, altitude etc.) On the FPV feed.",
+    "link": "",
+    "title": "OSD"
+  },
+  {
+    "author": "Power_FPV",
+    "description": "Dshot is a digital protocol for communication between the flight controller and ESC's",
+    "link": "https://oscarliang.com/dshot/",
+    "title": "Dshot"
   }
 ]
