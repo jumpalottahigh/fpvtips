@@ -22,5 +22,29 @@
     "description": "Your radio transmitter controller. The unit that sends instructions over (usually) 2.4GHz to the receiver on the drone",
     "link": "",
     "author": ""
+  },
+  {
+    "author": "Power_FPV",
+    "description": "Slang for abandoned building. Very popular for both racing and freestyle pilots",
+    "link": "",
+    "title": "Bando"
+  },
+  {
+    "author": "Power_FPV",
+    "description": "Abbreviation for Crossfire, a long range 868mhz/915mhz radio protocol",
+    "link": "",
+    "title": "XF"
+  },
+  {
+    "author": "Power_FPV",
+    "description": "Slang for Lithium Polymer battery. 99.99% of fpv quads run LiPo batteries due to their high density, light weight and power output.",
+    "link": "",
+    "title": "LiPo"
+  },
+  {
+    "author": "Power_FPV",
+    "description": "Stands for Flight Controller. The main \"brain\" of the quadcopter that takes radio input from the receiver, signal from gyroscopes and accelerometers, and controls the angle of the drone. ",
+    "link": "",
+    "title": "FC"
   }
 ]
