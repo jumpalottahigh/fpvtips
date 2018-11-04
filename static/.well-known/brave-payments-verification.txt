@@ -1,0 +1,4 @@
+This is a Brave Payments publisher verification file.
+
+Domain: fpvtips.com
+Token: f6da546790edf43cb5f58c86a76c9d00c58fb0e9db07649dab63b9fede80669d
