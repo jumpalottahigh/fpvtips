@@ -7,7 +7,7 @@ export default class Marker extends React.Component {
     const {
       $hover,
       isNewMarker,
-      label,
+      title,
       description,
       features,
       isHighlighted,
@@ -51,13 +51,13 @@ export default class Marker extends React.Component {
           !isNewMarker && (
             <MarkerInfo
               style={{ zIndex: 999 }}
-              label={label}
+              title={title}
               description={description}
               features={features}
             />
           )}
         {/* Tooltip for new place marker */}
-        {isNewMarker && <MarkerInfo label={`Tap ➕ to save this spot`} />}
+        {isNewMarker && <MarkerInfo title={`Tap ➕ to save this spot`} />}
       </div>
     )
   }

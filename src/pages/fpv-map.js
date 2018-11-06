@@ -41,7 +41,7 @@ export const mapMarkersQuery = graphql`
           id
           lat
           lng
-          label
+          title
           description
           features
           author

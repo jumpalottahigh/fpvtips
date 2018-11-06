@@ -144,7 +144,7 @@ class SimpleMap extends React.Component {
                 id={marker.id}
                 lat={marker.lat}
                 lng={marker.lng}
-                label={marker.label}
+                title={marker.title}
                 description={marker.description}
                 features={marker.features}
                 author={marker.author}

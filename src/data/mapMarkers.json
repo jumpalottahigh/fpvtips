@@ -2,7 +2,7 @@
   {
     "lat": "60.295",
     "lng": "25.306",
-    "label": "Football field",
+    "title": "Football field",
     "description": "Huge open field, river close by.",
     "features": ["trees", "water", "crops", "micro", "mini"],
     "videoLinks": [
@@ -21,7 +21,7 @@
   {
     "lat": "60.288",
     "lng": "25.317",
-    "label": "Harbor and field",
+    "title": "Harbor and field",
     "description": "Huge open field, harbor close by.",
     "features": ["trees", "water", "crops", "mini"],
     "videoLinks": [
@@ -38,7 +38,7 @@
   {
     "lat": "60.3933",
     "lng": "25.607",
-    "label": "Porvo FPV race track",
+    "title": "Porvo FPV race track",
     "description": "Club FPV race track.",
     "features": ["trees", "crops", "micro", "mini"],
     "videoLinks": [
@@ -54,7 +54,7 @@
   {
     "lat": "60.2644395",
     "lng": "25.2032662",
-    "label": "Field near stable",
+    "title": "Field near stable",
     "description": "Huge open field close to a stable, surrounder by forest and near a highway (but not too near)",
     "features": ["trees", "crops", "mini"],
     "videoLinks": ["https://www.youtube.com/watch?v=g9CZeOO2yjw"],
@@ -67,7 +67,7 @@
   {
     "lat": "60.225339",
     "lng": "24.799384",
-    "label": "Leppavaara park open fields",
+    "title": "Leppavaara park open fields",
     "description": "Huge open fields next to a small football field and a park.",
     "features": ["trees", "crops", "mini"],
     "videoLinks": [""],
@@ -77,7 +77,7 @@
   {
     "lat": "60.1616957",
     "lng": "24.9105249",
-    "label": "Ruoholahti park",
+    "title": "Ruoholahti park",
     "description": "Very small mini park close to a daycare playground. Good for micros only.",
     "features": ["trees", "water", "micro"],
     "videoLinks": [
@@ -95,7 +95,7 @@
   {
     "lat": "60.306075",
     "lng": "25.3887936",
-    "label": "Field near Sipoo school yard",
+    "title": "Field near Sipoo school yard",
     "description": "Many, really huge open fields near a school playground. Some trees and a basketball court for diversity.",
     "features": ["trees", "crops", "mini"],
     "videoLinks": [
@@ -110,5 +110,21 @@
       "https://www.instagram.com/p/BpaWl6VnnVN"
     ],
     "author": "Jumpalottahigh"
+  },
+  {
+    "author": "@No_CQRT",
+    "description": "Indoor/outdoor Place for FPV race and practice; inside the \"volandia\" museum",
+    "features": ["urban", "micro", "mini"],
+    "lat": "45.63065808225107",
+    "lng": "8.70668099344141",
+    "title": "Volandia terminal3"
+  },
+  {
+    "author": "",
+    "description": "Mix of different sporting fields with light trees and structures around",
+    "features": ["trees", "urban", "micro", "mini"],
+    "lat": "42.36579260744509",
+    "lng": "-71.13020886529358",
+    "title": "Harvard Practice Fields"
   }
 ]

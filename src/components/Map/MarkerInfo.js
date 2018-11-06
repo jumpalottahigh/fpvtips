@@ -32,10 +32,10 @@ export default class MarkerInfo extends React.Component {
   }
 
   render() {
-    const { features, label } = this.props
+    const { features, title } = this.props
     return (
       <StyledPaperCard>
-        <h5>{label}</h5>
+        <h5>{title}</h5>
         {features && <FeatureIcons place={features} size="1" />}
       </StyledPaperCard>
     )

@@ -89,8 +89,8 @@ class SimpleTabs extends React.Component {
             <Place>
               <div>
                 <h3>
-                  <span>Label: </span>
-                  {currentPlaceData.label}
+                  <span>Title: </span>
+                  {currentPlaceData.title}
                 </h3>
                 <p>
                   <span>Description: </span>
