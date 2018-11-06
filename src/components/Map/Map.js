@@ -90,9 +90,13 @@ class SimpleMap extends React.Component {
           center: { lat: latitude, lng: longitude },
           loading: false,
         })
+
+        // TODO: Calculate if there is any spots near to where the user is and select one of those to display instead of a random one
+        this.handleDiscoverNewSpot()
       },
       () => {
         this.setState({ loading: false })
+        this.handleDiscoverNewSpot()
       }
     )
   }
