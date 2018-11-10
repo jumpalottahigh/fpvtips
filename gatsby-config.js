@@ -37,7 +37,7 @@ module.exports = {
     author: 'Georgi Yanev',
     description:
       "Let's bring the FPV community closer together and help new people get into the hobby!",
-    siteUrl: 'https://fpvtips.com',
+    siteUrl: 'https://www.fpvtips.com',
   },
   plugins: [
     {
