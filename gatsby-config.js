@@ -61,6 +61,9 @@ module.exports = {
               main: '#f5f5f5',
             },
           },
+          typography: {
+            useNextVariants: true,
+          },
         },
       },
     },
