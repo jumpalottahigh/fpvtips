@@ -57,8 +57,7 @@ export default class DictionaryPage extends React.Component {
     const searchResults = this.state.dictionary.filter(({ node }) => {
       if (
         node.title.toLowerCase().includes(value.toLowerCase()) ||
-        node.description.toLowerCase().includes(value.toLowerCase()) ||
-        node.author.toLowerCase().includes(value.toLowerCase())
+        node.description.toLowerCase().includes(value.toLowerCase())
       ) {
         return node
       }
