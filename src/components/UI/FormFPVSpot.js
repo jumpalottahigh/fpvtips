@@ -18,6 +18,7 @@ import InputAdornment from '@material-ui/core/InputAdornment'
 import IconButton from '@material-ui/core/IconButton'
 import AddBox from '@material-ui/icons/AddBox'
 import Clear from '@material-ui/icons/Clear'
+import FormControl from '@material-ui/core/FormControl'
 
 import fire from '../../utils/firebase'
 import mapLegendData from '../../data/mapLegendData'
@@ -366,7 +367,7 @@ export default class SubmitFormFPVSpot extends React.Component {
                 variant="outlined"
               />
               {!this.props.noFeaturesInput && (
-                <React.Fragment>
+                <FormControl variant="outlined" margin="normal">
                   <InputLabel htmlFor="select-multiple-checkbox">
                     {features}
                   </InputLabel>
@@ -376,7 +377,7 @@ export default class SubmitFormFPVSpot extends React.Component {
                     onChange={this.handleChange('features')}
                     input={
                       <OutlinedInput
-                        labelWidth={0}
+                        labelWidth={70}
                         id="select-multiple-checkbox"
                       />
                     }
@@ -398,7 +399,7 @@ export default class SubmitFormFPVSpot extends React.Component {
                       </MenuItem>
                     ))}
                   </Select>
-                </React.Fragment>
+                </FormControl>
               )}
               <TextField
                 id="instagramLinks"

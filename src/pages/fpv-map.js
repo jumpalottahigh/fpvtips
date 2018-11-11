@@ -27,7 +27,7 @@ const FPVMapPage = ({ data }) => (
         },
       ]}
     />
-    <Map markers={data.allMapMarkersJson.edges} />
+    <Map markers={data.allContentfulMapMarkers.edges} />
   </Layout>
 )
 
@@ -35,7 +35,7 @@ export default FPVMapPage
 
 export const mapMarkersQuery = graphql`
   query mapMarkersQuery {
-    allMapMarkersJson {
+    allContentfulMapMarkers {
       edges {
         node {
           id
