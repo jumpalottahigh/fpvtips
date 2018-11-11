@@ -4,5 +4,9 @@
   },
   "openWeatherMap": {
     "key": ""
+  },
+  "contentful": {
+    "spaceId": "",
+    "accessToken": ""
   }
 }

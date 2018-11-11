@@ -13,6 +13,10 @@ try {
     googleMaps: {
       key: process.env.GATSBY_GOOGLE_MAPS_KEY,
     },
+    contentful: {
+      spaceId: process.env.GATSBY_CONTENTFUL_SPACE_ID,
+      accessToken: process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN,
+    },
   }
 } finally {
   if (!config.openWeatherMap.key) {
@@ -25,6 +29,11 @@ try {
 
   if (config.googleMaps) {
     process.env.GATSBY_GOOGLE_MAPS_KEY = config.googleMaps.key
+  }
+
+  if (config.contentful) {
+    process.env.GATSBY_CONTENTFUL_SPACE_ID = config.contentful.spaceId
+    process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN = config.contentful.accessToken
   }
 
   process.env.GATSBY_OPEN_WEATHER_MAP_KEY = config.openWeatherMap.key
@@ -117,8 +126,14 @@ module.exports = {
         icon: `src/assets/fpvtips-logo-512.png`,
       },
     },
-    `gatsby-plugin-remove-serviceworker`,
-    // `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: config.contentful.spaceId,
+        // Learn about environment variables: https://gatsby.app/env-vars
+        accessToken: config.contentful.accessToken,
+      },
+    },
   ],
 }

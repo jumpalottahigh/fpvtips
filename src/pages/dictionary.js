@@ -41,7 +41,7 @@ export default class DictionaryPage extends React.Component {
     super(props)
 
     // Get data from props
-    let dictionary = props.data.allDictionaryJson.edges
+    let dictionary = props.data.allContentfulDictionaryItem.edges
 
     this.state = {
       search: '', // Search input
@@ -85,6 +85,8 @@ export default class DictionaryPage extends React.Component {
   }
 
   render() {
+    const { dictionary, filtered, search } = this.state
+
     return (
       <Layout>
         <Helmet
@@ -113,13 +115,13 @@ export default class DictionaryPage extends React.Component {
           }}
           style={{ width: '100%', maxWidth: '300px', marginBottom: '2rem' }}
           onChange={this.handleSearch}
-          value={this.state.search}
+          value={search}
         />
 
         {/* Dictionary item grid list */}
         <Grid>
-          {this.state.filtered.length > 0
-            ? this.state.filtered.map(({ node }) => {
+          {filtered.length > 0
+            ? filtered.map(({ node }) => {
                 return (
                   <StyledPaperCard key={node.id}>
                     <h3>{node.title}</h3>
@@ -133,7 +135,7 @@ export default class DictionaryPage extends React.Component {
                   </StyledPaperCard>
                 )
               })
-            : this.state.dictionary.map(({ node }) => {
+            : dictionary.map(({ node }) => {
                 return (
                   <StyledPaperCard key={node.id}>
                     <h3>{node.title}</h3>
@@ -158,7 +160,7 @@ export default class DictionaryPage extends React.Component {
 
 export const dictionaryPageQuery = graphql`
   query dictionaryPageQuery {
-    allDictionaryJson {
+    allContentfulDictionaryItem {
       edges {
         node {
           id
