@@ -6,7 +6,7 @@
     ],
     "color": "#000",
     "bgcolor": "#fff",
-    "video": "https://www.youtube.com/embed/yJbo2Nqh6IM?rel=0",
+    "video": "https://www.youtube.com/watch?v=yJbo2Nqh6IM",
     "buttons": [
       {
         "link": "/dictionary/",
@@ -31,7 +31,7 @@
     ],
     "color": "#000",
     "bgcolor": "#eee",
-    "video": "https://www.youtube.com/embed/W_TeQMJbjgM?rel=0",
+    "video": "https://www.youtube.com/watch?v=W_TeQMJbjgM",
     "buttons": [
       {
         "link": "https://www.youtube.com/user/MrSteeledavis",

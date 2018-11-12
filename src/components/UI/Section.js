@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import Button from '@material-ui/core/Button'
+import Video from './Video'
 
 const StyledSection = styled.section`
   margin: 0 -1rem;
@@ -60,14 +61,7 @@ export default class Section extends React.Component {
         )}
         {video && (
           <div style={{ maxWidth: '640px', margin: '2rem auto' }}>
-            <iframe
-              width="100%"
-              height="315"
-              src={video}
-              frameBorder="0"
-              title="Flying FPV video"
-              allowFullScreen=""
-            />
+            <Video width="100%" height="315" src={video} title={title} />
           </div>
         )}
         {buttons && (

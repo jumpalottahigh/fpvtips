@@ -90,7 +90,7 @@ export default class Video extends Component {
           </Fragment>
         ) : (
           <VideoIFrame
-            src={`https://www.youtube.com/embed/${videoId}?rel=0&showinfo=0&autoplay=1&enablejsapi=1&origin=https://www.f-secure.com`}
+            src={`https://www.youtube.com/embed/${videoId}?rel=0&showinfo=0&autoplay=1&origin=https://www.fpvtips.com`}
             allowFullScreen
             frameBorder="0"
             width={width}
