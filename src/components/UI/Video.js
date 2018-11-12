@@ -67,8 +67,9 @@ export default class Video extends Component {
 
   render() {
     const { src, width, height, title } = this.props
+    const isBrowser = typeof window !== 'undefined'
 
-    if (!src) return null
+    if (!src || !isBrowser) return null
 
     const fullUrl = new URL(src)
     let videoId = fullUrl.search.split('v=')[1]
