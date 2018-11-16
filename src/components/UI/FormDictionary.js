@@ -49,7 +49,7 @@ function sendToContentful({ title, description, link, author }) {
 
 const modalDimensions = {
   width: '360px',
-  height: '500px',
+  height: '510px',
 }
 
 const StyledModal = styled(Modal)`
@@ -205,6 +205,7 @@ export default class SubmitForm extends React.Component {
                 id="description"
                 label={description}
                 multiline
+                rows="2"
                 rowsMax="4"
                 value={this.state.form.description}
                 onChange={this.handleChange('description')}
