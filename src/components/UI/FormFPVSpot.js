@@ -322,7 +322,11 @@ export default class SubmitFormFPVSpot extends React.Component {
             ContentProps={{
               'aria-describedby': 'message-id',
             }}
-            message={<span id="message-id">Saved</span>}
+            message={
+              <span id="message-id">
+                Saved! Your entry will be up in a few minutes!
+              </span>
+            }
           />
         )}
 

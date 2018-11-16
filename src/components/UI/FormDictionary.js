@@ -1,4 +1,5 @@
 import React from 'react'
+import * as contentful from 'contentful-management'
 import styled from 'styled-components'
 import PaperCard from './PaperCard'
 import FAB from './FAB'
@@ -8,7 +9,43 @@ import Modal from '@material-ui/core/Modal'
 import Button from '@material-ui/core/Button'
 import Snackbar from '@material-ui/core/Snackbar'
 
-import fire from '../../utils/firebase'
+const CONTENTFUL_PERSONAL_TOKEN =
+  process.env.GATSBY_CONTENTFUL_PERSONAL_ACCESS_TOKEN
+const CONTENTFUL_SPACE = process.env.GATSBY_CONTENTFUL_SPACE_ID
+const CONTENTFUL_CONTENT_TYPE_ID = 'dictionaryItem'
+const CONTENTFUL_ENVIRONMENT = 'master'
+
+function sendToContentful({ title, description, link, author }) {
+  const client = contentful.createClient({
+    accessToken: CONTENTFUL_PERSONAL_TOKEN,
+  })
+
+  // Create entry
+  client
+    .getSpace(CONTENTFUL_SPACE)
+    .then(space => space.getEnvironment(CONTENTFUL_ENVIRONMENT))
+    .then(environment =>
+      environment.createEntry(CONTENTFUL_CONTENT_TYPE_ID, {
+        fields: {
+          title: {
+            'en-US': title,
+          },
+          description: {
+            'en-US': description,
+          },
+          link: {
+            'en-US': link,
+          },
+          author: {
+            'en-US': author,
+          },
+        },
+      })
+    )
+    .then(entry => entry.publish())
+    .then(entry => console.log(`Entry ${entry.sys.id} published.`))
+    .catch(console.error)
+}
 
 const modalDimensions = {
   width: '360px',
@@ -78,11 +115,8 @@ export default class SubmitForm extends React.Component {
       author,
     }
 
-    // Send data to Firebase
-    fire
-      .database()
-      .ref(this.props.fireNode)
-      .push(data)
+    // Send data to Contentful
+    sendToContentful(data)
 
     // Clear form and state and close modal
     this.setState(
@@ -132,7 +166,11 @@ export default class SubmitForm extends React.Component {
             ContentProps={{
               'aria-describedby': 'message-id',
             }}
-            message={<span id="message-id">Submitted!</span>}
+            message={
+              <span id="message-id">
+                Submitted! Your entry will be up in a few minutes!
+              </span>
+            }
           />
         )}
 

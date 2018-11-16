@@ -8,6 +8,7 @@
     "@material-ui/icons": "^3.0.1",
     "@wapps/gatsby-plugin-material-ui": "^1.0.7",
     "babel-plugin-styled-components": "^1.5.1",
+    "contentful-management": "^5.4.0",
     "firebase": "^5.5.0",
     "gatsby": "^2.0.10",
     "gatsby-plugin-feed": "^2.0.0",

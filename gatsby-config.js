@@ -16,6 +16,7 @@ try {
     contentful: {
       spaceId: process.env.GATSBY_CONTENTFUL_SPACE_ID,
       accessToken: process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN,
+      personalAccessToken: process.env.GATSBY_CONTENTFUL_PERSONAL_ACCESS_TOKEN,
     },
   }
 } finally {
@@ -34,6 +35,8 @@ try {
   if (config.contentful) {
     process.env.GATSBY_CONTENTFUL_SPACE_ID = config.contentful.spaceId
     process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN = config.contentful.accessToken
+    process.env.GATSBY_CONTENTFUL_PERSONAL_ACCESS_TOKEN =
+      config.contentful.personalAccessToken
   }
 
   process.env.GATSBY_OPEN_WEATHER_MAP_KEY = config.openWeatherMap.key
