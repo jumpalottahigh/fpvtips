@@ -339,14 +339,11 @@ export default class SubmitFormFPVSpot extends React.Component {
           <PaperCard style={{ width: '100%', overflow: 'auto' }}>
             <form
               name={this.props.name}
-              data-netlify="true"
               autoComplete="off"
               noValidate
               onSubmit={this.handleFormSubmit}
               style={{ display: 'flex', flexDirection: 'column' }}
             >
-              {/* Needed for Netlify form submissions */}
-              <input type="hidden" name="form-name" value={this.props.name} />
               <h4 style={{ textAlign: 'center', marginBottom: 0 }}>
                 {heading}
               </h4>
