@@ -10,7 +10,7 @@ import Wrapper from './Wrapper'
 
 import ogImage from '../../assets/fpvtips-og.png'
 
-const Layout = ({ children }) => (
+const Layout = ({ children, backgroundColor, backgroundImage }) => (
   <StaticQuery
     query={graphql`
       query SiteTitle {
@@ -57,7 +57,12 @@ const Layout = ({ children }) => (
           ]}
         />
         <AppBar />
-        <Wrapper>{children}</Wrapper>
+        <Wrapper
+          backgroundColor={backgroundColor}
+          backgroundImage={backgroundImage}
+        >
+          {children}
+        </Wrapper>
         <Footer />
       </React.Fragment>
     )}

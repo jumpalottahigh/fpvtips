@@ -17,6 +17,10 @@ const StyledBlogLink = styled(Link)`
   }
 `
 
+// TODO: these need work
+// const backgroundColor = '#cadbd4'
+// const backgroundImage = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='143' height='143' viewBox='0 0 90 90'%3E%3Ccircle fill-opacity='0.47' fill='%230073d4' cx='45' cy='45' r='19'/%3E%3Cg fill='%23435059' fill-opacity='0.47'%3E%3Ccircle cx='0' cy='90' r='10'/%3E%3Ccircle cx='90' cy='90' r='10'/%3E%3Ccircle cx='90' cy='0' r='10'/%3E%3Ccircle cx='0' cy='0' r='10'/%3E%3C/g%3E%3C/svg%3E")`
+
 const helmetStrings = {
   title: 'Fpvtips | Blog',
   description: 'Here you will find useful articles on many FPV drone topics.',

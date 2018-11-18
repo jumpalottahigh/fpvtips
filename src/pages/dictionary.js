@@ -28,6 +28,10 @@ const StyledPaperCard = styled(PaperCard)`
   }
 `
 
+// TODO: these need work
+// const backgroundColor = '#5cabca'
+// const backgroundImage = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='77' height='77' viewBox='0 0 120 120'%3E%3Cpolygon fill='%23ffffff' fill-opacity='0.18' points='120 0 120 60 90 30 60 0 0 0 0 0 60 60 0 120 60 120 90 90 120 60 120 0'/%3E%3C/svg%3E")`
+
 const helmetStrings = {
   title: 'Fpvtips | Dictionary',
   description:
