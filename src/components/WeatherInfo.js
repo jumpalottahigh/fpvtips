@@ -91,7 +91,7 @@ class WeatherInfo extends React.Component {
     let celsius = kelvin - 273.15
     let farenhein = (celsius * 9) / 5 + 32
 
-    temperatureString = `${celsius}°C | ${farenhein}°F
+    temperatureString = `${celsius.toFixed(1)}°C | ${farenhein.toFixed(1)}°F
     `
     return temperatureString
   }
@@ -245,11 +245,18 @@ class WeatherInfo extends React.Component {
                 wind speed:{' '}
                 <span>{windSpeed != undefined ? windSpeed : ''}</span>
               </div>
-              <div>
-                <img src={arrowUp} alt="Wind direction icon" />
-                wind direction:{' '}
-                <span>{windDeg != undefined ? windDeg : ''}</span>
-              </div>
+              {windDeg != undefined && (
+                <div>
+                  <img
+                    src={arrowUp}
+                    // Apply an additional 180 rotate to the arrow to make it point in the right direction
+                    // wind coming from the north should be at 0 deg.
+                    style={{ transform: `rotate(${windDeg + 180}deg)` }}
+                    alt="Wind direction icon"
+                  />
+                  wind direction: <span>{windDeg}</span>
+                </div>
+              )}
               <div>
                 <img src={hillsMountains} alt="Sunrise icon" />
                 sunrise: <span>{sunrise != undefined ? sunrise : ''}</span>
