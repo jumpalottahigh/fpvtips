@@ -40,7 +40,7 @@ const featureListContent = [
   },
   {
     label: 'Beginner friendly FPV dictionary',
-    completed: false,
+    completed: true,
   },
   {
     label: 'Recommended tools, upvoted by the community',

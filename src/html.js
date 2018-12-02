@@ -9,6 +9,10 @@ export default class HTML extends React.Component {
           <meta charSet="utf-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
           <meta
+            name="google-site-verification"
+            content="hdUlr38Ew_zLyV0nIGrLsVhO23iOWnPkMKcTcNgCR3Y"
+          />
+          <meta
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
