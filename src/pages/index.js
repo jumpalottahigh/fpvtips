@@ -249,22 +249,45 @@ class IndexPage extends React.Component {
             <h3>Hi, I'm Georgi</h3>
             <p>
               I'm a {` `}
-              <a href="https://blog.georgi-yanev.com/learning/how-i-got-into-software-development/">
+              <a
+                className="highlight"
+                href="https://blog.georgi-yanev.com/learning/how-i-got-into-software-development/"
+              >
                 web developer
               </a>
               . You can find me on{' '}
-              <a href="https://twitter.com/jumpalottahigh">twitter</a>,{' '}
-              <a href="https://github.com/jumpalottahigh">github</a>,{' '}
-              <a href="https://twitch.com/jumpalottahigh">twitch</a> and{' '}
-              <a href="https://www.linkedin.com/in/yanevgeorgi">linkedin</a>.
+              <a
+                className="highlight"
+                href="https://twitter.com/jumpalottahigh"
+              >
+                twitter
+              </a>
+              ,{' '}
+              <a className="highlight" href="https://github.com/jumpalottahigh">
+                github
+              </a>
+              ,{' '}
+              <a className="highlight" href="https://twitch.com/jumpalottahigh">
+                twitch
+              </a>{' '}
+              and{' '}
+              <a
+                className="highlight"
+                href="https://www.linkedin.com/in/yanevgeorgi"
+              >
+                linkedin
+              </a>
+              .
               <br />
               <br />I <strong>write code</strong>, solve problems and sometimes
               stream on twitch. I also <strong>love flying FPV drones</strong>,
               3D printing, contributing to open source, and working on FPVTIPS.
               <br />
               <br />I also{' '}
-              <a href="https://blog.georgi-yanev.com">maintain a blog</a> where
-              I write about life, goals, software and flying FPV drones.
+              <a className="highlight" href="https://blog.georgi-yanev.com">
+                maintain a blog
+              </a>{' '}
+              where I write about life, goals, software and flying FPV drones.
             </p>
             <div className="video-wrapper">
               <video
@@ -288,9 +311,14 @@ class IndexPage extends React.Component {
 
           <p style={{ margin: '3rem auto', maxWidth: '65ch' }}>
             If you want to get involved,{' '}
-            <a href="mailto:georgiyanev.gy@gmail.com">get in touch</a> or check
-            out the{' '}
-            <a href="https://github.com/jumpalottahigh/fpvtips">
+            <a className="highlight" href="mailto:georgiyanev.gy@gmail.com">
+              get in touch
+            </a>{' '}
+            or check out the{' '}
+            <a
+              className="highlight"
+              href="https://github.com/jumpalottahigh/fpvtips"
+            >
               project repository
             </a>
             . Or,{' '}
