@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
 import Helmet from 'react-helmet'
-import { Fade } from 'react-reveal'
 
 import Layout from '../components/Layout/layout'
 import PaperCard from '../components/UI/PaperCard'
@@ -267,7 +266,7 @@ class IndexPage extends React.Component {
                 github
               </a>
               ,{' '}
-              <a className="highlight" href="https://twitch.com/jumpalottahigh">
+              <a className="highlight" href="https://twitch.tv/jumpalottahigh">
                 twitch
               </a>{' '}
               and{' '}
@@ -306,7 +305,7 @@ class IndexPage extends React.Component {
           </Bio>
 
           <h2 style={{ color: '#0375d8', paddingTop: '2.5rem' }}>
-            So, let's fly together!
+            <Link to="/fpv-map/">So, let's fly together!</Link>
           </h2>
 
           <p style={{ margin: '3rem auto', maxWidth: '65ch' }}>
@@ -322,7 +321,7 @@ class IndexPage extends React.Component {
               project repository
             </a>
             . Or,{' '}
-            <Link to="/fpv-map/">
+            <Link className="highlight" to="/fpv-map/">
               submit info about an FPV spot you like flying so we can put it on
               the map.
             </Link>

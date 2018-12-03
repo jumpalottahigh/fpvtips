@@ -49,6 +49,21 @@ const Grid = styled(BaseGrid)`
   }
 `
 
+const TipsGrid = styled(BaseGrid)`
+  .tips {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    padding: 1rem;
+
+    img {
+      border-radius: 0;
+      max-height: 196px;
+      margin-bottom: 1rem;
+    }
+  }
+`
+
 const GettingStartedPage = () => (
   <Layout backgroundColor="#fff">
     <Helmet
@@ -82,24 +97,77 @@ const GettingStartedPage = () => (
       </p>
       <p>Here are some resources that could help you on your journey.</p>
     </Text>
-    {/* TODO: add some photos here and a couple of paragraphs */}
-    {/* <Text>
-      <div>
-        Picture of Transmitter and Liftoff
-        <br />
-        Fly simulators
+    {/* TODO: add some photos here */}
+    <TipsGrid
+      gap="3rem"
+      col600="1"
+      col900="2"
+      col1200="3"
+      style={{ padding: '3rem 0' }}
+    >
+      <div className="tips">
+        <img src="https://placehold.it/400x400" alt="Taranis Q X7" />
+        <p>
+          <strong>Fly simulators!</strong>
+          <br />
+          Get a decent radio, for example, a{' '}
+          <a href="https://bit.ly/taranis-qx7" className="highlight">
+            Taranis Q X7
+          </a>{' '}
+          and practice. I fly{' '}
+          <a href="https://www.liftoff-game.com/" className="highlight">
+            Liftoff
+          </a>{' '}
+          and I love it. Another decent choice should be{' '}
+          <a href="https://www.velocidrone.com/" className="highlight">
+            Velocidrone
+          </a>{' '}
+          and there certainly are others. Simulators are also a great way to get
+          throught the winter season.
+        </p>
       </div>
-      <div>
-        Picture of Snapper 7
-        <br />
-        Fly micro quads
+      <div className="tips">
+        <img src="https://placehold.it/400x400" alt="Snapper 7" />
+        <p>
+          <strong>Fly micro drones!</strong>
+          <br />
+          Micro quads are a great way to have a ton of fun and get into the
+          hobby. Don't let the name mislead you. In 2018, micro quads pack a LOT
+          of punch and should not be underestimated. These two options in
+          particular are awesome to fly indoors and outdoors and won't break the
+          bank:{' '}
+          <a href="https://bit.ly/mobula7" className="highlight">
+            Mobula
+          </a>{' '}
+          or{' '}
+          <a href="https://bit.ly/snapper-7" className="highlight">
+            Snapper 7
+          </a>
+          .
+        </p>
       </div>
-      <div>
-        Picture of Wizard and Furious
-        <br />
-        Fly mini quads
+      <div className="tips">
+        <img src="https://placehold.it/400x400" alt="Furious" />
+        <p>
+          <strong>Fly mini quads!</strong>
+          <br />
+          The FPV mini quad (usually a 5'' model) is a real beast. In some cases
+          could be a bit intimidating at first for beginners as they come with
+          plenty of power, but fear not, keep at it, stay safe and you will soon
+          get the hang of it. In other words, there isn't anything quite like
+          the real thing! I started flying on a{' '}
+          <a href="https://bit.ly/wizardx220" className="highlight">
+            Wizard x220
+          </a>{' '}
+          and then went on and built my own quad. There are some really good
+          options out there! And I have my eye set on a{' '}
+          <a href="https://bit.ly/diatone-m540" className="highlight">
+            Diatone 2018 GT-M540
+          </a>{' '}
+          for season 2019!
+        </p>
       </div>
-    </Text> */}
+    </TipsGrid>
     <div style={{ padding: '2rem 0' }}>
       <h2>Who to follow?</h2>
       <p>
