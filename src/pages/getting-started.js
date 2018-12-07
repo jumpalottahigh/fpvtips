@@ -4,6 +4,10 @@ import Helmet from 'react-helmet'
 import Layout from '../components/Layout/layout'
 import BaseGrid from '../components/UI/Grid'
 
+import goggles from '../assets/pages/getting-started/aomway-commander-goggles.jpg'
+import microQuad from '../assets/pages/getting-started/snapper7.jpg'
+import radio from '../assets/pages/getting-started/taranis-q-x7.jpg'
+
 const helmetStrings = {
   title: 'Fpvtips | Getting started',
   description:
@@ -58,7 +62,8 @@ const TipsGrid = styled(BaseGrid)`
 
     img {
       border-radius: 0;
-      max-height: 196px;
+      max-width: 100%;
+      max-height: 460px;
       margin-bottom: 1rem;
     }
   }
@@ -97,16 +102,15 @@ const GettingStartedPage = () => (
       </p>
       <p>Here are some resources that could help you on your journey.</p>
     </Text>
-    {/* TODO: add some photos here */}
     <TipsGrid
-      gap="3rem"
+      gap="1.5rem"
       col600="1"
-      col900="2"
+      col900="1"
       col1200="3"
       style={{ padding: '3rem 0' }}
     >
       <div className="tips">
-        <img src="https://placehold.it/400x400" alt="Taranis Q X7" />
+        <img src={radio} alt="Taranis Q X7" />
         <p>
           <strong>Fly simulators!</strong>
           <br />
@@ -127,7 +131,7 @@ const GettingStartedPage = () => (
         </p>
       </div>
       <div className="tips">
-        <img src="https://placehold.it/400x400" alt="Snapper 7" />
+        <img src={microQuad} alt="Snapper 7" />
         <p>
           <strong>Fly micro drones!</strong>
           <br />
@@ -147,7 +151,7 @@ const GettingStartedPage = () => (
         </p>
       </div>
       <div className="tips">
-        <img src="https://placehold.it/400x400" alt="Furious" />
+        <img src={goggles} alt="Aomway Commander goggles" />
         <p>
           <strong>Fly mini quads!</strong>
           <br />
