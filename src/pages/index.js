@@ -300,6 +300,7 @@ class IndexPage extends React.Component {
                   src="https://www.georgi-yanev.com/static/landing-a-quad-1-a959ba1dfed1d6abe2e8052b61bfb0b4.mp4"
                   type="video/mp4"
                 />
+                Tap to play video
               </video>
             </div>
           </Bio>
