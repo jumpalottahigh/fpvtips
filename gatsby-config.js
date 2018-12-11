@@ -141,5 +141,6 @@ module.exports = {
         accessToken: config.contentful.accessToken,
       },
     },
+    `gatsby-plugin-netlify`,
   ],
 }
