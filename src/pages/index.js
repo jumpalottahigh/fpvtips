@@ -208,7 +208,6 @@ class IndexPage extends React.Component {
             <h1>Let's bring the FPV community closer together and flying!</h1>
             <Grid>
               {pageList.map((page, index) => (
-                // <Fade key={index} bottom delay={index * 25} ssrFadeout={true}>
                 <Link key={index} to={page.link}>
                   <PaperCard hoverable="true" scale="true">
                     <img src={page.image} style={{ width: '150px' }} />
@@ -216,10 +215,8 @@ class IndexPage extends React.Component {
                     {page.title}
                   </PaperCard>
                 </Link>
-                // </Fade>
               ))}
             </Grid>
-            {/* <Fade bottom duration={2500} ssrFadeout={true}> */}
             <div style={{ padding: '3rem 0' }}>
               <h3>Features:</h3>
               <StyledFeatureList>
@@ -230,7 +227,6 @@ class IndexPage extends React.Component {
                 ))}
               </StyledFeatureList>
             </div>
-            {/* </Fade> */}
           </Intro>
           {/* Home Page Sections */}
           {homePageSections.map(section => (

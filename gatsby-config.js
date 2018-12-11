@@ -141,6 +141,12 @@ module.exports = {
         accessToken: config.contentful.accessToken,
       },
     },
-    `gatsby-plugin-netlify`,
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`Roboto:300,400,500`],
+      },
+    },
+    `gatsby-plugin-netlify`, // Keep this last in the list
   ],
 }
