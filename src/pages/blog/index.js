@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import { Fade } from 'react-reveal'
 
 import Layout from '../../components/Layout/layout'
 import PaperCard from '../../components/UI/PaperCard'
@@ -16,10 +15,6 @@ const StyledBlogLink = styled(Link)`
     color: initial;
   }
 `
-
-// TODO: these need work
-// const backgroundColor = '#cadbd4'
-// const backgroundImage = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='143' height='143' viewBox='0 0 90 90'%3E%3Ccircle fill-opacity='0.47' fill='%230073d4' cx='45' cy='45' r='19'/%3E%3Cg fill='%23435059' fill-opacity='0.47'%3E%3Ccircle cx='0' cy='90' r='10'/%3E%3Ccircle cx='90' cy='90' r='10'/%3E%3Ccircle cx='90' cy='0' r='10'/%3E%3Ccircle cx='0' cy='0' r='10'/%3E%3C/g%3E%3C/svg%3E")`
 
 const helmetStrings = {
   title: 'Fpvtips | Blog',
@@ -47,11 +42,11 @@ class IndexPage extends React.Component {
             },
           ]}
         />
+        <h1>Blog posts</h1>
         <Grid gap="3rem" col600="1" col900="2" col1200="3">
           {posts.map(({ node }, index) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
-              // <Fade key={node.fields.slug} bottom ssrFadeout={true}>
               <StyledBlogLink key={node.fields.slug} to={node.fields.slug}>
                 <PaperCard hoverable="true" style={{ height: '100%' }}>
                   <h3>{title}</h3>
@@ -64,7 +59,6 @@ class IndexPage extends React.Component {
                   </div>
                 </PaperCard>
               </StyledBlogLink>
-              // </Fade>
             )
           })}
         </Grid>

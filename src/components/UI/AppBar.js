@@ -9,7 +9,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 
 import Drawer from './Drawer'
 
-import logo from '../../assets/logo.png'
+import logo from '../../assets/logo.svg'
 
 const styles = {
   root: {
