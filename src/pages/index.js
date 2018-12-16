@@ -43,7 +43,7 @@ const featureListContent = [
   },
   {
     label: 'Recommended tools, upvoted by the community',
-    completed: false,
+    completed: true,
   },
   {
     label: 'Shopping list',

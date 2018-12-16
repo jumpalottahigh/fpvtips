@@ -9,13 +9,23 @@ import Modal from '@material-ui/core/Modal'
 import Button from '@material-ui/core/Button'
 import Snackbar from '@material-ui/core/Snackbar'
 
-const CONTENTFUL_PERSONAL_TOKEN =
+let CONTENTFUL_PERSONAL_TOKEN =
   process.env.GATSBY_CONTENTFUL_PERSONAL_ACCESS_TOKEN
-const CONTENTFUL_SPACE = process.env.GATSBY_CONTENTFUL_SPACE_ID
-const CONTENTFUL_CONTENT_TYPE_ID = 'dictionaryItem'
-const CONTENTFUL_ENVIRONMENT = 'master'
+let CONTENTFUL_SPACE = process.env.GATSBY_CONTENTFUL_SPACE_ID
+let CONTENTFUL_CONTENT_TYPE_ID = ''
+let CONTENTFUL_ENVIRONMENT = 'master'
 
 function sendToContentful({ title, description, link, author }) {
+  // If any of the contentful required variables are missing return
+  if (
+    !CONTENTFUL_PERSONAL_TOKEN ||
+    !CONTENTFUL_SPACE ||
+    !CONTENTFUL_CONTENT_TYPE_ID ||
+    !CONTENTFUL_ENVIRONMENT
+  ) {
+    return
+  }
+
   const client = contentful.createClient({
     accessToken: CONTENTFUL_PERSONAL_TOKEN,
   })
@@ -76,6 +86,8 @@ export default class SubmitForm extends React.Component {
         author: '',
       },
     }
+
+    CONTENTFUL_CONTENT_TYPE_ID = props.contentfulType
   }
 
   // Modal
