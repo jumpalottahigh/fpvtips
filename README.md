@@ -11,11 +11,11 @@
 ⭐ Watch videos and photos from FPV spots<br>
 ⭐ Live wind and weather conditions<br>
 ⭐ Submit a dictionary entry<br>
+⭐ Beginner friendly FPV dictionary<br>
+⭐ Recommended tools, upvoted by the community<br>
 
 #### Features coming later on:
 
-⭐ Beginner friendly FPV dictionary<br>
-⭐ Recommended tools, upvoted by the community<br>
 ⭐ Shopping list<br>
 ⭐ Submit an article to the blog<br>
 ⭐ Quad builder - 3D model playground

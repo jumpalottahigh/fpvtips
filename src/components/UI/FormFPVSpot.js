@@ -1,4 +1,5 @@
 import React from 'react'
+import * as contentful from 'contentful-management'
 import styled from 'styled-components'
 import PaperCard from './PaperCard'
 import FAB from './FAB'
@@ -20,8 +21,76 @@ import AddBox from '@material-ui/icons/AddBox'
 import Clear from '@material-ui/icons/Clear'
 import FormControl from '@material-ui/core/FormControl'
 
-import fire from '../../utils/firebase'
 import mapLegendData from '../../data/mapLegendData'
+
+let CONTENTFUL_PERSONAL_TOKEN =
+  process.env.GATSBY_CONTENTFUL_PERSONAL_ACCESS_TOKEN
+let CONTENTFUL_SPACE = process.env.GATSBY_CONTENTFUL_SPACE_ID
+let CONTENTFUL_CONTENT_TYPE_ID = ''
+let CONTENTFUL_ENVIRONMENT = 'master'
+
+function sendToContentful({
+  title,
+  description,
+  features,
+  instagramLinks,
+  youtubeLinks,
+  author,
+  lat,
+  lng,
+}) {
+  // If any of the contentful required variables are missing return
+  if (
+    !CONTENTFUL_PERSONAL_TOKEN ||
+    !CONTENTFUL_SPACE ||
+    !CONTENTFUL_CONTENT_TYPE_ID ||
+    !CONTENTFUL_ENVIRONMENT
+  ) {
+    return
+  }
+
+  const client = contentful.createClient({
+    accessToken: CONTENTFUL_PERSONAL_TOKEN,
+  })
+
+  // Create entry
+  client
+    .getSpace(CONTENTFUL_SPACE)
+    .then(space => space.getEnvironment(CONTENTFUL_ENVIRONMENT))
+    .then(environment =>
+      environment.createEntry(CONTENTFUL_CONTENT_TYPE_ID, {
+        fields: {
+          title: {
+            'en-US': title,
+          },
+          description: {
+            'en-US': description,
+          },
+          features: {
+            'en-US': features,
+          },
+          photoLinks: {
+            'en-US': instagramLinks,
+          },
+          videoLinks: {
+            'en-US': youtubeLinks,
+          },
+          author: {
+            'en-US': author,
+          },
+          lat: {
+            'en-US': lat,
+          },
+          lng: {
+            'en-US': lng,
+          },
+        },
+      })
+    )
+    .then(entry => entry.publish())
+    .then(entry => console.log(`Entry ${entry.sys.id} published.`))
+    .catch(console.error)
+}
 
 const INSTAGRAM_LINK_REGEX = /(https?:\/\/www\.)?instagram\.com(\/p\/\w+\/?)/
 const YOUTUBE_LINK_REGEX = /^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+$/
@@ -116,6 +185,8 @@ export default class SubmitFormFPVSpot extends React.Component {
         newMarker: this.props.newMarker || null,
       },
     }
+
+    CONTENTFUL_CONTENT_TYPE_ID = props.contentfulType
   }
 
   // Modal
@@ -188,11 +259,8 @@ export default class SubmitFormFPVSpot extends React.Component {
       lng,
     }
 
-    // Send data to Firebase
-    fire
-      .database()
-      .ref(this.props.fireNode)
-      .push(data)
+    // Send data to Contentful
+    sendToContentful(data)
 
     // Clear form and state and close modal
     this.setState(

@@ -7,9 +7,6 @@ try {
     openWeatherMap: {
       key: process.env.GATSBY_OPEN_WEATHER_MAP_KEY,
     },
-    firebase: {
-      key: process.env.GATSBY_FIREBASE_KEY,
-    },
     googleMaps: {
       key: process.env.GATSBY_GOOGLE_MAPS_KEY,
     },
@@ -24,10 +21,6 @@ try {
     throw new Error('OpenWeatherMap API key needs to be provided.')
   }
 
-  if (!config.firebase.key) {
-    throw new Error('Firebase API key needs to be provided.')
-  }
-
   if (config.googleMaps) {
     process.env.GATSBY_GOOGLE_MAPS_KEY = config.googleMaps.key
   }
@@ -40,7 +33,6 @@ try {
   }
 
   process.env.GATSBY_OPEN_WEATHER_MAP_KEY = config.openWeatherMap.key
-  process.env.GATSBY_FIREBASE_KEY = config.firebase.key
 }
 
 module.exports = {

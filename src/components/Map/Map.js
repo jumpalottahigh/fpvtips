@@ -175,7 +175,7 @@ class SimpleMap extends React.Component {
         {this.state.newMarker && (
           <FormFPVSpot
             name="submit-fpv-spot"
-            fireNode="fpv-map"
+            contentfulType="mapMarkers"
             newMarker={this.state.newMarker}
           />
         )}
