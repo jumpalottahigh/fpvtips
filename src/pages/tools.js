@@ -1,4 +1,5 @@
 import IconButton from '@material-ui/core/IconButton'
+import * as contentful from 'contentful-management'
 import { graphql } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
@@ -8,6 +9,42 @@ import Layout from '../components/Layout/layout'
 import FormDictionary from '../components/UI/FormDictionary'
 import Grid from '../components/UI/Grid'
 import PaperCard from '../components/UI/PaperCard'
+
+let CONTENTFUL_PERSONAL_TOKEN =
+  process.env.GATSBY_CONTENTFUL_PERSONAL_ACCESS_TOKEN
+let CONTENTFUL_SPACE = process.env.GATSBY_CONTENTFUL_SPACE_ID
+let CONTENTFUL_ENVIRONMENT = 'master'
+
+function sendToContentful({ contentful_id, score }) {
+  // If any of the contentful required variables are missing return
+  if (
+    !CONTENTFUL_PERSONAL_TOKEN ||
+    !CONTENTFUL_SPACE ||
+    !CONTENTFUL_ENVIRONMENT ||
+    !contentful_id ||
+    !score
+  ) {
+    return
+  }
+
+  const client = contentful.createClient({
+    accessToken: CONTENTFUL_PERSONAL_TOKEN,
+  })
+
+  // Create entry
+  client
+    .getSpace(CONTENTFUL_SPACE)
+    .then(space => space.getEnvironment(CONTENTFUL_ENVIRONMENT))
+    .then(environment =>
+      environment.getEntry(contentful_id).then(entry => {
+        entry.fields.score['en-US'] = score
+        return entry.update()
+      })
+    )
+    .then(entry => entry.publish())
+    .then(entry => console.log(`Entry ${entry.sys.id} updated.`))
+    .catch(console.error)
+}
 
 const StyledPaperCard = styled(PaperCard)`
   position: relative;
@@ -101,12 +138,14 @@ export default class ToolsPage extends React.Component {
   updateScore = (toolId, votedScore) => {
     // Mutate score in state
     let { tools } = this.state
+    let updatedTool
 
     // Find a matching id and update the score
     tools.forEach(tool => {
       if (tool.node.id === toolId) {
         tool.node.score = parseInt(tool.node.score) + parseInt(votedScore)
         tool.node.voted = true
+        updatedTool = tool.node
       }
     })
 
@@ -118,7 +157,8 @@ export default class ToolsPage extends React.Component {
     // Save a local copy of state to LS
     self.localStorage.setItem(LS_KEY_TOOLS_STATE, JSON.stringify(tools))
 
-    // Disable voting buttons if voted
+    // Update the data in Contentful
+    sendToContentful(updatedTool)
   }
 
   componentDidMount() {
@@ -227,6 +267,7 @@ export const toolsPageQuery = graphql`
       edges {
         node {
           id
+          contentful_id
           title
           description
           link
