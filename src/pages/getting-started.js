@@ -1,12 +1,10 @@
 import React from 'react'
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import Layout from '../components/Layout/layout'
 import BaseGrid from '../components/UI/Grid'
-
-import goggles from '../assets/pages/getting-started/aomway-commander-goggles.jpg'
-import microQuad from '../assets/pages/getting-started/snapper7.jpg'
-import radio from '../assets/pages/getting-started/taranis-q-x7.jpg'
 
 const helmetStrings = {
   title: 'Fpvtips | Getting started',
@@ -60,8 +58,9 @@ const TipsGrid = styled(BaseGrid)`
     align-items: center;
     padding: 1rem;
 
-    img {
+    .img-wrapper {
       border-radius: 0;
+      width: 100%;
       max-width: 100%;
       max-height: 460px;
       margin-bottom: 1rem;
@@ -69,7 +68,7 @@ const TipsGrid = styled(BaseGrid)`
   }
 `
 
-const GettingStartedPage = () => (
+const GettingStartedPage = ({ data }) => (
   <Layout backgroundColor="#fff">
     <Helmet
       title={helmetStrings.title}
@@ -110,7 +109,12 @@ const GettingStartedPage = () => (
       style={{ padding: '3rem 0' }}
     >
       <div className="tips">
-        <img src={radio} alt="Taranis Q X7" />
+        <div className="img-wrapper">
+          <Img
+            fluid={data.taranis.edges[0].node.childImageSharp.fluid}
+            alt={data.taranis.edges[0].node.name}
+          />
+        </div>
         <p>
           <strong>Fly simulators!</strong>
           <br />
@@ -131,7 +135,12 @@ const GettingStartedPage = () => (
         </p>
       </div>
       <div className="tips">
-        <img src={microQuad} alt="Snapper 7" />
+        <div className="img-wrapper">
+          <Img
+            fluid={data.snapper7.edges[0].node.childImageSharp.fluid}
+            alt={data.snapper7.edges[0].node.name}
+          />
+        </div>
         <p>
           <strong>Fly micro drones!</strong>
           <br />
@@ -151,7 +160,12 @@ const GettingStartedPage = () => (
         </p>
       </div>
       <div className="tips">
-        <img src={goggles} alt="Aomway Commander goggles" />
+        <div className="img-wrapper">
+          <Img
+            fluid={data.aomway.edges[0].node.childImageSharp.fluid}
+            alt={data.aomway.edges[0].node.name}
+          />
+        </div>
         <p>
           <strong>Fly mini quads!</strong>
           <br />
@@ -382,3 +396,53 @@ const GettingStartedPage = () => (
 )
 
 export default GettingStartedPage
+
+export const dictionaryPageQuery = graphql`
+  query {
+    taranis: allFile(
+      filter: { relativePath: { regex: "/^getting-started/taranis/" } }
+      sort: { fields: name, order: ASC }
+    ) {
+      edges {
+        node {
+          name
+          childImageSharp {
+            fluid(maxWidth: 575, quality: 75) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+      }
+    }
+    aomway: allFile(
+      filter: { relativePath: { regex: "/^getting-started/aomway/" } }
+      sort: { fields: name, order: ASC }
+    ) {
+      edges {
+        node {
+          name
+          childImageSharp {
+            fluid(maxWidth: 575, quality: 75) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+      }
+    }
+    snapper7: allFile(
+      filter: { relativePath: { regex: "/^getting-started/snapper7/" } }
+      sort: { fields: name, order: ASC }
+    ) {
+      edges {
+        node {
+          name
+          childImageSharp {
+            fluid(maxWidth: 575, quality: 75) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+      }
+    }
+  }
+`

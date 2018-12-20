@@ -10,6 +10,7 @@
     "babel-plugin-styled-components": "^1.9.4",
     "contentful-management": "^5.4.0",
     "gatsby": "^2.0.67",
+    "gatsby-image": "^2.0.25",
     "gatsby-plugin-feed": "^2.0.11",
     "gatsby-plugin-google-analytics": "^2.0.8",
     "gatsby-plugin-google-fonts": "^0.0.4",
