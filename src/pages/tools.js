@@ -124,7 +124,9 @@ const helmetStrings = {
 const backgroundImage = `url("/pattern-tools.svg")`
 
 const LS_KEY_TOOLS_STATE = 'fpvtips_tools_state'
-
+const LS_KEY_VOTED_TOOLS = 'fpvtips_voted_tools'
+const LS_KEY_TOOLS_STATE_CACHE_TIMESTAMP = 'fpvtips_tools_state_cache_timestamp'
+const TIME_TO_CACHE = 300 // in seconds
 export default class ToolsPage extends React.Component {
   constructor(props) {
     super(props)
@@ -132,6 +134,24 @@ export default class ToolsPage extends React.Component {
     this.state = {
       tools: [...props.data.allContentfulToolItem.edges],
     }
+  }
+
+  // Update list of voted tools in LS
+  updateVotedList = id => {
+    // Read tools voted list from LS
+    let votedToolsList =
+      JSON.parse(self.localStorage.getItem(LS_KEY_VOTED_TOOLS)) || []
+
+    // Save the ID if it's not in the list already
+    if (!votedToolsList.includes(id)) {
+      votedToolsList.push(id)
+    }
+
+    // Save back to LS
+    self.localStorage.setItem(
+      LS_KEY_VOTED_TOOLS,
+      JSON.stringify(votedToolsList)
+    )
   }
 
   // Upvote and downvote tools
@@ -143,9 +163,12 @@ export default class ToolsPage extends React.Component {
     // Find a matching id and update the score
     tools.forEach(tool => {
       if (tool.node.id === toolId) {
+        // Increment score
         tool.node.score = parseInt(tool.node.score) + parseInt(votedScore)
-        tool.node.voted = true
+        // Grab the updated node
         updatedTool = tool.node
+        // Add element to voted tools list in LS
+        this.updateVotedList(tool.node.id)
       }
     })
 
@@ -156,6 +179,11 @@ export default class ToolsPage extends React.Component {
 
     // Save a local copy of state to LS
     self.localStorage.setItem(LS_KEY_TOOLS_STATE, JSON.stringify(tools))
+    // Save a timestamp to cache the content for 5 minutes, until the Netlify build and deploy has passed
+    self.localStorage.setItem(
+      LS_KEY_TOOLS_STATE_CACHE_TIMESTAMP,
+      Math.floor(Date.now() / 1000)
+    )
 
     // Update the data in Contentful
     sendToContentful(updatedTool)
@@ -170,14 +198,30 @@ export default class ToolsPage extends React.Component {
     // If nothing in local storage, update LS with state
     if (!toolsCachedState) return
 
-    // Update state with cached tools state
-    this.setState({
-      tools: toolsCachedState,
-    })
+    // Get cache timestamp from LS
+    const cacheTimestamp = parseInt(
+      self.localStorage.getItem(LS_KEY_TOOLS_STATE_CACHE_TIMESTAMP)
+    )
+
+    // Current timestamp
+    const currentTimestamp = Math.floor(Date.now() / 1000)
+
+    // Update state with cached tools state if cache is still fresh
+    if (currentTimestamp < cacheTimestamp + TIME_TO_CACHE) {
+      this.setState({
+        tools: toolsCachedState,
+      })
+    } else {
+      // If LS cache is stale, clear it
+      self.localStorage.removeItem(LS_KEY_TOOLS_STATE)
+      self.localStorage.removeItem(LS_KEY_TOOLS_STATE_CACHE_TIMESTAMP)
+    }
   }
 
   render() {
     const { tools } = this.state
+    let votedToolsList =
+      JSON.parse(self.localStorage.getItem(LS_KEY_VOTED_TOOLS)) || []
 
     return (
       <Layout backgroundColor="#fff" backgroundImage={backgroundImage}>
@@ -227,14 +271,14 @@ export default class ToolsPage extends React.Component {
                     <IconButton
                       onClick={() => this.updateScore(node.id, 1)}
                       aria-label="Upvote"
-                      disabled={node.voted}
+                      disabled={votedToolsList.includes(node.id)}
                     >
                       <FaArrowUp />
                     </IconButton>
                     <IconButton
                       onClick={() => this.updateScore(node.id, -1)}
                       aria-label="Downvote"
-                      disabled={node.voted}
+                      disabled={votedToolsList.includes(node.id)}
                     >
                       <FaArrowDown />
                     </IconButton>
