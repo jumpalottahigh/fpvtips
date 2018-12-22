@@ -133,6 +133,7 @@ export default class ToolsPage extends React.Component {
 
     this.state = {
       tools: [...props.data.allContentfulToolItem.edges],
+      votedToolsList: [],
     }
   }
 
@@ -152,13 +153,15 @@ export default class ToolsPage extends React.Component {
       LS_KEY_VOTED_TOOLS,
       JSON.stringify(votedToolsList)
     )
+
+    return votedToolsList
   }
 
   // Upvote and downvote tools
   updateScore = (toolId, votedScore) => {
     // Mutate score in state
     let { tools } = this.state
-    let updatedTool
+    let updatedTool, votedToolsList
 
     // Find a matching id and update the score
     tools.forEach(tool => {
@@ -168,12 +171,13 @@ export default class ToolsPage extends React.Component {
         // Grab the updated node
         updatedTool = tool.node
         // Add element to voted tools list in LS
-        this.updateVotedList(tool.node.id)
+        votedToolsList = this.updateVotedList(tool.node.id)
       }
     })
 
     // Update state
     this.setState({
+      votedToolsList,
       tools,
     })
 
@@ -190,7 +194,12 @@ export default class ToolsPage extends React.Component {
   }
 
   componentDidMount() {
-    // Check LS for voted tools
+    // Check LS for voted tools ids
+    let votedToolsList = JSON.parse(
+      self.localStorage.getItem(LS_KEY_VOTED_TOOLS)
+    )
+
+    // Check LS for voted tools state
     let toolsCachedState = JSON.parse(
       self.localStorage.getItem(LS_KEY_TOOLS_STATE)
     )
@@ -208,9 +217,18 @@ export default class ToolsPage extends React.Component {
 
     // Update state with cached tools state if cache is still fresh
     if (currentTimestamp < cacheTimestamp + TIME_TO_CACHE) {
-      this.setState({
-        tools: toolsCachedState,
-      })
+      if (votedToolsList) {
+        this.setState({
+          ...this.state,
+          tools: toolsCachedState,
+          votedToolsList,
+        })
+      } else {
+        this.setState({
+          ...this.state,
+          tools: toolsCachedState,
+        })
+      }
     } else {
       // If LS cache is stale, clear it
       self.localStorage.removeItem(LS_KEY_TOOLS_STATE)
@@ -219,9 +237,7 @@ export default class ToolsPage extends React.Component {
   }
 
   render() {
-    const { tools } = this.state
-    let votedToolsList =
-      JSON.parse(self.localStorage.getItem(LS_KEY_VOTED_TOOLS)) || []
+    const { tools, votedToolsList } = this.state
 
     return (
       <Layout backgroundColor="#fff" backgroundImage={backgroundImage}>
@@ -271,14 +287,18 @@ export default class ToolsPage extends React.Component {
                     <IconButton
                       onClick={() => this.updateScore(node.id, 1)}
                       aria-label="Upvote"
-                      disabled={votedToolsList.includes(node.id)}
+                      disabled={
+                        votedToolsList && votedToolsList.includes(node.id)
+                      }
                     >
                       <FaArrowUp />
                     </IconButton>
                     <IconButton
                       onClick={() => this.updateScore(node.id, -1)}
                       aria-label="Downvote"
-                      disabled={votedToolsList.includes(node.id)}
+                      disabled={
+                        votedToolsList && votedToolsList.includes(node.id)
+                      }
                     >
                       <FaArrowDown />
                     </IconButton>
