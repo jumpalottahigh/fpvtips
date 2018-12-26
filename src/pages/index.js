@@ -275,7 +275,7 @@ class IndexPage extends React.Component {
               .
               <br />
               <br />I <strong>write code</strong>, solve problems and sometimes
-              stream on twitch. I also <strong>love flying FPV drones</strong>,
+              stream on twitch. I <strong>love flying FPV drones</strong>,
               3D printing, contributing to open source, and working on FPVTIPS.
               <br />
               <br />I also{' '}
