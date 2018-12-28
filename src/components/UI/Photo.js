@@ -1,14 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 import Modal from '@material-ui/core/Modal'
+import IconButton from '@material-ui/core/IconButton'
+import CloseIcon from '@material-ui/icons/Close'
 
 const modalDimensions = {
   width: '360px',
-  height: '400px',
+  height: '300px',
 }
 
 const StyledModal = styled(Modal)`
   display: flex;
+  justify-content: center;
   top: calc(50% - ${modalDimensions.height} / 2) !important;
   left: calc(50% - ${modalDimensions.width} / 2) !important;
   height: ${modalDimensions.height};
@@ -21,14 +24,28 @@ const StyledImage = styled.img`
   transition: 500ms all;
 
   &:hover {
+    transform: scale(1.025);
     box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
       0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
   }
 `
 
-const StyledModalImage = styled.img`
-  max-width: 100%;
-  transform: scale(2);
+const StyledModalImage = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  button {
+    color: #000;
+    background-color: #fafafa;
+    position: fixed;
+    right: 24px;
+    z-index: 9;
+  }
+
+  img {
+    max-width: 100%;
+    transform: scale(1.2);
+  }
 `
 
 export default class Photo extends React.Component {
@@ -88,9 +105,12 @@ export default class Photo extends React.Component {
           open={this.state.open}
           onClose={this.handleClose}
         >
-          <div>
-            <StyledModalImage src={fullUrl.href} draggable="false" />
-          </div>
+          <StyledModalImage>
+            <IconButton onClick={this.handleClose} aria-label="Close">
+              <CloseIcon style={{ fontSize: 32 }} />
+            </IconButton>
+            <img src={fullUrl.href} draggable="false" />
+          </StyledModalImage>
         </StyledModal>
       </React.Fragment>
     )
