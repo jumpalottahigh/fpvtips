@@ -127,6 +127,11 @@ export default class SubmitForm extends React.Component {
       author,
     }
 
+    // If submiting a new tool, we need the score field as well
+    if(this.props.contentfulType == "toolItem") {
+      data.score = 0
+    }
+
     // Send data to Contentful
     sendToContentful(data)
 
