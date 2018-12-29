@@ -10,6 +10,8 @@ import FormDictionary from '../components/UI/FormDictionary'
 import Grid from '../components/UI/Grid'
 import PaperCard from '../components/UI/PaperCard'
 
+import { hammer } from '../utils/svg'
+
 let CONTENTFUL_PERSONAL_TOKEN =
   process.env.GATSBY_CONTENTFUL_PERSONAL_ACCESS_TOKEN
 let CONTENTFUL_SPACE = process.env.GATSBY_CONTENTFUL_SPACE_ID
@@ -260,12 +262,20 @@ export default class ToolsPage extends React.Component {
           {tools.map(({ node }) => {
             return (
               <StyledPaperCard key={node.id}>
-                {node.image && (
+                {node.image ? (
                   <div className="image-container">
                     <img
                       src={node.image.fluid.src}
                       srcSet={node.image.fluid.srcSet}
                       alt={node.title}
+                    />
+                  </div>
+                ) : (
+                  <div className="image-container">
+                    <img
+                      src={hammer}
+                      style={{ opacity: '0.5' }}
+                      alt="hammer svg icon"
                     />
                   </div>
                 )}
