@@ -198,6 +198,13 @@ export default class ToolsPage extends React.Component {
     let votedToolsList = JSON.parse(
       self.localStorage.getItem(LS_KEY_VOTED_TOOLS)
     )
+    if (votedToolsList) {
+      // But still update voted tools list
+      this.setState({
+        ...this.state,
+        votedToolsList,
+      })
+    }
 
     // Check LS for voted tools state
     let toolsCachedState = JSON.parse(
@@ -217,18 +224,10 @@ export default class ToolsPage extends React.Component {
 
     // Update state with cached tools state if cache is still fresh
     if (currentTimestamp < cacheTimestamp + TIME_TO_CACHE) {
-      if (votedToolsList) {
-        this.setState({
-          ...this.state,
-          tools: toolsCachedState,
-          votedToolsList,
-        })
-      } else {
-        this.setState({
-          ...this.state,
-          tools: toolsCachedState,
-        })
-      }
+      this.setState({
+        ...this.state,
+        tools: toolsCachedState,
+      })
     } else {
       // If LS cache is stale, clear it
       self.localStorage.removeItem(LS_KEY_TOOLS_STATE)
