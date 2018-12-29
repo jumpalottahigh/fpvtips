@@ -318,7 +318,11 @@ export default class ToolsPage extends React.Component {
         </Grid>
 
         {/* Submit an entry FAB and Modal */}
-        <FormDictionary name="submit-tool-item" contentfulType="toolItem" />
+        <FormDictionary
+          name="submit-tool-item"
+          link="Link"
+          contentfulType="toolItem"
+        />
       </Layout>
     )
   }
