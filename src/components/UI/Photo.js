@@ -38,7 +38,7 @@ const StyledModalImage = styled.div`
     color: #000;
     background-color: #fafafa;
     position: fixed;
-    right: 24px;
+    right: calc(50% - 22px);
     z-index: 9;
   }
 
