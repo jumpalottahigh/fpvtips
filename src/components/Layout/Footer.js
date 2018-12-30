@@ -55,7 +55,7 @@ export default class Footer extends React.Component {
           </a>
         </SocialIcons>
         <h5>
-          Copyright &copy; 2018 Georgi Yanev.
+          Copyright &copy; 2018-2019 Georgi Yanev.
           <br />
           Dedicated to Sofi and little Anton{' '}
           <span role="img" aria-label="heart">
