@@ -293,6 +293,10 @@ class IndexPage extends React.Component {
                 onClick={this.handleBioVideoClick}
               >
                 <source
+                  src="https://www.georgi-yanev.com/static/landing-a-quad-1-d1a878f7ef756c703ebeeecdb529e63e.webm"
+                  type="video/webm"
+                />
+                <source
                   src="https://www.georgi-yanev.com/static/landing-a-quad-1-a959ba1dfed1d6abe2e8052b61bfb0b4.mp4"
                   type="video/mp4"
                 />
