@@ -30,6 +30,16 @@ const Loader = styled.div`
     }
   }
 `
+
+const GoogleMapContainer = styled.div`
+  height: 50vh;
+  width: 100%;
+
+  @media (min-width: 1200px) {
+    height: 60vh;
+  }
+`
+
 class SimpleMap extends React.Component {
   state = {
     center: {
@@ -131,7 +141,7 @@ class SimpleMap extends React.Component {
             <Dice style={{ marginLeft: '0.5rem' }} />
           </Button>
         </h3>
-        <div style={{ height: '50vh', width: '100%' }}>
+        <GoogleMapContainer>
           <GoogleMapReact
             bootstrapURLKeys={{ key: API_KEY }}
             center={center}
@@ -169,7 +179,7 @@ class SimpleMap extends React.Component {
               />
             )}
           </GoogleMapReact>
-        </div>
+        </GoogleMapContainer>
         {/* Tabs - pass the data about the current place down via props */}
         <Tabs currentPlaceData={this.state.currentPlace} />
         {this.state.newMarker && (
