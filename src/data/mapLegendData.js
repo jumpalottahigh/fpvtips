@@ -7,6 +7,8 @@ import {
   micro,
   mini,
   waterDrop,
+  plane,
+  longRange,
 } from '../utils/svg'
 
 const mapLegendData = [
@@ -49,6 +51,16 @@ const mapLegendData = [
     symbol: mini,
     label: 'Good for mini quads',
     value: 'mini',
+  },
+  {
+    symbol: plane,
+    label: 'Good for planes',
+    value: 'plane',
+  },
+  {
+    symbol: longRange,
+    label: 'Good for long range',
+    value: 'long range',
   },
 ]
 

@@ -12,10 +12,12 @@ import earthNA from './earth-na.svg'
 import gettingStarted from './getting-started.svg'
 import hammer from './hammer.svg'
 import hillsMountains from './hills-mountains.svg'
+import longRange from './long-range.svg'
 import micro from './micro.svg'
 import mini from './mini.svg'
 import openBook from './open-book.svg'
 import paperAndPencil from './paper-and-pencil.svg'
+import plane from './plane.svg'
 import sun from './sun.svg'
 import treeEvergreen from './tree-evergreen.svg'
 import treeWideleaf from './tree-wideleaf.svg'
@@ -39,10 +41,12 @@ export {
   gettingStarted,
   hammer,
   hillsMountains,
+  longRange,
   micro,
   mini,
   openBook,
   paperAndPencil,
+  plane,
   sun,
   treeEvergreen,
   treeWideleaf,
