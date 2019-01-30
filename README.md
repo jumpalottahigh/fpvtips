@@ -1,6 +1,9 @@
 <a href="https://fpvtips.com">
 <img src="./src/assets/logo-128.png" height="50px" alt="FPVTIPS logo" /></a>
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0516643c-da3e-4888-a08a-ef84a9acde7b/deploy-status)](https://app.netlify.com/sites/fpvtips/deploys)
+[![Lighthouse score: 95/100](https://lighthouse-badge.appspot.com/?score=95)](https://github.com/ebidel/lighthouse-badge)
+
 ### <a href="https://fpvtips.com">Fpvtips</a> is built with Gatsby v2 and hosted on Netlify.
 
 **Our mission is to bring the FPV community closer together and flying!**
