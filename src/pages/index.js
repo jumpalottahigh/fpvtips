@@ -55,19 +55,14 @@ const pageList = [
     title: 'FPV map',
   },
   {
+    image: gettingStarted,
+    link: '/getting-started/',
+    title: 'Getting started',
+  },
+  {
     image: paperAndPencil,
     link: '/blog/',
     title: 'Blog',
-  },
-  {
-    image: openBook,
-    link: '/dictionary/',
-    title: 'Dictionary',
-  },
-  {
-    image: box,
-    link: '/shopping-list/',
-    title: 'Shopping list',
   },
   {
     image: hammer,
@@ -75,14 +70,9 @@ const pageList = [
     title: 'Tools',
   },
   {
-    image: gettingStarted,
-    link: '/getting-started/',
-    title: 'Getting started',
-  },
-  {
-    image: bolts,
-    link: '/quad-builder/',
-    title: 'Quad builder',
+    image: openBook,
+    link: '/dictionary/',
+    title: 'Dictionary',
   },
 ]
 
@@ -184,7 +174,11 @@ class IndexPage extends React.Component {
   }
 
   render() {
-    const homePageSections = this.props.data.allHomePageSectionsJson.edges
+    const firstHomePageSection = this.props.data.allHomePageSectionsJson
+      .edges[0]
+    let homePageSections = this.props.data.allHomePageSectionsJson.edges
+    // Remove the first item
+    homePageSections.shift()
 
     return (
       <Layout location={this.props.location}>
@@ -200,7 +194,7 @@ class IndexPage extends React.Component {
         <div>
           <Intro>
             <h1>Let's bring the FPV community closer together and flying!</h1>
-            <Grid>
+            <Grid col600="2" col900="2" col1200="3">
               {pageList.map((page, index) => (
                 <Link key={index} to={page.link}>
                   <PaperCard hoverable="true" scale="true">
@@ -213,6 +207,10 @@ class IndexPage extends React.Component {
                 </Link>
               ))}
             </Grid>
+            {/* Render first home page section standalone */}
+            <div style={{ marginTop: '3rem' }}>
+              <Section data={firstHomePageSection.node} />
+            </div>
             <div style={{ padding: '3rem 0' }}>
               <StyledFeatureList>
                 <h2>Features:</h2>
@@ -225,7 +223,7 @@ class IndexPage extends React.Component {
               </StyledFeatureList>
             </div>
           </Intro>
-          {/* Home Page Sections */}
+          {/* Render the rest of the home page sections, except the first one */}
           {homePageSections.map(section => (
             <Section key={section.node.id} data={section.node} />
           ))}

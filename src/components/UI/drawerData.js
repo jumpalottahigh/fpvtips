@@ -9,8 +9,6 @@ import Work from '@material-ui/icons/Work'
 import List from '@material-ui/icons/List'
 import LibraryBooks from '@material-ui/icons/LibraryBooks'
 import Translate from '@material-ui/icons/Translate'
-import ShoppingCart from '@material-ui/icons/ShoppingCart'
-import Build from '@material-ui/icons/Build'
 import Check from '@material-ui/icons/Check'
 
 import { FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa'
@@ -25,7 +23,7 @@ export const mainMenuListItems = (
         <ListItemText primary="Home" />
       </ListItem>
     </Link>
-    <Link to="/fpv-map">
+    <Link to="/fpv-map/">
       <ListItem button>
         <ListItemIcon>
           <LocationCity color="primary" />
@@ -33,7 +31,7 @@ export const mainMenuListItems = (
         <ListItemText primary="FPV map" />
       </ListItem>
     </Link>
-    <Link to="/blog">
+    <Link to="/blog/">
       <ListItem button>
         <ListItemIcon>
           <LibraryBooks color="primary" />
@@ -41,7 +39,7 @@ export const mainMenuListItems = (
         <ListItemText primary="Blog" />
       </ListItem>
     </Link>
-    <Link to="/dictionary">
+    <Link to="/dictionary/">
       <ListItem button>
         <ListItemIcon>
           <Translate color="primary" />
@@ -49,7 +47,7 @@ export const mainMenuListItems = (
         <ListItemText primary="Dictionary" />
       </ListItem>
     </Link>
-    <Link to="/tools">
+    <Link to="/tools/">
       <ListItem button>
         <ListItemIcon>
           <Work color="primary" />
@@ -57,23 +55,7 @@ export const mainMenuListItems = (
         <ListItemText primary="Tools" />
       </ListItem>
     </Link>
-    <Link to="/shopping-list">
-      <ListItem button>
-        <ShoppingCart>
-          <List color="primary" />
-        </ShoppingCart>
-        <ListItemText primary="Shopping list" />
-      </ListItem>
-    </Link>
-    <Link to="/quad-builder">
-      <ListItem button>
-        <Build>
-          <List color="primary" />
-        </Build>
-        <ListItemText primary="Quad builder" />
-      </ListItem>
-    </Link>
-    <Link to="/getting-started">
+    <Link to="/getting-started/">
       <ListItem button>
         <Check>
           <List color="primary" />

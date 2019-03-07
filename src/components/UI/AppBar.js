@@ -11,6 +11,12 @@ import Drawer from './Drawer'
 
 import logo from '../../assets/logo.svg'
 
+const activeStyle = {
+  borderBottom: '2px solid #0474dc',
+  paddingBottom: '8px',
+  transition: 'all 275ms ease-in-out',
+}
+
 const styles = {
   root: {
     flexGrow: 1,
@@ -55,16 +61,16 @@ function ButtonAppBar(props) {
             </Brand>
           </div>
           <NavLinks>
-            <Link to="/">
-              <Button color="primary">Home</Button>
+            <Link exact="true" to="/" activeStyle={activeStyle}>
+              <Button color="default">Home</Button>
             </Link>
-            <Link to="/fpv-map/">
-              <Button color="default">Map</Button>
+            <Link to="/fpv-map/" activeStyle={activeStyle}>
+              <Button color="primary">Map</Button>
             </Link>
-            <Link to="/blog/">
+            <Link to="/blog/" activeStyle={activeStyle}>
               <Button color="default">Blog</Button>
             </Link>
-            <Link to="/dictionary/">
+            <Link to="/dictionary/" activeStyle={activeStyle}>
               <Button color="default">Dictionary</Button>
             </Link>
           </NavLinks>
