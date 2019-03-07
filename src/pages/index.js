@@ -7,7 +7,6 @@ import Layout from '../components/Layout/layout'
 import PaperCard from '../components/UI/PaperCard'
 import Grid from '../components/UI/Grid'
 import Section from '../components/UI/Section'
-import FeatureList from '../components/UI/FeatureList'
 
 import {
   bolts,
@@ -19,51 +18,33 @@ import {
   gettingStarted,
 } from '../utils/svg'
 
+import dictionary from '../assets/pages/home/dictionary.svg'
+import map from '../assets/pages/home/map.svg'
+import upvotedTools from '../assets/pages/home/upvoted-tools.svg'
+import videos from '../assets/pages/home/videos.svg'
+import weather from '../assets/pages/home/weather.svg'
+
 const featureListContent = [
   {
-    label: 'Save and browse FPV flying spots on the map',
-    completed: true,
+    label: 'Browse FPV flying spots on the map and share your own',
+    image: map,
   },
   {
     label: 'Watch videos and photos from FPV spots',
-    completed: true,
+    image: videos,
   },
   {
     label: 'Live wind and weather conditions',
 
-    completed: true,
-  },
-  {
-    label: 'Submit a dictionary entry',
-    completed: true,
+    image: weather,
   },
   {
     label: 'Beginner friendly FPV dictionary',
-    completed: true,
+    image: dictionary,
   },
   {
     label: 'Recommended tools, upvoted by the community',
-    completed: true,
-  },
-  {
-    label: 'Shopping list',
-    completed: false,
-  },
-  {
-    label: 'Submit an article to the blog',
-    completed: false,
-  },
-  {
-    label: 'Quad builder - 3D model playground',
-    completed: false,
-  },
-  {
-    label: 'Share location and meet other FPV pilots',
-    completed: false,
-  },
-  {
-    label: 'Pilot accounts',
-    completed: false,
+    image: upvotedTools,
   },
 ]
 
@@ -157,28 +138,41 @@ const Bio = styled.div`
   }
 `
 
-const AnnouncementCard = styled.div`
-  margin: 3rem auto;
-  max-width: 65ch;
-  font-size: 18px;
+const StyledFeatureList = styled.section`
+  display: grid;
+  grid-template-columns: 1fr;
 
-  span {
-    text-transform: uppercase;
-    color: #efb93f;
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4rem;
 
-    sup {
-      text-transform: none;
+    img {
+      /* max-width: 14rem; */
+      height: 10rem;
+    }
+
+    p {
+      font-size: 1.2rem;
     }
   }
-`
 
-const StyledFeatureList = styled(FeatureList)`
-  li:before {
-    content: '🔳';
+  @media (min-width: 900px) {
+    grid-template-columns: 1fr 1fr;
+
+    h2 {
+      grid-column: span 2;
+    }
   }
 
-  li.completed:before {
-    content: '✅';
+  @media (min-width: 1200px) {
+    grid-template-columns: 1fr 1fr 1fr;
+
+    h2 {
+      grid-column: span 3;
+    }
   }
 `
 
@@ -212,18 +206,21 @@ class IndexPage extends React.Component {
                   <PaperCard hoverable="true" scale="true">
                     <img src={page.image} style={{ width: '150px' }} />
                     <br />
-                    {page.title}
+                    <span style={{ fontSize: '1.2rem', fontWeight: 500 }}>
+                      {page.title}
+                    </span>
                   </PaperCard>
                 </Link>
               ))}
             </Grid>
             <div style={{ padding: '3rem 0' }}>
-              <h3>Features:</h3>
               <StyledFeatureList>
-                {featureListContent.map(({ label, completed }, index) => (
-                  <li key={index} className={completed ? 'completed' : ''}>
-                    {label}
-                  </li>
+                <h2>Features:</h2>
+                {featureListContent.map(({ label, image }) => (
+                  <div key={label}>
+                    <img src={image} alt={label} />
+                    <p>{label}</p>
+                  </div>
                 ))}
               </StyledFeatureList>
             </div>
@@ -275,8 +272,8 @@ class IndexPage extends React.Component {
               .
               <br />
               <br />I <strong>write code</strong>, solve problems and sometimes
-              stream on twitch. I <strong>love flying FPV drones</strong>,
-              3D printing, contributing to open source, and working on FPVTIPS.
+              stream on twitch. I <strong>love flying FPV drones</strong>, 3D
+              printing, contributing to open source, and working on FPVTIPS.
               <br />
               <br />I also{' '}
               <a className="highlight" href="https://blog.georgi-yanev.com">
