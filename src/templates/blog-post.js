@@ -26,7 +26,9 @@ class BlogPostTemplate extends React.Component {
           )}
         </Helmet>
         <h1>{post.frontmatter.title}</h1>
-        <p>{post.frontmatter.date}</p>
+        <p>
+          {post.frontmatter.author}, {post.frontmatter.date}
+        </p>
         <BlogContent dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr />
       </Layout>
@@ -43,8 +45,9 @@ export const pageQuery = graphql`
       excerpt
       html
       frontmatter {
+        author
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "DD MMMM YYYY")
         canonical
       }
     }

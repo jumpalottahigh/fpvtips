@@ -5,8 +5,8 @@ title: 'Tools and backpack setup'
 author: 'Georgi Yanev'
 affiliate: 'Links to Banggood in this article are affiliate links and would support the blog if used to make a purchase.'
 draft: false
-tags: 'fpv'
-relatedArticles:
+category: 'fpv'
+tags:
   - 'backpack'
   - 'tools'
 ogKeywords: 'FPV, racing quads, Wizard x220, quad, drone, getting started, tools, m5 nut wrench, hex driver, pliers, tweezers, hot glue gun, hot air gun, soldering iron, flux, solder, wire cutters'

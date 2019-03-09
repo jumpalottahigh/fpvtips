@@ -4,8 +4,8 @@ date: '2018-07-17'
 title: 'Wizard x220 camera upgrade'
 author: 'Georgi Yanev'
 draft: false
-tags: 'fpv'
-relatedArticles:
+category: 'fpv'
+tags:
   - 'upgrade'
   - 'wizard'
   - 'camera'

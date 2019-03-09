@@ -4,8 +4,8 @@ date: '2018-03-17'
 title: 'Quad build 2018'
 author: 'Georgi Yanev'
 draft: false
-tags: 'fpv'
-relatedArticles:
+category: 'fpv'
+tags:
   - 'build'
   - 'gear'
 affiliate: 'Links to Banggood in this article are affiliate links and would support the blog if used to make a purchase.'
@@ -183,6 +183,6 @@ Here is some 1080p 60fps footage from the maiden flight:
 [5]: https://bit.ly/xm-plus
 [6]: https://github.com/blheli-configurator/blheli-configurator/releases
 [7]: https://bit.ly/budget-multimeter
-[8]: /fpv/make-a-smoke-stopper
+[8]: /blog/fpv/make-a-smoke-stopper
 [9]: https://bit.ly/runcam-split-2
 [10]: https://bit.ly/eachine-vtx-03

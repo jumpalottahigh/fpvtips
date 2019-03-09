@@ -4,8 +4,8 @@ date: '2018-03-17'
 title: 'How to add Frsky XM+ receiver to the Eachine Wizard x220'
 author: 'Georgi Yanev'
 draft: false
-tags: 'fpv'
-relatedArticles:
+category: 'fpv'
+tags:
   - 'frsky'
   - 'upgrade'
   - 'wizard'

@@ -4,8 +4,8 @@ date: '2018-05-14'
 title: 'How to flash XM+ and setup RSSI'
 author: 'Georgi Yanev'
 draft: false
-tags: 'fpv'
-relatedArticles:
+category: 'fpv'
+tags:
   - 'frsky'
 affiliate: 'Links to Banggood in this article are affiliate links and would support the blog if used to make a purchase.'
 ogKeywords: 'FPV, racing quads, quad, drone, drone build, DIY, RSSI, FrSky, FrSky XM+, XM+, XM plus, Taranis Q X7, RSSI, telemetry signal, flash xm+, flash xm plus, enable rssi on xm+'
@@ -88,6 +88,6 @@ Lastly, go to the **Setup** tab and verify that you see a value for RSSI. The va
 
 [0]: Linkslist
 [1]: https://www.frsky-rc.com/xm-plus-mini-sbus-non-telemetry-full-range/
-[2]: /fpv/setup-taranis-qx7
+[2]: /blog/fpv/setup-taranis-qx7
 [3]: https://bit.ly/xm-plus
 [4]: https://bit.ly/taranis-qx7

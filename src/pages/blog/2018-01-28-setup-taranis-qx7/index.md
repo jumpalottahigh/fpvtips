@@ -4,8 +4,8 @@ date: '2018-01-28'
 title: 'Setup the Taranis Q X7 using OpenTX'
 author: 'Georgi Yanev'
 draft: false
-tags: 'fpv'
-relatedArticles:
+category: 'fpv'
+tags:
   - 'frsky'
   - 'wizard'
   - 'gear'

@@ -4,8 +4,8 @@ date: '2018-07-08'
 title: 'Wizard x220 VTX upgrade'
 author: 'Georgi Yanev'
 draft: false
-tags: 'fpv'
-relatedArticles:
+category: 'fpv'
+tags:
   - 'upgrade'
   - 'wizard'
   - 'vtx'

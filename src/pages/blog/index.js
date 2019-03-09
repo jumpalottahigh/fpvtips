@@ -44,7 +44,7 @@ class IndexPage extends React.Component {
         />
         <h1>Blog posts</h1>
         <Grid gap="3rem" col600="1" col900="2" col1200="3">
-          {posts.map(({ node }, index) => {
+          {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
               <StyledBlogLink key={node.fields.slug} to={node.fields.slug}>

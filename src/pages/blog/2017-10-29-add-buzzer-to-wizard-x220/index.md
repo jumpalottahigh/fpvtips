@@ -5,8 +5,8 @@ title: 'How to add a buzzer to the Eachine Wizard x220'
 author: 'Georgi Yanev'
 affiliate: 'Links to Banggood in this article are affiliate links and would support the blog if used to make a purchase.'
 draft: false
-tags: 'fpv'
-relatedArticles:
+category: 'fpv'
+tags:
   - 'vtx'
   - 'flysky'
   - 'upgrade'

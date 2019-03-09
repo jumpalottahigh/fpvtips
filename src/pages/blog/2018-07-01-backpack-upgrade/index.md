@@ -4,8 +4,8 @@ date: '2018-07-01'
 title: 'Backpack upgrade'
 author: 'Georgi Yanev'
 draft: false
-tags: 'fpv'
-relatedArticles:
+category: 'fpv'
+tags:
   - 'tools'
   - 'backpack'
   - 'upgrade'

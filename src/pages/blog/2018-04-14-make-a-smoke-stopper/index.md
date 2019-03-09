@@ -4,8 +4,8 @@ date: '2018-04-14'
 title: 'How to make a smoke stopper'
 author: 'Georgi Yanev'
 draft: false
-tags: 'fpv'
-relatedArticles:
+category: 'fpv'
+tags:
   - 'tools'
 affiliate: 'Links to Banggood in this article are affiliate links and would support the blog if used to make a purchase.'
 ogKeywords: 'FPV, racing quads, quad, drone, drone build, DIY, smoke stopper, build your own smoke stopper, make a smoke stopper'
