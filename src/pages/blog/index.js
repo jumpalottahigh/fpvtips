@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import Img from 'gatsby-image'
 
 import Layout from '../../components/Layout/layout'
 import PaperCard from '../../components/UI/PaperCard'
@@ -13,6 +14,23 @@ const StyledBlogLink = styled(Link)`
   p,
   small {
     color: initial;
+  }
+`
+
+const StyledPaperCard = styled(PaperCard)`
+  display: grid;
+
+  @media (min-width: 700px) {
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr;
+
+    .gatsby-image-wrapper {
+      grid-row: 1 / 5;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: 1fr;
   }
 `
 
@@ -43,12 +61,18 @@ class IndexPage extends React.Component {
           ]}
         />
         <h1>Blog posts</h1>
-        <Grid gap="3rem" col600="1" col900="2" col1200="3">
+        <Grid gap="3rem" col600="1" col900="1" col1200="2">
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
               <StyledBlogLink key={node.fields.slug} to={node.fields.slug}>
-                <PaperCard hoverable="true" style={{ height: '100%' }}>
+                <StyledPaperCard hoverable="true" style={{ height: '100%' }}>
+                  {node.frontmatter.ogImage !== null && (
+                    <Img
+                      fluid={node.frontmatter.ogImage.childImageSharp.fluid}
+                      alt={title}
+                    />
+                  )}
                   <h3>{title}</h3>
                   <small>{node.frontmatter.date}</small>
                   <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
@@ -57,7 +81,7 @@ class IndexPage extends React.Component {
                       {node.timeToRead} min read by {node.frontmatter.author}
                     </small>
                   </div>
-                </PaperCard>
+                </StyledPaperCard>
               </StyledBlogLink>
             )
           })}
@@ -82,6 +106,13 @@ export const pageQuery = graphql`
             date(formatString: "DD MMMM, YYYY")
             title
             author
+            ogImage {
+              childImageSharp {
+                fluid(maxWidth: 672) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
           }
           timeToRead
         }
