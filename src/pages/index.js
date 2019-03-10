@@ -174,11 +174,16 @@ class IndexPage extends React.Component {
   }
 
   render() {
-    const firstHomePageSection = this.props.data.allHomePageSectionsJson
-      .edges[0]
-    let homePageSections = this.props.data.allHomePageSectionsJson.edges
-    // Remove the first item
-    homePageSections.shift()
+    // Break down home page section into 2
+    let { edges: homePageSections } = this.props.data.allHomePageSectionsJson
+    let firstHomePageSection = homePageSections[0]
+    let restHomePageSections = homePageSections.filter((item, index) => {
+      if (index > 0) {
+        return item
+      } else {
+        return null
+      }
+    })
 
     return (
       <Layout location={this.props.location}>
@@ -208,9 +213,11 @@ class IndexPage extends React.Component {
               ))}
             </Grid>
             {/* Render first home page section standalone */}
-            <div style={{ marginTop: '3rem' }}>
-              <Section data={firstHomePageSection.node} />
-            </div>
+            {firstHomePageSection && firstHomePageSection.node && (
+              <div style={{ marginTop: '3rem' }}>
+                <Section data={firstHomePageSection.node} />
+              </div>
+            )}
             <div style={{ padding: '3rem 0' }}>
               <StyledFeatureList>
                 <h2>Features:</h2>
@@ -224,7 +231,7 @@ class IndexPage extends React.Component {
             </div>
           </Intro>
           {/* Render the rest of the home page sections, except the first one */}
-          {homePageSections.map(section => (
+          {restHomePageSections.map(section => (
             <Section key={section.node.id} data={section.node} />
           ))}
 
