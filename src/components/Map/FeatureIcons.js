@@ -8,6 +8,9 @@ export default class FeatureIcons extends React.Component {
 
   render() {
     const { place, size = 2 } = this.props
+
+    if(!place) return null
+
     return (
       <span>
         {mapLegendData
