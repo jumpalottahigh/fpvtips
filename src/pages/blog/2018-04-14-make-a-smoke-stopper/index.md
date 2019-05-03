@@ -7,7 +7,7 @@ draft: false
 category: 'fpv'
 tags:
   - 'tools'
-affiliate: 'Links to Banggood in this article are affiliate links and would support the blog if used to make a purchase.'
+affiliate: 'Links to Banggood or Amazon in this article are affiliate links and would support the blog if used to make a purchase.'
 ogKeywords: 'FPV, racing quads, quad, drone, drone build, DIY, smoke stopper, build your own smoke stopper, make a smoke stopper'
 ogDescription: 'A smoke stopper can save your quad many times. In a nutshell what it does is it acts as a load between your battery and your quad. In the case of a short, the light bulb goes on and your board, escs and motors are safe. Nifty!'
 ogImage: './make-a-smoke-stopper-9.jpg'

@@ -7,7 +7,7 @@ draft: false
 category: 'fpv'
 tags:
   - 'gear'
-affiliate: 'Links to Banggood in this article are affiliate links and would support the blog if used to make a purchase.'
+affiliate: 'Links to Banggood or Amazon in this article are affiliate links and would support the blog if used to make a purchase.'
 ogKeywords: 'FPV, racing quads, Wizard x220, quad, drone, soldering iron, aomway commander, fpv goggles, eachine vr 007 pro, eachine ProDVR, aomway leaf clover antenna, frsky taranis, taranis, taranis qx7, flysky fs-i6, flysky transmitter, opentx transmitter, eachine wizard x220, eachine e010s, micro quad, lipo batteries, lipo battery charger, ts100 soldering iron, gear list, fpv list of used equipment'
 ogDescription: "Here's a list of the gear I use. This is a live document that gets updated regularly whenever there is anything of note to be added."
 ogImage: './gear-list-1.jpg'

@@ -3,7 +3,7 @@ path: '/fpv/getting-started-with-fpv-drones'
 date: '2017-09-18'
 title: 'How to get started with FPV quads'
 author: 'Georgi Yanev'
-affiliate: 'Links to Banggood in this article are affiliate links and would support the blog if used to make a purchase.'
+affiliate: 'Links to Banggood or Amazon in this article are affiliate links and would support the blog if used to make a purchase.'
 draft: false
 category: 'fpv'
 tags:
@@ -46,7 +46,7 @@ After a few flights, still going strong.
 
 I have tried so far 3 simulators and can recommend 2 out of them. Let's start with my favorite.
 
-[FPV Freerider][6] has a trial version and can be tried for free and the full version costs as little as $5. I am in no way affiliated with that project, but I think they are doing a great job. It is a pretty decent simulator and if you hook up your controller to your computer you can really get used to flying and build some muscle memory for the most common moves using FPV Freerider.
+[FPV Freerider][6] has a trial version and can be tried for free and the full version costs as little as \$5. I am in no way affiliated with that project, but I think they are doing a great job. It is a pretty decent simulator and if you hook up your controller to your computer you can really get used to flying and build some muscle memory for the most common moves using FPV Freerider.
 
 On top of that there is a [great video series by Joshua Bardwell][7] who teaches you how to fly using FPV Freerider.
 

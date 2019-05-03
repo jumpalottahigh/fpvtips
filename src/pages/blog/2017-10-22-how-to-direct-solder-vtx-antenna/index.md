@@ -3,7 +3,7 @@ path: '/fpv/how-to-direct-solder-vtx-antenna'
 date: '2017-10-22'
 title: 'How to direct solder an antenna to your vtx'
 author: 'Georgi Yanev'
-affiliate: 'Links to Banggood in this article are affiliate links and would support the blog if used to make a purchase.'
+affiliate: 'Links to Banggood or Amazon in this article are affiliate links and would support the blog if used to make a purchase.'
 draft: false
 category: 'fpv'
 tags:

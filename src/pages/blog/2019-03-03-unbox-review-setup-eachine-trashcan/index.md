@@ -3,7 +3,7 @@ path: '/fpv/unbox-review-setup-eachine-trashcan/'
 date: '2019-03-03'
 title: 'How to set up Eachine Trashcan micro drone'
 author: 'Georgi Yanev'
-affiliate: 'Links to Banggood in this article are affiliate links and would support the blog if used to make a purchase.'
+affiliate: 'Links to Banggood or Amazon in this article are affiliate links and would support the blog if used to make a purchase.'
 draft: false
 category: 'fpv'
 tags:

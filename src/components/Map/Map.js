@@ -150,6 +150,25 @@ class SimpleMap extends React.Component {
             onChildClick={this._onChildClick}
             onChildMouseEnter={this._onChildMouseEnter}
             onChildMouseLeave={this._onChildMouseLeave}
+            // TODO: add a button at the top that can toggle the map style?
+            // options={function(maps) {
+            //   return { mapTypeId: 'satellite' }
+            // }}
+
+            // TODO: Longer example
+            // options={function(maps) {
+            //   return {
+            //     mapTypeControlOptions: {
+            //       style: maps.MapTypeControlStyle.HORIZONTAL_BAR,
+            //       position: maps.ControlPosition.BOTTOM_CENTER,
+            //       mapTypeIds: [
+            //         maps.MapTypeId.ROADMAP,
+            //         maps.MapTypeId.SATELLITE,
+            //         maps.MapTypeId.HYBRID,
+            //       ],
+            //     },
+            //   }
+            // }}
           >
             {/* Render all saved markers */}
             {markers.map(({ node: marker }) => (

@@ -9,7 +9,7 @@ tags:
   - 'tools'
   - 'backpack'
   - 'upgrade'
-affiliate: 'Links to Banggood in this article are affiliate links and would support the blog if used to make a purchase.'
+affiliate: 'Links to Banggood or Amazon in this article are affiliate links and would support the blog if used to make a purchase.'
 ogKeywords: 'FPV, backpack, racing quads, drone, quad, gear, radio, googles backpack'
 ogDescription: "A couple of weeks ago I switched to the new Realacc backpack and now the time has come to drop a few words on it. Spoiler: It's pretty awesome!"
 ogImage: './backpack-upgrade-1.jpg'
@@ -33,7 +33,7 @@ Additionally in the front pocket there is a tool holder sheet, and here is how I
 
 ![Realacc tool holder sheet](backpack-upgrade-4.jpg)
 
-Overall very happy with the backpack. It's surprisingly spacious, I'm not using even 80% of the space. For $50 it's a good investment for your drone gear. Recommmend 10/10! And no, this is not a paid review, just my own experience with a pretty good product. You can [grab it here][1].
+Overall very happy with the backpack. It's surprisingly spacious, I'm not using even 80% of the space. For \$50 it's a good investment for your drone gear. Recommmend 10/10! And no, this is not a paid review, just my own experience with a pretty good product. You can [grab it here][1].
 
 [0]: Linkslist
 [1]: https://bit.ly/realacc-backpack

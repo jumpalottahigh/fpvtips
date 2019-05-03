@@ -3,7 +3,7 @@ path: '/fpv/tools-and-backpack-setup'
 date: '2017-10-14'
 title: 'Tools and backpack setup'
 author: 'Georgi Yanev'
-affiliate: 'Links to Banggood in this article are affiliate links and would support the blog if used to make a purchase.'
+affiliate: 'Links to Banggood or Amazon in this article are affiliate links and would support the blog if used to make a purchase.'
 draft: false
 category: 'fpv'
 tags:

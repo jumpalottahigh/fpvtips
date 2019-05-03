@@ -9,7 +9,7 @@ tags:
   - 'frsky'
   - 'wizard'
   - 'gear'
-affiliate: 'Links to Banggood in this article are affiliate links and would support the blog if used to make a purchase.'
+affiliate: 'Links to Banggood or Amazon in this article are affiliate links and would support the blog if used to make a purchase.'
 ogKeywords: 'taranis, taranis qx7, setup, transmitter, drone, quad, set up Taranis, setup Taranis x7, set up Taranis q x7, custom splash screen, custom sounds for Taranis, basic Taranis setup, how to set up taranis, update taranis firmware, how to use opentx, how to setup taranis using opentx, opentx'
 ogDescription: 'I recently upgraded to a Taranis Q X7 and after doing the initial setup I decided to sum up some of the main points in a helpful post. I hope this write up helps you breeze through the configuration and gets you flying in no time!'
 ogImage: './setup-taranis-qx7-0.jpg'

@@ -3,7 +3,7 @@ path: '/fpv/set-up-fpv-drone-simulator/'
 date: '2019-02-17'
 title: 'Set up an FPV drone simulator'
 author: 'Georgi Yanev'
-affiliate: 'Links to Banggood in this article are affiliate links and would support the blog if used to make a purchase.'
+affiliate: 'Links to Banggood or Amazon in this article are affiliate links and would support the blog if used to make a purchase.'
 draft: false
 category: 'fpv'
 tags:

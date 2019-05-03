@@ -9,7 +9,7 @@ tags:
   - 'upgrade'
   - 'wizard'
   - 'vtx'
-affiliate: 'Links to Banggood in this article are affiliate links and would support the blog if used to make a purchase.'
+affiliate: 'Links to Banggood or Amazon in this article are affiliate links and would support the blog if used to make a purchase.'
 ogKeywords: 'vtx, antenna, solder, wizard x220 vtx, antenna angle socket broken, how to fix wizard x220 vtx, vtx03, eachine vtx03, upgrade wizard vtx'
 ogDescription: "The stock VTX on the Wizard x220 is sometimes not the best option to keep around for the long run. From the SMA connector breaking off the board, to frying the vtx if plugged in with no antenna attached, it's a component that makes for a good candidate to be upgraded."
 ogImage: './wizard-vtx-upgrade-1.jpg'
@@ -18,7 +18,7 @@ canonical: 'https://blog.georgi-yanev.com/fpv/wizard-x220-vtx-upgrade'
 
 The stock VTX on the [Wizard x220][1] is sometimes not the best option to keep around for the long run. From the SMA connector breaking off the board, to frying the vtx if plugged in with no antenna attached, it's a component that makes for a good candidate to be upgraded.
 
-On the other hand, the [Eachine VTX03][2] is a sweet little component, coming in at a bit less than $10. It's an over performer, has a small U.FL / IPEX connector and antenna, which would cover just as much area as if you were using a clover leaf antenna for example, but takes less space.
+On the other hand, the [Eachine VTX03][2] is a sweet little component, coming in at a bit less than \$10. It's an over performer, has a small U.FL / IPEX connector and antenna, which would cover just as much area as if you were using a clover leaf antenna for example, but takes less space.
 
 ![Eachine VTX03](wizard-vtx-upgrade-1.jpg)
 

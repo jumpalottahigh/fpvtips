@@ -7,7 +7,7 @@ draft: false
 category: 'fpv'
 tags:
   - 'frsky'
-affiliate: 'Links to Banggood in this article are affiliate links and would support the blog if used to make a purchase.'
+affiliate: 'Links to Banggood or Amazon in this article are affiliate links and would support the blog if used to make a purchase.'
 ogKeywords: 'FPV, racing quads, quad, drone, drone build, DIY, RSSI, FrSky, FrSky XM+, XM+, XM plus, Taranis Q X7, RSSI, telemetry signal, flash xm+, flash xm plus, enable rssi on xm+'
 ogDescription: "Sometimes you might need to flash new firmware on the XM+ receiver. Here's how to do that with the Taranis Q X7"
 ogImage: './flash-xm-plus-and-setup-rssi-5.jpg'
