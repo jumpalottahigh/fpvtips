@@ -145,6 +145,7 @@ module.exports = {
         fonts: [`Roboto:300,400,500`],
       },
     },
+    `gatsby-plugin-offline`,
     `gatsby-plugin-netlify`, // Keep this last in the list
   ],
 }
