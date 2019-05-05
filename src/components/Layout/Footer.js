@@ -44,14 +44,14 @@ export default class Footer extends React.Component {
             target="_blank"
             rel="noreferrer"
           >
-            <FaInstagram className="icon" />
+            <FaInstagram className="icon" aria-label="Instagram" />
           </a>
           <a
             href="https://twitter.com/fpvtips"
             target="_blank"
             rel="noreferrer"
           >
-            <FaTwitter className="icon" />
+            <FaTwitter className="icon" aria-label="Twitter" />
           </a>
         </SocialIcons>
         <h5>

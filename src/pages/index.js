@@ -9,8 +9,6 @@ import Grid from '../components/UI/Grid'
 import Section from '../components/UI/Section'
 
 import {
-  bolts,
-  box,
   earthNA,
   openBook,
   paperAndPencil,
@@ -93,7 +91,7 @@ const Intro = styled.div`
 const Bio = styled.div`
   margin: -1rem;
   padding: 3.5rem 1rem;
-  background-color: #eee;
+  background-color: #fafafa;
 
   img {
     width: 7rem;
@@ -140,7 +138,6 @@ const StyledFeatureList = styled.section`
     margin-bottom: 4rem;
 
     img {
-      /* max-width: 14rem; */
       height: 10rem;
     }
 
@@ -203,7 +200,11 @@ class IndexPage extends React.Component {
               {pageList.map((page, index) => (
                 <Link key={index} to={page.link}>
                   <PaperCard hoverable="true" scale="true">
-                    <img src={page.image} style={{ width: '150px' }} />
+                    <img
+                      src={page.image}
+                      style={{ width: '150px' }}
+                      alt={page.title}
+                    />
                     <br />
                     <span style={{ fontSize: '1.2rem', fontWeight: 500 }}>
                       {page.title}
@@ -289,7 +290,6 @@ class IndexPage extends React.Component {
             <div className="video-wrapper">
               <video
                 autoPlay
-                loop
                 muted
                 playsInline
                 onClick={this.handleBioVideoClick}

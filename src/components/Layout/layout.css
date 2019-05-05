@@ -14,7 +14,7 @@ h6 {
 }
 
 a {
-  color: #0375d8;
+  color: #0469c1;
   text-decoration: none;
 }
 
@@ -23,7 +23,7 @@ a:hover {
 }
 
 a.highlight {
-  border-bottom: 2px solid #0375d8;
+  border-bottom: 2px solid #0469c1;
   padding: 0.1rem 0.2rem;
 }
 
