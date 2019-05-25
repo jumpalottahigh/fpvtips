@@ -103,7 +103,17 @@ class SimpleTabs extends React.Component {
                 {currentPlaceData.author && (
                   <p>
                     <span>Added by: </span>
-                    {currentPlaceData.author}
+                    {currentPlaceData.authorSocialLink !== null ? (
+                      <a
+                        href={currentPlaceData.authorSocialLink}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                      >
+                        {currentPlaceData.author}
+                      </a>
+                    ) : (
+                      <strong>{currentPlaceData.author}</strong>
+                    )}
                   </p>
                 )}
               </div>

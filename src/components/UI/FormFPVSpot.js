@@ -36,6 +36,7 @@ function sendToContentful({
   instagramLinks,
   youtubeLinks,
   author,
+  authorSocialLink,
   lat,
   lng,
 }) {
@@ -77,6 +78,9 @@ function sendToContentful({
           },
           author: {
             'en-US': author,
+          },
+          authorSocialLink: {
+            'en-US': authorSocialLink,
           },
           lat: {
             'en-US': lat,
@@ -182,6 +186,7 @@ export default class SubmitFormFPVSpot extends React.Component {
         instagramLinks: [],
         youtubeLinks: [],
         author: '',
+        authorSocialLink: '',
         newMarker: this.props.newMarker || null,
       },
     }
@@ -222,6 +227,7 @@ export default class SubmitFormFPVSpot extends React.Component {
       currentYoutubeLink,
       youtubeLinks = [],
       author,
+      authorSocialLink,
     } = this.state.form
 
     // Basic form validation
@@ -255,6 +261,7 @@ export default class SubmitFormFPVSpot extends React.Component {
       instagramLinks,
       youtubeLinks,
       author,
+      authorSocialLink,
       lat,
       lng,
     }
@@ -276,6 +283,7 @@ export default class SubmitFormFPVSpot extends React.Component {
           currentInstagramLink: '',
           currentYoutubeLink: '',
           author: '',
+          authorSocialLink: '',
           newMarker: {
             lat,
             lng,
@@ -370,6 +378,7 @@ export default class SubmitFormFPVSpot extends React.Component {
       instagramLinks = 'Instagram photos',
       youtubeLinks = 'YouTube videos',
       author = 'Your name',
+      authorSocialLink = 'Your social link',
       submit = 'Submit',
     } = this.props
 
@@ -551,6 +560,14 @@ export default class SubmitFormFPVSpot extends React.Component {
                 label={author}
                 value={this.state.form.author}
                 onChange={this.handleChange('author')}
+                margin="normal"
+                variant="outlined"
+              />
+              <TextField
+                id="authorSocialLink"
+                label={authorSocialLink}
+                value={this.state.form.authorSocialLink}
+                onChange={this.handleChange('authorSocialLink')}
                 margin="normal"
                 variant="outlined"
               />

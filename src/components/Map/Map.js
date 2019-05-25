@@ -181,6 +181,7 @@ class SimpleMap extends React.Component {
                 description={marker.description}
                 features={marker.features}
                 author={marker.author}
+                authorSocialLink={marker.authorSocialLink}
                 videoLinks={marker.videoLinks}
                 photoLinks={marker.photoLinks}
                 isHighlighted={
