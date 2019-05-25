@@ -76,7 +76,7 @@ class SimpleTabs extends React.Component {
           indicatorColor="primary"
           textColor="primary"
           centered
-          fullWidth
+          variant="fullWidth"
           onChange={this.handleChange}
         >
           <Tab icon={<PlaceIcon />} label="Place" />

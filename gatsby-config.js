@@ -45,22 +45,8 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `@wapps/gatsby-plugin-material-ui`,
-      options: {
-        theme: {
-          palette: {
-            primary: {
-              main: '#0375d8',
-            },
-            secondary: {
-              main: '#f5f5f5',
-            },
-          },
-          typography: {
-            useNextVariants: true,
-          },
-        },
-      },
+      resolve: `gatsby-plugin-material-ui`,
+      options: {},
     },
     `gatsby-transformer-json`,
     {
@@ -137,12 +123,6 @@ module.exports = {
         spaceId: config.contentful.spaceId,
         // Learn about environment variables: https://gatsby.app/env-vars
         accessToken: config.contentful.accessToken,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [`Roboto:300,400,500`],
       },
     },
     `gatsby-plugin-offline`,

@@ -206,7 +206,13 @@ class IndexPage extends React.Component {
                       alt={page.title}
                     />
                     <br />
-                    <span style={{ fontSize: '1.2rem', fontWeight: 500 }}>
+                    <span
+                      style={{
+                        fontSize: '1.2rem',
+                        fontWeight: 500,
+                        color: '#0469c1',
+                      }}
+                    >
                       {page.title}
                     </span>
                   </PaperCard>
