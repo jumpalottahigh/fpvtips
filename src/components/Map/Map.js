@@ -1,4 +1,5 @@
 import React from 'react'
+import { navigate } from 'gatsby'
 import styled from 'styled-components'
 import GoogleMapReact from 'google-map-react'
 import Marker from './Marker'
@@ -76,21 +77,72 @@ class SimpleMap extends React.Component {
 
   _onChildMouseLeave = () => {}
 
-  handleDiscoverNewSpot = () => {
-    // Get lat and lng from a random fpv spot
-    let randomIndex = Math.floor(Math.random() * this.state.markers.length)
-
-    // Extract spot coordinates
-    let { lat, lng } = this.state.markers[randomIndex].node
-
+  updateSpotStateAndURL = newState => {
     // Update state to new spot
     this.setState({
-      center: { lat: parseFloat(lat), lng: parseFloat(lng) },
-      currentPlace: this.state.markers[randomIndex].node,
+      center: newState.center,
+      currentPlace: newState.currentPlace,
     })
+
+    // Add the id of the current place to the URL
+    let searchParams = new URLSearchParams(`id=${newState.currentPlace.id}`)
+    navigate(`${location.pathname}?${searchParams.toString()}`)
+  }
+
+  handleDiscoverNewSpot = () => {
+    let id, lat, lng, randomIndex
+
+    // Prevent selecting the same spot in a random search
+    while (true) {
+      // Get lat and lng from a random fpv spot
+      randomIndex = Math.floor(Math.random() * this.state.markers.length)
+
+      // Extract spot coordinates
+      lat = this.state.markers[randomIndex].node.lat
+      lng = this.state.markers[randomIndex].node.lng
+
+      id = this.state.markers[randomIndex].node.id
+
+      if (id !== this.state.currentPlace.id) break
+    }
+
+    // Create new state
+    let newState = {
+      center: {
+        lat: parseFloat(lat),
+        lng: parseFloat(lng),
+      },
+      currentPlace: this.state.markers[randomIndex].node,
+    }
+
+    // Update state and URL
+    this.updateSpotStateAndURL(newState)
+  }
+
+  loadSpotFromURL = id => {
+    if (id) {
+      const { markers } = this.state
+      const currentPlace = markers.filter(({ node: m }) => m.id === id)[0].node
+
+      let newState = {
+        center: {
+          lat: parseFloat(currentPlace.lat),
+          lng: parseFloat(currentPlace.lng),
+        },
+        currentPlace,
+      }
+      // Update state and URL
+      this.updateSpotStateAndURL(newState)
+    } else {
+      this.handleDiscoverNewSpot()
+    }
   }
 
   componentDidMount() {
+    let searchParams = new URLSearchParams(window.location.search)
+    // Get id param value
+    let id = searchParams.get('id')
+
     // Request user geo location
     navigator.geolocation.getCurrentPosition(
       position => {
@@ -101,12 +153,23 @@ class SimpleMap extends React.Component {
           loading: false,
         })
 
-        // TODO: Calculate if there is any spots near to where the user is and select one of those to display instead of a random one
-        this.handleDiscoverNewSpot()
+        // If the URL contains a spot id, select that
+        if (id) {
+          this.loadSpotFromURL(id)
+        } else {
+          // Grab a new random spot
+          this.handleDiscoverNewSpot()
+        }
       },
       () => {
         this.setState({ loading: false })
-        this.handleDiscoverNewSpot()
+        // If the URL contains a spot id, select that
+        if (id) {
+          this.loadSpotFromURL(id)
+        } else {
+          // Grab a new random spot
+          this.handleDiscoverNewSpot()
+        }
       }
     )
   }
