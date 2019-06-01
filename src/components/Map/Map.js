@@ -67,10 +67,17 @@ class SimpleMap extends React.Component {
   }
 
   _onChildClick = (key, childProps) => {
-    // Update current selected element
-    this.setState({
+    // Create new state
+    let newState = {
+      center: {
+        lat: parseFloat(childProps.lat),
+        lng: parseFloat(childProps.lng),
+      },
       currentPlace: childProps,
-    })
+    }
+
+    // Update current selected element
+    this.updateSpotStateAndURL(newState)
   }
 
   _onChildMouseEnter = (key, childProps) => {}
