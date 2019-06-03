@@ -8,6 +8,12 @@ import FormFPVSpot from '../UI/FormFPVSpot'
 import Button from '@material-ui/core/Button'
 import Dice from '@material-ui/icons/Casino'
 import { earthLines } from '../../utils/svg'
+import FormControl from '@material-ui/core/FormControl'
+import InputLabel from '@material-ui/core/InputLabel'
+import Select from '@material-ui/core/Select'
+import OutlinedInput from '@material-ui/core/OutlinedInput'
+import MenuItem from '@material-ui/core/MenuItem'
+import ListItemText from '@material-ui/core/ListItemText'
 
 // Setup Google Maps API key
 const API_KEY = process.env.GATSBY_GOOGLE_MAPS_KEY || ''
@@ -68,6 +74,7 @@ class SimpleMap extends React.Component {
     },
     loading: true,
     zoom: 11,
+    mapType: 'roadmap',
     markers: this.props.markers,
     newMarker: null,
     currentPlace: {
@@ -164,6 +171,10 @@ class SimpleMap extends React.Component {
     }
   }
 
+  handleChangeMapType = e => {
+    this.setState({ mapType: e.target.value })
+  }
+
   componentDidMount() {
     let searchParams = new URLSearchParams(window.location.search)
     // Get id param value
@@ -201,7 +212,7 @@ class SimpleMap extends React.Component {
   }
 
   render() {
-    const { center, loading, markers, zoom } = this.state
+    const { center, loading, markers, zoom, mapType } = this.state
 
     if (loading) {
       return (
@@ -240,25 +251,7 @@ class SimpleMap extends React.Component {
               onChildClick={this._onChildClick}
               onChildMouseEnter={this._onChildMouseEnter}
               onChildMouseLeave={this._onChildMouseLeave}
-              // TODO: add a button at the top that can toggle the map style?
-              // options={function(maps) {
-              //   return { mapTypeId: 'satellite' }
-              // }}
-
-              // TODO: Longer example
-              // options={function(maps) {
-              //   return {
-              //     mapTypeControlOptions: {
-              //       style: maps.MapTypeControlStyle.HORIZONTAL_BAR,
-              //       position: maps.ControlPosition.BOTTOM_CENTER,
-              //       mapTypeIds: [
-              //         maps.MapTypeId.ROADMAP,
-              //         maps.MapTypeId.SATELLITE,
-              //         maps.MapTypeId.HYBRID,
-              //       ],
-              //     },
-              //   }
-              // }}
+              options={{ mapTypeId: mapType }}
             >
               {/* Render all saved markers */}
               {markers.map(({ node: marker }) => (
@@ -300,6 +293,26 @@ class SimpleMap extends React.Component {
             newMarker={this.state.newMarker}
           />
         )}
+        <div style={{ display: 'flex' }}>
+          <FormControl variant="outlined" margin="normal">
+            <InputLabel htmlFor="select-map-type">Map type</InputLabel>
+            <Select
+              value={this.state.mapType}
+              onChange={this.handleChangeMapType}
+              input={<OutlinedInput labelWidth={70} id="select-map-type" />}
+            >
+              <MenuItem value="roadmap">
+                <ListItemText primary="Roadmap" />
+              </MenuItem>
+              <MenuItem value="satellite">
+                <ListItemText primary="Satellite" />
+              </MenuItem>
+              <MenuItem value="hybrid">
+                <ListItemText primary="Hybrid" />
+              </MenuItem>
+            </Select>
+          </FormControl>
+        </div>
       </div>
     )
   }
