@@ -35,16 +35,25 @@ const StyledPaperCard = styled(PaperCard)`
   }
 
   .legend-symbol {
-    width: 48px;
-    height: 48px;
+    width: 32px;
+    height: 32px;
     margin-right: 1rem;
   }
 
   .legend-label {
     width: 80%;
-    font-size: 18px;
-    line-height: 3rem;
+    font-size: 16px;
+    line-height: 32px;
     text-align: left;
+  }
+
+  @media (min-width: 1000px) {
+    .legend-label {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      line-height: 16px;
+    }
   }
 `
 

@@ -36,11 +36,30 @@ const GoogleMapContainer = styled.div`
   height: 50vh;
   width: 100%;
 
+  @media (min-width: 1000px) {
+    width: 50%;
+    min-width: 50%;
+  }
+
   @media (min-width: 1200px) {
     height: 60vh;
   }
 `
 
+const MainContainer = styled.div`
+  @media (min-width: 1000px) {
+    display: flex;
+
+    .container-tabs {
+      width: 50%;
+      max-width: 50%;
+
+      .MuiTab-root {
+        min-width: 0;
+      }
+    }
+  }
+`
 class SimpleMap extends React.Component {
   state = {
     center: {
@@ -211,67 +230,69 @@ class SimpleMap extends React.Component {
             <Dice style={{ marginLeft: '0.5rem' }} />
           </Button>
         </h3>
-        <GoogleMapContainer>
-          <GoogleMapReact
-            bootstrapURLKeys={{ key: API_KEY }}
-            center={center}
-            defaultZoom={zoom}
-            onClick={this._onClick}
-            onChildClick={this._onChildClick}
-            onChildMouseEnter={this._onChildMouseEnter}
-            onChildMouseLeave={this._onChildMouseLeave}
-            // TODO: add a button at the top that can toggle the map style?
-            // options={function(maps) {
-            //   return { mapTypeId: 'satellite' }
-            // }}
+        <MainContainer>
+          <GoogleMapContainer>
+            <GoogleMapReact
+              bootstrapURLKeys={{ key: API_KEY }}
+              center={center}
+              defaultZoom={zoom}
+              onClick={this._onClick}
+              onChildClick={this._onChildClick}
+              onChildMouseEnter={this._onChildMouseEnter}
+              onChildMouseLeave={this._onChildMouseLeave}
+              // TODO: add a button at the top that can toggle the map style?
+              // options={function(maps) {
+              //   return { mapTypeId: 'satellite' }
+              // }}
 
-            // TODO: Longer example
-            // options={function(maps) {
-            //   return {
-            //     mapTypeControlOptions: {
-            //       style: maps.MapTypeControlStyle.HORIZONTAL_BAR,
-            //       position: maps.ControlPosition.BOTTOM_CENTER,
-            //       mapTypeIds: [
-            //         maps.MapTypeId.ROADMAP,
-            //         maps.MapTypeId.SATELLITE,
-            //         maps.MapTypeId.HYBRID,
-            //       ],
-            //     },
-            //   }
-            // }}
-          >
-            {/* Render all saved markers */}
-            {markers.map(({ node: marker }) => (
-              <Marker
-                key={marker.id}
-                id={marker.id}
-                lat={marker.lat}
-                lng={marker.lng}
-                title={marker.title}
-                description={marker.description}
-                features={marker.features}
-                author={marker.author}
-                authorSocialLink={marker.authorSocialLink}
-                videoLinks={marker.videoLinks}
-                photoLinks={marker.photoLinks}
-                isHighlighted={
-                  marker.id == this.state.currentPlace.id ? 'true' : 'false'
-                }
-                zIndex={1}
-              />
-            ))}
-            {/* Render a new marker if user clicked on the map */}
-            {this.state.newMarker && (
-              <Marker
-                isNewMarker={true}
-                lat={this.state.newMarker.lat}
-                lng={this.state.newMarker.lng}
-              />
-            )}
-          </GoogleMapReact>
-        </GoogleMapContainer>
-        {/* Tabs - pass the data about the current place down via props */}
-        <Tabs currentPlaceData={this.state.currentPlace} />
+              // TODO: Longer example
+              // options={function(maps) {
+              //   return {
+              //     mapTypeControlOptions: {
+              //       style: maps.MapTypeControlStyle.HORIZONTAL_BAR,
+              //       position: maps.ControlPosition.BOTTOM_CENTER,
+              //       mapTypeIds: [
+              //         maps.MapTypeId.ROADMAP,
+              //         maps.MapTypeId.SATELLITE,
+              //         maps.MapTypeId.HYBRID,
+              //       ],
+              //     },
+              //   }
+              // }}
+            >
+              {/* Render all saved markers */}
+              {markers.map(({ node: marker }) => (
+                <Marker
+                  key={marker.id}
+                  id={marker.id}
+                  lat={marker.lat}
+                  lng={marker.lng}
+                  title={marker.title}
+                  description={marker.description}
+                  features={marker.features}
+                  author={marker.author}
+                  authorSocialLink={marker.authorSocialLink}
+                  videoLinks={marker.videoLinks}
+                  photoLinks={marker.photoLinks}
+                  isHighlighted={
+                    marker.id == this.state.currentPlace.id ? 'true' : 'false'
+                  }
+                  zIndex={1}
+                />
+              ))}
+              {/* Render a new marker if user clicked on the map */}
+              {this.state.newMarker && (
+                <Marker
+                  isNewMarker={true}
+                  lat={this.state.newMarker.lat}
+                  lng={this.state.newMarker.lng}
+                />
+              )}
+            </GoogleMapReact>
+          </GoogleMapContainer>
+          {/* Tabs - pass the data about the current place down via props */}
+          <Tabs currentPlaceData={this.state.currentPlace} />
+        </MainContainer>
         {this.state.newMarker && (
           <FormFPVSpot
             name="submit-fpv-spot"

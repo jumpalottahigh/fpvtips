@@ -7,9 +7,9 @@ export default class FeatureIcons extends React.Component {
   }
 
   render() {
-    const { place, size = 2 } = this.props
+    const { place, size = 1.5 } = this.props
 
-    if(!place) return null
+    if (!place) return null
 
     return (
       <span>
@@ -23,8 +23,9 @@ export default class FeatureIcons extends React.Component {
             <img
               key={index}
               src={item.symbol}
-              style={{ height: `${size}rem` }}
+              style={{ height: `${size}rem`, marginRight: '0.5rem' }}
               alt={item.label}
+              title={item.label}
             />
           ))}
       </span>

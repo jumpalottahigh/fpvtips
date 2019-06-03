@@ -47,7 +47,7 @@ const Place = styled.div`
     font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
-    color: #0375d8cc;
+    color: #6f6f6f;
   }
 
   @media (min-width: 600px) {
@@ -70,7 +70,7 @@ class SimpleTabs extends React.Component {
     const { value } = this.state
 
     return (
-      <div className={classes.root}>
+      <div className={`${classes.root} container-tabs`}>
         <Tabs
           value={value}
           indicatorColor="primary"
@@ -79,10 +79,10 @@ class SimpleTabs extends React.Component {
           variant="fullWidth"
           onChange={this.handleChange}
         >
-          <Tab icon={<PlaceIcon />} label="Place" />
-          <Tab icon={<WeatherIcon />} label="Weather" />
-          <Tab icon={<PhotoIcon />} label="Photos" />
-          <Tab icon={<VideoIcon />} label="Videos" />
+          <Tab icon={<PlaceIcon fontSize="small" />} label="Place" />
+          <Tab icon={<WeatherIcon fontSize="small" />} label="Weather" />
+          <Tab icon={<PhotoIcon fontSize="small" />} label="Photos" />
+          <Tab icon={<VideoIcon fontSize="small" />} label="Videos" />
         </Tabs>
         {value === 0 && (
           <TabContainer>
@@ -128,7 +128,7 @@ class SimpleTabs extends React.Component {
         )}
         {value === 2 && (
           <TabContainer>
-            <Grid gap="30px" col600="1" col900="2" col1200="3">
+            <Grid gap="30px" col600="1" col900="2" col1200="1">
               {currentPlaceData.photoLinks &&
                 currentPlaceData.photoLinks.map((photo, index) => (
                   <Photo key={index} src={photo} />
@@ -138,7 +138,7 @@ class SimpleTabs extends React.Component {
         )}
         {value === 3 && (
           <TabContainer>
-            <Grid gap="30px" col600="1" col900="2" col1200="3">
+            <Grid gap="30px" col600="1" col900="2" col1200="1">
               {currentPlaceData.videoLinks &&
                 currentPlaceData.videoLinks.map((video, index) => (
                   <Video
