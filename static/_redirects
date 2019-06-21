@@ -1,0 +1,5 @@
+# Redirect default Netlify subdomain to primary domain
+https://fpvtips.netlify.com/*              https://www.fpvtips.com/:splat                               301!
+
+# Additional redirects
+/youtube                                   https://www.youtube.com/channel/UCCh3SK2EktDdOQkEOTDmSCg
