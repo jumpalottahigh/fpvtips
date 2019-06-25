@@ -4,6 +4,7 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import LocationCity from '@material-ui/icons/LocationCity'
+import Videocam from '@material-ui/icons/Videocam'
 import Home from '@material-ui/icons/Home'
 import Work from '@material-ui/icons/Work'
 import List from '@material-ui/icons/List'
@@ -29,6 +30,14 @@ export const mainMenuListItems = (
           <LocationCity color="primary" />
         </ListItemIcon>
         <ListItemText primary="FPV map" />
+      </ListItem>
+    </Link>
+    <Link to="/videos/">
+      <ListItem button>
+        <ListItemIcon>
+          <Videocam color="primary" />
+        </ListItemIcon>
+        <ListItemText primary="Videos" />
       </ListItem>
     </Link>
     <Link to="/blog/">

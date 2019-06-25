@@ -14,6 +14,7 @@ import {
   paperAndPencil,
   hammer,
   gettingStarted,
+  tv,
 } from '../utils/svg'
 
 import dictionary from '../assets/pages/home/dictionary.svg'
@@ -53,14 +54,19 @@ const pageList = [
     title: 'FPV map',
   },
   {
-    image: gettingStarted,
-    link: '/getting-started/',
-    title: 'Getting started',
-  },
-  {
     image: paperAndPencil,
     link: '/blog/',
     title: 'Blog',
+  },
+  {
+    image: tv,
+    link: '/videos/',
+    title: 'Videos',
+  },
+  {
+    image: gettingStarted,
+    link: '/getting-started/',
+    title: 'Getting started',
   },
   {
     image: hammer,

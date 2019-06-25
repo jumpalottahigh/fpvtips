@@ -21,6 +21,7 @@ import plane from './plane.svg'
 import sun from './sun.svg'
 import treeEvergreen from './tree-evergreen.svg'
 import treeWideleaf from './tree-wideleaf.svg'
+import tv from './tv.svg'
 import urban from './urban.svg'
 import waterDrop from './water-drop.svg'
 import waterDroplets from './water-droplets.svg'
@@ -50,6 +51,7 @@ export {
   sun,
   treeEvergreen,
   treeWideleaf,
+  tv,
   urban,
   waterDrop,
   waterDroplets,

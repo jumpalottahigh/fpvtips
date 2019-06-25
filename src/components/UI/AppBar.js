@@ -67,11 +67,11 @@ function ButtonAppBar(props) {
             <Link to="/fpv-map/" activeStyle={activeStyle}>
               <Button color="primary">Map</Button>
             </Link>
+            <Link to="/videos/" activeStyle={activeStyle}>
+              <Button color="default">Videos</Button>
+            </Link>
             <Link to="/blog/" activeStyle={activeStyle}>
               <Button color="default">Blog</Button>
-            </Link>
-            <Link to="/dictionary/" activeStyle={activeStyle}>
-              <Button color="default">Dictionary</Button>
             </Link>
           </NavLinks>
           <Drawer />
