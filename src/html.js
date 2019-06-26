@@ -10,7 +10,7 @@ export default class HTML extends React.Component {
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
           <meta
             name="google-site-verification"
-            content="hdUlr38Ew_zLyV0nIGrLsVhO23iOWnPkMKcTcNgCR3Y"
+            content="tZUYpRdtaqRYb1yWzKAKYLs1_pODltwdYXWYaXM_grQ"
           />
           <meta
             name="viewport"
