@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.fpvtips",
+      "sha256_cert_fingerprints": [
+        "A7:BD:CF:B4:D5:AB:C9:60:E5:4D:DA:5A:F3:D3:F3:36:45:96:77:73:16:68:91:3D:A2:DC:EF:23:0B:56:5D:CE"
+      ]
+    }
+  }
+]
