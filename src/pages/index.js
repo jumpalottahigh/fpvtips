@@ -7,6 +7,7 @@ import Layout from '../components/Layout/layout'
 import PaperCard from '../components/UI/PaperCard'
 import Grid from '../components/UI/Grid'
 import Section from '../components/UI/Section'
+import GooglePlayButton from '../components/UI/GooglePlayButton'
 
 import {
   earthNA,
@@ -225,6 +226,7 @@ class IndexPage extends React.Component {
                 </Link>
               ))}
             </Grid>
+            <GooglePlayButton />
             {/* Render first home page section standalone */}
             {firstHomePageSection && firstHomePageSection.node && (
               <div style={{ marginTop: '3rem' }}>
@@ -323,7 +325,9 @@ class IndexPage extends React.Component {
             <Link to="/fpv-map/">So, let's fly together!</Link>
           </h2>
 
-          <p style={{ margin: '3rem auto', maxWidth: '65ch' }}>
+          <GooglePlayButton />
+
+          <p style={{ margin: '1rem auto', maxWidth: '65ch' }}>
             If you want to get involved,{' '}
             <a className="highlight" href="mailto:georgiyanev.gy@gmail.com">
               get in touch
