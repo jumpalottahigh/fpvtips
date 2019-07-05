@@ -286,9 +286,17 @@ export default class ToolsPage extends React.Component {
                   {node.description && (
                     <p className="content__description">{node.description}</p>
                   )}
-                  {node.author && (
+                  {node.author && node.authorSocialLink ? (
+                    <a
+                      href={node.authorSocialLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <p className="content__author">{node.author}</p>
+                    </a>
+                  ) : node.author ? (
                     <p className="content__author">{node.author}</p>
-                  )}
+                  ) : null}
                 </div>
                 <div>
                   <div className="score-container">

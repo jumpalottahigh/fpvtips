@@ -15,7 +15,13 @@ let CONTENTFUL_SPACE = process.env.GATSBY_CONTENTFUL_SPACE_ID
 let CONTENTFUL_CONTENT_TYPE_ID = ''
 let CONTENTFUL_ENVIRONMENT = 'master'
 
-function sendToContentful({ title, description, link, author }) {
+function sendToContentful({
+  title,
+  description,
+  link,
+  author,
+  authorSocialLink,
+}) {
   // If any of the contentful required variables are missing return
   if (
     !CONTENTFUL_PERSONAL_TOKEN ||
@@ -48,6 +54,9 @@ function sendToContentful({ title, description, link, author }) {
           },
           author: {
             'en-US': author,
+          },
+          authorSocialLink: {
+            'en-US': authorSocialLink,
           },
         },
       })
@@ -84,6 +93,7 @@ export default class SubmitForm extends React.Component {
         features: [],
         link: '',
         author: '',
+        authorSocialLink: '',
       },
     }
 
@@ -115,7 +125,7 @@ export default class SubmitForm extends React.Component {
     e.preventDefault()
 
     // Extract and set data
-    let { title, description, link, author } = this.state.form
+    let { title, description, link, author, authorSocialLink } = this.state.form
 
     // Basic form validation
     if (title == '' || description == '') return
@@ -125,10 +135,11 @@ export default class SubmitForm extends React.Component {
       description,
       link,
       author,
+      authorSocialLink,
     }
 
     // If submiting a new tool, we need the score field as well
-    if(this.props.contentfulType == "toolItem") {
+    if (this.props.contentfulType == 'toolItem') {
       data.score = 0
     }
 
@@ -145,6 +156,7 @@ export default class SubmitForm extends React.Component {
           description: '',
           link: '',
           author: '',
+          authorSocialLink,
         },
       },
       () => {
@@ -163,6 +175,7 @@ export default class SubmitForm extends React.Component {
       description = 'Description',
       link = 'Wiki link',
       author = 'Your name',
+      authorSocialLink,
       submit = 'Submit',
     } = this.props
 
@@ -242,6 +255,14 @@ export default class SubmitForm extends React.Component {
                 label={author}
                 value={this.state.form.author}
                 onChange={this.handleChange('author')}
+                margin="normal"
+                variant="outlined"
+              />
+              <TextField
+                id="authorSocialLink"
+                label={authorSocialLink}
+                value={this.state.form.authorSocialLink}
+                onChange={this.handleChange('authorSocialLink')}
                 margin="normal"
                 variant="outlined"
               />
