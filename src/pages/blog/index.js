@@ -10,6 +10,7 @@ import Grid from '../../components/UI/Grid'
 
 const StyledBlogLink = styled(Link)`
   font-size: 1rem;
+  height: 100%;
 
   p,
   small {
@@ -26,11 +27,13 @@ const StyledPaperCard = styled(PaperCard)`
 
     .gatsby-image-wrapper {
       grid-row: 1 / 5;
+      max-height: 250px;
     }
   }
 
-  @media (min-width: 1200px) {
-    grid-template-columns: 1fr;
+  @media (min-width: 900px) {
+    display: flex;
+    flex-direction: column;
   }
 `
 
@@ -61,7 +64,13 @@ class IndexPage extends React.Component {
           ]}
         />
         <h1>Blog posts</h1>
-        <Grid gap="3rem" col600="1" col900="1" col1200="2">
+        <Grid
+          gap="4rem 2rem"
+          col600="1"
+          col900="2"
+          col1200="3"
+          style={{ width: '100%' }}
+        >
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
