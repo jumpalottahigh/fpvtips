@@ -10,10 +10,18 @@ import FormDictionary from '../components/UI/FormDictionary'
 import TextField from '@material-ui/core/TextField'
 import LinkIcon from '@material-ui/icons/Link'
 
+const helmetStrings = {
+  title: 'Fpvtips | Dictionary',
+  description:
+    'Dictionary, abbreviations, terms and slag, we cover it all. The FPV drone flying hobby could be a bit heavy on the terminology side at first, but this should easy you in.',
+  keywords:
+    'transmitter, receiver, fpv spot, fpv footage, drone pictures, quad build, build a drone, custom drone build, micro, mini, BNF, bind and fly, plug and play, set, soldering iron, fpv, quad, drone, community, dictionary, fpv terms, fpv blog, fpv getting started, fpv tools, tools, vtx, receiver, battery, flight controller, fc, quad builder, map, places, fpv video, fpv pictures, fpv freestyle, fpv drone',
+}
+
 const StyledPaperCard = styled(PaperCard)`
   position: relative;
 
-  a {
+  a[aria-label='wiki link'] {
     position: absolute;
     top: 0.5rem;
     right: 0.5rem;
@@ -28,13 +36,29 @@ const StyledPaperCard = styled(PaperCard)`
   }
 `
 
-const helmetStrings = {
-  title: 'Fpvtips | Dictionary',
-  description:
-    'Dictionary, abbreviations, terms and slag, we cover it all. The FPV drone flying hobby could be a bit heavy on the terminology side at first, but this should easy you in.',
-  keywords:
-    'transmitter, receiver, fpv spot, fpv footage, drone pictures, quad build, build a drone, custom drone build, micro, mini, BNF, bind and fly, plug and play, set, soldering iron, fpv, quad, drone, community, dictionary, fpv terms, fpv blog, fpv getting started, fpv tools, tools, vtx, receiver, battery, flight controller, fc, quad builder, map, places, fpv video, fpv pictures, fpv freestyle, fpv drone',
-}
+const DictionaryItem = ({ data }) => (
+  <StyledPaperCard key={data.id}>
+    <h3>{data.title}</h3>
+    <p>{data.description}</p>
+    {data.link && (
+      <a
+        aria-label="wiki link"
+        href={data.link}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <LinkIcon />
+      </a>
+    )}
+    {data.author && data.authorSocialLink ? (
+      <a href={data.authorSocialLink} target="_blank" rel="noopener noreferrer">
+        <span>{data.author}</span>
+      </a>
+    ) : data.author ? (
+      <span>{data.author}</span>
+    ) : null}
+  </StyledPaperCard>
+)
 
 export default class DictionaryPage extends React.Component {
   constructor(props) {
@@ -120,34 +144,12 @@ export default class DictionaryPage extends React.Component {
         {/* Dictionary item grid list */}
         <Grid>
           {filtered.length > 0
-            ? filtered.map(({ node }) => {
-                return (
-                  <StyledPaperCard key={node.id}>
-                    <h3>{node.title}</h3>
-                    <p>{node.description}</p>
-                    {node.link && (
-                      <a href={node.link} target="_blank" rel="noreferrer">
-                        <LinkIcon />
-                      </a>
-                    )}
-                    {node.author && <span>{node.author}</span>}
-                  </StyledPaperCard>
-                )
-              })
-            : dictionary.map(({ node }) => {
-                return (
-                  <StyledPaperCard key={node.id}>
-                    <h3>{node.title}</h3>
-                    <p>{node.description}</p>
-                    {node.link && (
-                      <a href={node.link} target="_blank" rel="noreferrer">
-                        <LinkIcon />
-                      </a>
-                    )}
-                    {node.author && <span>{node.author}</span>}
-                  </StyledPaperCard>
-                )
-              })}
+            ? filtered.map(({ node }) => (
+                <DictionaryItem key={node.id} data={node} />
+              ))
+            : dictionary.map(({ node }) => (
+                <DictionaryItem key={node.id} data={node} />
+              ))}
         </Grid>
 
         {/* Submit an entry FAB and Modal */}
@@ -170,6 +172,7 @@ export const dictionaryPageQuery = graphql`
           description
           link
           author
+          authorSocialLink
         }
       }
     }

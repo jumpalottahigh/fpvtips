@@ -68,7 +68,7 @@ function sendToContentful({
 
 const modalDimensions = {
   width: '360px',
-  height: '510px',
+  height: '580px',
 }
 
 const StyledModal = styled(Modal)`
@@ -175,7 +175,7 @@ export default class SubmitForm extends React.Component {
       description = 'Description',
       link = 'Wiki link',
       author = 'Your name',
-      authorSocialLink,
+      authorSocialLink = 'Your social link',
       submit = 'Submit',
     } = this.props
 
