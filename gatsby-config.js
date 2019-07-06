@@ -103,7 +103,13 @@ module.exports = {
         trackingId: `UA-43588334-10`,
       },
     },
-    `gatsby-plugin-feed`,
+    {
+      resolve: `gatsby-plugin-hotjar`,
+      options: {
+        id: `1392125`,
+        sv: `6`,
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

@@ -1,6 +1,7 @@
 import IconButton from '@material-ui/core/IconButton'
 import * as contentful from 'contentful-management'
 import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import React from 'react'
 import Helmet from 'react-helmet'
 import { FaArrowDown, FaArrowUp, FaExternalLinkAlt } from 'react-icons/fa'
@@ -264,11 +265,7 @@ export default class ToolsPage extends React.Component {
               <StyledPaperCard key={node.id}>
                 {node.image ? (
                   <div className="image-container">
-                    <img
-                      src={node.image.fluid.src}
-                      srcSet={node.image.fluid.srcSet}
-                      alt={node.title}
-                    />
+                    <Img fluid={node.image.fluid} alt={node.title} />
                   </div>
                 ) : (
                   <div className="image-container">
@@ -357,13 +354,11 @@ export const toolsPageQuery = graphql`
           description
           link
           author
+          authorSocialLink
           score
           image {
             fluid(maxWidth: 350, quality: 75) {
-              # TODO: figure out how to make this work
-              # ...GatsbyContentfulFluid_withWebp
-              src
-              srcSet
+              ...GatsbyContentfulFluid_withWebp
             }
           }
         }
