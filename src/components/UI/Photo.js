@@ -69,6 +69,7 @@ export default class Photo extends React.Component {
 
   render() {
     const { src } = this.props
+    const { open } = this.state
 
     if (!src) return null
 
@@ -102,7 +103,7 @@ export default class Photo extends React.Component {
         <StyledModal
           aria-labelledby="simple-modal-title"
           aria-describedby="simple-modal-description"
-          open={this.state.open}
+          open={open}
           onClose={this.handleClose}
         >
           <StyledModalImage>

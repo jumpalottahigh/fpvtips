@@ -69,8 +69,8 @@ const MainContainer = styled.div`
 class SimpleMap extends React.Component {
   state = {
     center: {
-      lat: 33.749, // Helsinki: 60.16
-      lng: 84.388, // Helsinki: 24.93
+      lat: null,
+      lng: null,
     },
     loading: true,
     zoom: 11,
@@ -176,39 +176,19 @@ class SimpleMap extends React.Component {
   }
 
   componentDidMount() {
+    this.setState({ loading: false })
+
     let searchParams = new URLSearchParams(window.location.search)
     // Get id param value
     let id = searchParams.get('id')
 
-    // Request user geo location
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        const { latitude, longitude } = position.coords
-
-        this.setState({
-          center: { lat: latitude, lng: longitude },
-          loading: false,
-        })
-
-        // If the URL contains a spot id, select that
-        if (id) {
-          this.loadSpotFromURL(id)
-        } else {
-          // Grab a new random spot
-          this.handleDiscoverNewSpot()
-        }
-      },
-      () => {
-        this.setState({ loading: false })
-        // If the URL contains a spot id, select that
-        if (id) {
-          this.loadSpotFromURL(id)
-        } else {
-          // Grab a new random spot
-          this.handleDiscoverNewSpot()
-        }
-      }
-    )
+    // If the URL contains a spot id, select that
+    if (id) {
+      this.loadSpotFromURL(id)
+    } else {
+      // Grab a new random spot
+      this.handleDiscoverNewSpot()
+    }
   }
 
   render() {

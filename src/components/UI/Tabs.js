@@ -4,13 +4,11 @@ import { withStyles } from '@material-ui/core/styles'
 import Tab from '@material-ui/core/Tab'
 import Tabs from '@material-ui/core/Tabs'
 import Typography from '@material-ui/core/Typography'
-import WeatherIcon from '@material-ui/icons/WbSunny'
 import PhotoIcon from '@material-ui/icons/Photo'
 import PlaceIcon from '@material-ui/icons/Place'
 import VideoIcon from '@material-ui/icons/VideoLibrary'
 
 import MapLegend from '../Map/MapLegend'
-import WeatherInfo from '../WeatherInfo'
 import Video from './Video'
 import Photo from './Photo'
 import Grid from '../UI/Grid'
@@ -80,7 +78,6 @@ class SimpleTabs extends React.Component {
           onChange={this.handleChange}
         >
           <Tab icon={<PlaceIcon fontSize="small" />} label="Place" />
-          <Tab icon={<WeatherIcon fontSize="small" />} label="Weather" />
           <Tab icon={<PhotoIcon fontSize="small" />} label="Photos" />
           <Tab icon={<VideoIcon fontSize="small" />} label="Videos" />
         </Tabs>
@@ -123,11 +120,6 @@ class SimpleTabs extends React.Component {
         )}
         {value === 1 && (
           <TabContainer>
-            <WeatherInfo />
-          </TabContainer>
-        )}
-        {value === 2 && (
-          <TabContainer>
             <Grid gap="30px" col600="1" col900="2" col1200="1">
               {currentPlaceData.photoLinks &&
                 currentPlaceData.photoLinks.map((photo, index) => (
@@ -136,7 +128,7 @@ class SimpleTabs extends React.Component {
             </Grid>
           </TabContainer>
         )}
-        {value === 3 && (
+        {value === 2 && (
           <TabContainer>
             <Grid gap="30px" col600="1" col900="2" col1200="1">
               {currentPlaceData.videoLinks &&
