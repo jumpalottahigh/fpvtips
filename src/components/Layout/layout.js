@@ -7,6 +7,7 @@ import { ThemeProvider } from '@material-ui/styles'
 import './layout.css'
 
 import AppBar from '../UI/AppBar'
+import BottomNavigation from '../UI/BottomNavigation'
 import Footer from './Footer'
 import Wrapper from './Wrapper'
 
@@ -73,6 +74,7 @@ const Layout = ({ children, backgroundColor, backgroundImage }) => (
           >
             {children}
           </Wrapper>
+          <BottomNavigation />
           <Footer />
         </ThemeProvider>
       </React.Fragment>
