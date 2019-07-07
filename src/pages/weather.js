@@ -1,29 +1,10 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
-import WeatherIcon from '@material-ui/icons/WbSunny'
 
 import Layout from '../components/Layout/layout'
 import PaperCard from '../components/UI/PaperCard'
 import WeatherInfo from '../components/WeatherInfo'
-
-const StyledPaperCard = styled(PaperCard)`
-  position: relative;
-
-  a {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-  }
-
-  span {
-    font-size: 0.8rem;
-    color: #777;
-    position: absolute;
-    bottom: 0.5rem;
-    right: 0.5rem;
-  }
-`
 
 const helmetStrings = {
   title: 'Weather | Fpvtips',
@@ -49,12 +30,12 @@ const WeatherPage = () => (
     />
 
     {/* Page headings */}
-    <h4>Weather conditions near you</h4>
+    <h4>FPV weather conditions near you</h4>
 
     {/* Dictionary item grid list */}
-    <StyledPaperCard>
+    <PaperCard>
       <WeatherInfo />
-    </StyledPaperCard>
+    </PaperCard>
   </Layout>
 )
 

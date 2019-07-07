@@ -39,48 +39,69 @@ const WeatherSection = styled.div`
 class WeatherInfo extends React.Component {
   state = {
     coords: {
-      lat: 33.749, // Helsinki: 60.16
-      lng: 84.388, // Helsinki: 24.93
+      lat: null,
+      lng: null,
     },
     weather: {},
     cacheTimestamp: '',
+    error: '',
   }
 
   handleWeatherSync = () => {
     const currentTimestamp = Math.floor(Date.now() / 1000)
 
     // Request user geo location and fetch from the API
-    navigator.geolocation.getCurrentPosition(position => {
-      const { latitude, longitude } = position.coords
-      const PRODUCTION_WEATHER_API = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${API_KEY}`
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        const { latitude, longitude } = position.coords
+        const PRODUCTION_WEATHER_API = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${API_KEY}`
 
-      // Get weather data from Open Weather Map
-      fetch(PRODUCTION_WEATHER_API)
-        .then(res => res.json())
-        .then(
-          result => {
-            // Update state
-            this.setState({
-              coords: { lat: latitude, lng: longitude },
-              weather: result,
-              // Save a cache timestamp
-              cacheTimestamp: currentTimestamp,
-            })
+        // Get weather data from Open Weather Map
+        fetch(PRODUCTION_WEATHER_API)
+          .then(res => res.json())
+          .then(
+            result => {
+              // Update state
+              this.setState({
+                coords: { lat: latitude, lng: longitude },
+                weather: result,
+                // Save a cache timestamp
+                cacheTimestamp: currentTimestamp,
+              })
 
-            // Cache the result and the timestamp in local storage
-            self.localStorage.setItem(
-              LS_KEY_WEATHER_DATA,
-              JSON.stringify(result)
-            )
-            self.localStorage.setItem(LS_KEY_CACHE_TIMESTAMP, currentTimestamp)
-          },
-          error => {
-            this.setState({
-              error,
-            })
-          }
-        )
-    })
+              // Cache the result and the timestamp in local storage
+              self.localStorage.setItem(
+                LS_KEY_WEATHER_DATA,
+                JSON.stringify(result)
+              )
+              self.localStorage.setItem(
+                LS_KEY_CACHE_TIMESTAMP,
+                currentTimestamp
+              )
+            },
+            error => {
+              this.setState({
+                error,
+              })
+            }
+          )
+      },
+      error => {
+        this.setState({
+          error,
+        })
+      }
+    )
+
+    // TODO: If user location is blocked, allow them to search by entering a city name
+
+    // API call:
+    // api.openweathermap.org/data/2.5/forecast?q={city name},{country code}
+    // Parameters:
+    // q city name and country code divided by comma, use ISO 3166 country codes
+
+    // Examples of API calls:
+    // api.openweathermap.org/data/2.5/forecast?q=London,us&mode=xml
   }
 
   // Takes in kelvin temperature and returns C and F values
@@ -122,6 +143,21 @@ class WeatherInfo extends React.Component {
     return dateString
   }
 
+  // TODO: implement more advanced formula later on
+  calculateFpvScore = ({ windSpeed }) => {
+    if (windSpeed < 2) {
+      return '🔥 Amazing'
+    } else if (windSpeed < 4) {
+      return '🔝 Very good'
+    } else if (windSpeed < 6) {
+      return '😎 Decent'
+    } else if (windSpeed < 8) {
+      return '😟 Not very good'
+    } else {
+      return '😭 Too windy'
+    }
+  }
+
   componentDidMount() {
     // Check LS for cached data
     const cachedData = JSON.parse(
@@ -154,7 +190,7 @@ class WeatherInfo extends React.Component {
   }
 
   render() {
-    const { weather } = this.state
+    const { weather, error } = this.state
 
     // Calculate time since last update
     const lastUpdateAt = this.timestampToDate(weather.dt)
@@ -196,14 +232,10 @@ class WeatherInfo extends React.Component {
     }
 
     return (
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          height: '100%',
-          justifyContent: 'center',
-        }}
-      >
+      <div>
+        {/* Display error if any */}
+        {error && <p>{error.message}</p>}
+
         {this.state.cacheTimestamp && weather ? (
           // If we have cached data, render it
           <React.Fragment>
@@ -221,8 +253,17 @@ class WeatherInfo extends React.Component {
               sunset
             */}
             <WeatherSection>
+              {/* TODO: Add a section on top to calculate flyable score 1-10, big font number, green yellow or red, based on wind speed and temperature */}
+              <h3>
+                FPV Score:{' '}
+                {this.calculateFpvScore({
+                  windSpeed,
+                })}
+              </h3>
               <h4>
                 Current weather in <span>{weather.name}</span>:
+                <br />
+                {weather.weather[0] && weather.weather[0].main}
               </h4>
               <div>
                 updated at:{' '}

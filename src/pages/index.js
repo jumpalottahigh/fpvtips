@@ -202,7 +202,14 @@ class IndexPage extends React.Component {
         />
         <div>
           <Intro>
-            <h1>Let's bring the FPV community closer together and flying!</h1>
+            <h1
+              style={{
+                color: 'rgba(1, 115, 221, 0.86)',
+                textTransform: 'uppercase',
+              }}
+            >
+              Sky's not the limit
+            </h1>
             <Grid col600="2" col900="2" col1200="3">
               {pageList.map((page, index) => (
                 <Link key={index} to={page.link}>
