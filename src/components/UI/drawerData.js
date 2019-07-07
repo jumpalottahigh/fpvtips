@@ -3,11 +3,11 @@ import { Link } from 'gatsby'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
-import LocationCity from '@material-ui/icons/LocationCity'
-import Videocam from '@material-ui/icons/Videocam'
 import Home from '@material-ui/icons/Home'
+import Map from '@material-ui/icons/Language'
+import Weather from '@material-ui/icons/WbSunny'
+import Videocam from '@material-ui/icons/Videocam'
 import Work from '@material-ui/icons/Work'
-import List from '@material-ui/icons/List'
 import LibraryBooks from '@material-ui/icons/LibraryBooks'
 import Translate from '@material-ui/icons/Translate'
 import Check from '@material-ui/icons/Check'
@@ -27,9 +27,17 @@ export const mainMenuListItems = (
     <Link to="/fpv-map/">
       <ListItem button>
         <ListItemIcon>
-          <LocationCity color="primary" />
+          <Map color="primary" />
         </ListItemIcon>
         <ListItemText primary="FPV map" />
+      </ListItem>
+    </Link>
+    <Link to="/weather/">
+      <ListItem button>
+        <ListItemIcon>
+          <Weather color="primary" />
+        </ListItemIcon>
+        <ListItemText primary="Weather" />
       </ListItem>
     </Link>
     <Link to="/videos/">
@@ -66,9 +74,9 @@ export const mainMenuListItems = (
     </Link>
     <Link to="/getting-started/">
       <ListItem button>
-        <Check>
-          <List color="primary" />
-        </Check>
+        <ListItemIcon>
+          <Check color="primary" />
+        </ListItemIcon>
         <ListItemText primary="Getting started" />
       </ListItem>
     </Link>
