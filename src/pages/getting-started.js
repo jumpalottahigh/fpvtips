@@ -324,7 +324,6 @@ const GettingStartedPage = ({ data }) => (
             <p>Drone Mesh</p>
           </a>
         </div>
-
         <div>
           <a
             href="https://www.youtube.com/user/TheAndyRC"
@@ -349,6 +348,97 @@ const GettingStartedPage = ({ data }) => (
               alt="Grayson Hobby"
             />
             <p>Grayson Hobby</p>
+          </a>
+        </div>
+        <div>
+          <a
+            href="https://www.youtube.com/channel/UCeB2VpligdA3PrOsgkhFAjw"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src="https://yt3.ggpht.com/a/AGF-l79bZMHv05GOngITq3pooEXXPkfx379RbW0HBA=s288-mo-c-c0xffffffff-rj-k-no"
+              alt="Kelsey Hunt"
+            />
+            <p>Kelsey Hunt</p>
+          </a>
+        </div>
+        <div>
+          <a
+            href="https://www.youtube.com/channel/UCTG9Xsuc5-0HV9UcaTeX1PQ"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src="https://yt3.ggpht.com/a/AGF-l78JSOBu5JfvdTQIaO2WJiA9iNqzMBKr5npHHQ=s288-mo-c-c0xffffffff-rj-k-no"
+              alt="Skitzo FPV"
+            />
+            <p>Skitzo FPV</p>
+          </a>
+        </div>
+        <div>
+          <a
+            href="https://www.youtube.com/channel/UCnJyFn_66GMfAbz1AW9MqbQ"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src="https://yt3.ggpht.com/a/AGF-l78RW1TyADVQqBpZsooJTke5JGSh7DxcUQAnlQ=s288-mo-c-c0xffffffff-rj-k-no"
+              alt="Albert Kim"
+            />
+            <p>Albert Kim</p>
+          </a>
+        </div>
+        <div>
+          <a
+            href="https://www.youtube.com/user/MaiOnHigh/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src="https://yt3.ggpht.com/a/AGF-l79VK-3IgIVpuPwjuy7SsiEmwSRMil6TFK7I-g=s288-mo-c-c0xffffffff-rj-k-no"
+              alt="MaiOnHigh"
+            />
+            <p>MaiOnHigh</p>
+          </a>
+        </div>
+        <div>
+          <a
+            href="https://www.youtube.com/channel/UCOs-AacDIQvk6oxTfv2LtGA"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src="https://yt3.ggpht.com/a/AGF-l79tDfsEnUaN4HeFwyuT3xFraEqBTjzIHlfEjA=s288-c-k-c0xffffffff-no-rj-mo"
+              alt="Gal Kremer"
+            />
+            <p>Gal Kremer</p>
+          </a>
+        </div>
+        <div>
+          <a
+            href="https://www.youtube.com/channel/UCCh3SK2EktDdOQkEOTDmSCg"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src="https://yt3.ggpht.com/a/AGF-l7-b9XTppBdzOfi6gYLp7VgjSwXmFxjkrEhjuQ=s288-mo-c-c0xffffffff-rj-k-no"
+              alt="fpvtips"
+            />
+            <p>fpvtips</p>
+          </a>
+        </div>
+        <div>
+          <a
+            href="https://www.youtube.com/channel/UC2gwYMcfb0Oz_fl9W1uTV2Q"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src="https://yt3.ggpht.com/a/AGF-l7-nUiOz4hZIPV4PlSaSqqTXLdHEbdr3HnEHqw=s288-mo-c-c0xffffffff-rj-k-no"
+              alt="Georgi FPV"
+            />
+            <p>Georgi FPV</p>
           </a>
         </div>
       </Grid>
