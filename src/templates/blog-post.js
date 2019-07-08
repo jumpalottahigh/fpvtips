@@ -2,7 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+
 import Layout from '../components/Layout/layout'
+import PromoBanner from '../components/UI/PromoBanner'
 
 const BlogContent = styled.div`
   text-align: left;
@@ -26,11 +28,23 @@ class BlogPostTemplate extends React.Component {
           )}
         </Helmet>
         <h1>{post.frontmatter.title}</h1>
+        <PromoBanner
+          linkTo="https://www.banggood.com/promotion-banggood-2019-summer-prime-sale-9178.html?utmid=8617&p=NY211410857261201705"
+          imagePath="/promo/banggood-summer-prime-sale-2019.png"
+        />
         <p>
           {post.frontmatter.author}, {post.frontmatter.date}
         </p>
         <BlogContent dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr />
+        <PromoBanner
+          linkTo="https://www.banggood.com/promotion-2019-summer-rc-outdoor-sale-promotion-9166.html?utmid=8759&utm_design=80&p=NY211410857261201705"
+          imagePath="/promo/banggood-rc-july-2019.jpg"
+        />
+        <PromoBanner
+          linkTo="https://www.banggood.com/promotion-banggood-2019-summer-prime-sale-9178.html?utmid=8617&p=NY211410857261201705"
+          imagePath="/promo/banggood-summer-sale-2019.jpg"
+        />
       </Layout>
     )
   }
