@@ -120,11 +120,11 @@ That's it! Test arming your drone without any props to verify that the new motor
 [0]: Linkslist
 [1]: https://bit.ly/wizardx220
 [2]: https://amzn.to/2UBB9XH
-[3]: /news/?tag=wizard
+[3]: https://blog.georgi-yanev.com/news/?tag=wizard
 [4]: https://bit.ly/wizard-esc
 [5]: https://amzn.to/2UoV9xx
 [6]: https://bit.ly/wizard-motors
 [7]: https://amzn.to/2FV4Qd1
 [8]: https://bit.ly/electrical-tape
-[9]: /fpv/make-a-smoke-stopper/
+[9]: /blog/2018-04-14-make-a-smoke-stopper/
 [10]: https://github.com/blheli-configurator/blheli-configurator/releases

@@ -1,5 +1,5 @@
 ---
-path: '/fpv/record-fpv-dvr-with-smartphone/'
+path: '/blog/2019-05-07-record-fpv-dvr-with-smartphone/'
 date: '2019-05-07'
 title: 'Record FPV DVR with ROTG02 and an Android phone'
 author: 'Georgi Yanev'

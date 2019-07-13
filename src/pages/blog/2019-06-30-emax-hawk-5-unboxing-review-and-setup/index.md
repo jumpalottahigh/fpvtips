@@ -1,5 +1,5 @@
 ---
-path: '/fpv/emax-hawk-5-unboxing-review-and-setup/'
+path: '/blog/2019-06-30-emax-hawk-5-unboxing-review-and-setup/'
 date: '2019-06-30'
 title: 'Emax Hawk 5 review, Betaflight and radio setup'
 author: 'Georgi Yanev'
@@ -305,8 +305,8 @@ In which case I'd like to remind you that you could support the blog by clicking
 [7]: https://bit.ly/xm-plus
 [8]: https://www.thingiverse.com/search?q=emax+hawk+5&dwh=25d1516d79598b
 [9]: https://bit.ly/taranis-xlite
-[10]: /fpv/make-a-smoke-stopper/
-[11]: /fpv/build-a-quad/
+[10]: /blog/2018-04-14-make-a-smoke-stopper/
+[11]: /blog/2018-03-17-build-a-quad/
 [12]: https://bit.ly/gemfan-hurricane
 [13]: https://bit.ly/runcam--5
 [14]: https://bit.ly/runcam-split-mini-2

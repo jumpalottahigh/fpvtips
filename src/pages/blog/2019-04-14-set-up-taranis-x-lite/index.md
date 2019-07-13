@@ -1,5 +1,5 @@
 ---
-path: '/fpv/set-up-taranis-x-lite-update-opentx/'
+path: '/blog/2019-04-14-set-up-taranis-x-lite/'
 date: '2019-04-14'
 title: 'Set up Taranis X-Lite and update OpenTX'
 author: 'Georgi Yanev'
@@ -308,11 +308,11 @@ Happy flying!
 [6]: https://bit.ly/18500-batteries
 [7]: https://bit.ly/18650-batteries
 [8]: http://bit.ly/x-lite-battery-caps
-[9]: /fpv/flash-xm-plus-and-setup-rssi/
+[9]: /blog/2018-05-14-how-to-flash-xm-plus-and-setup-rssi/
 [10]: https://bit.ly/eachine-trashcan
 [11]: https://bit.ly/xm-plus
 [12]: https://www.open-tx.org/2019/01/06/opentx-2.2.3
-[13]: /fpv/setup-taranis-qx7/
+[13]: /blog/2018-01-28-setup-taranis-qx7/
 [14]: https://downloads.open-tx.org/2.2/release/sdcard/opentx-xlite/
 [15]: https://bit.ly/sd-card-32
 [16]: http://open-txu.org/home/version-2/v2-2-resources-2/

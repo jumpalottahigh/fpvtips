@@ -1,5 +1,5 @@
 ---
-path: '/fpv/mobula7-hd-review-and-setup/'
+path: '/blog/2019-05-19-mobula7-hd-review-and-setup/'
 date: '2019-05-19'
 title: 'Mobula7 HD review and setup'
 author: 'Georgi Yanev'

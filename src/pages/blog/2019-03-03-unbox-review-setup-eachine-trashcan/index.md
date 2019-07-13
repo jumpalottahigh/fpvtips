@@ -1,5 +1,5 @@
 ---
-path: '/fpv/unbox-review-setup-eachine-trashcan/'
+path: '/blog/2019-03-03-unbox-review-setup-eachine-trashcan/'
 date: '2019-03-03'
 title: 'How to set up Eachine Trashcan micro drone'
 author: 'Georgi Yanev'
