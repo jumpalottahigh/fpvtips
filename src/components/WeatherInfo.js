@@ -260,11 +260,26 @@ class WeatherInfo extends React.Component {
                   windSpeed,
                 })}
               </h3>
-              <h4>
+              <h4 style={{ marginBottom: 0 }}>
                 Current weather in <span>{weather.name}</span>:
-                <br />
-                {weather.weather[0] && weather.weather[0].main}
               </h4>
+              {weather.weather[0] && (
+                <h5
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    margin: 0,
+                    fontSize: '52px',
+                  }}
+                >
+                  <img
+                    src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+                    alt={weather.weather[0].main}
+                    style={{ width: '80px', height: '80px' }}
+                  />
+                  {weather.weather[0].main}
+                </h5>
+              )}
               <div>
                 updated at:{' '}
                 <span>{lastUpdateAt != undefined ? lastUpdateAt : ''}</span>

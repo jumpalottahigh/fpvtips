@@ -28,23 +28,27 @@ const featureListContent = [
   {
     label: 'Browse FPV flying spots on the map and share your own',
     image: map,
+    link: '/fpv-map/',
   },
   {
     label: 'Watch videos and photos from FPV spots',
     image: videos,
+    link: '/videos/',
   },
   {
     label: 'Live wind and weather conditions',
-
     image: weather,
+    link: '/weather/',
   },
   {
     label: 'Beginner friendly FPV dictionary',
     image: dictionary,
+    link: '/dictionary/',
   },
   {
     label: 'Recommended tools, upvoted by the community',
     image: upvotedTools,
+    link: '/tools/',
   },
 ]
 
@@ -243,10 +247,12 @@ class IndexPage extends React.Component {
             <div style={{ padding: '3rem 0' }}>
               <StyledFeatureList>
                 <h2>Features:</h2>
-                {featureListContent.map(({ label, image }) => (
+                {featureListContent.map(({ label, image, link }) => (
                   <div key={label}>
-                    <img src={image} alt={label} />
-                    <p>{label}</p>
+                    <Link to={link}>
+                      <img src={image} alt={label} />
+                      <p>{label}</p>
+                    </Link>
                   </div>
                 ))}
               </StyledFeatureList>

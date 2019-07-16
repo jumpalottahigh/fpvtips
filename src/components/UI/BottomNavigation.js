@@ -32,12 +32,12 @@ export default function SimpleBottomNavigation() {
       <BottomNavigationAction label="Home" value="/" icon={<HomeIcon />} />
       <BottomNavigationAction
         label="FPV Map"
-        value="/fpv-map"
+        value="/fpv-map/"
         icon={<MapIcon />}
       />
       <BottomNavigationAction
         label="Weather"
-        value="/weather"
+        value="/weather/"
         icon={<WeatherIcon />}
       />
     </BottomNavigation>
