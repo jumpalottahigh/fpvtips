@@ -19,7 +19,6 @@ const PlayButton = styled.div`
   height: 50px;
   background-color: rgba(51, 51, 51, 0.85);
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
-  z-index: 1;
   opacity: 0.8;
   border-radius: 6px;
   top: 50%;
