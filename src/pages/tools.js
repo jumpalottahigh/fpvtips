@@ -265,15 +265,19 @@ export default class ToolsPage extends React.Component {
               <StyledPaperCard key={node.id}>
                 {node.image ? (
                   <div className="image-container">
-                    <Img fluid={node.image.fluid} alt={node.title} />
+                    <a href={node.link} target="_blank" rel="noreferrer">
+                      <Img fluid={node.image.fluid} alt={node.title} />
+                    </a>
                   </div>
                 ) : (
                   <div className="image-container">
-                    <img
-                      src={hammer}
-                      style={{ opacity: '0.5' }}
-                      alt="hammer svg icon"
-                    />
+                    <a href={node.link} target="_blank" rel="noreferrer">
+                      <img
+                        src={hammer}
+                        style={{ opacity: '0.5' }}
+                        alt="hammer svg icon"
+                      />
+                    </a>
                   </div>
                 )}
                 <div className="content">
