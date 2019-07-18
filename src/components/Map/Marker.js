@@ -47,17 +47,20 @@ export default class Marker extends React.Component {
           />
         </svg>
         {/* Hover tooltip for regular markers */}
-        {$hover &&
-          !isNewMarker && (
-            <MarkerInfo
-              style={{ zIndex: 999 }}
-              title={title}
-              description={description}
-              features={features}
-            />
-          )}
+        {$hover && !isNewMarker && (
+          <MarkerInfo
+            style={{ zIndex: 999 }}
+            title={title}
+            description={description}
+            features={features}
+          />
+        )}
         {/* Tooltip for new place marker */}
-        {isNewMarker && <MarkerInfo title={`Tap ➕ to save this spot`} />}
+        {isNewMarker && (
+          <MarkerInfo
+            title={`Tap the blue ➕ button at the bottom right of the screen to save this spot`}
+          />
+        )}
       </div>
     )
   }
