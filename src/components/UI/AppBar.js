@@ -67,7 +67,7 @@ function ButtonAppBar(props) {
             <Link to="/fpv-map/" activeStyle={activeStyle}>
               <Button color="primary">Map</Button>
             </Link>
-            <a href="https://shop.fpvtips.com">
+            <a href="https://www.etsy.com/shop/fpvtips/">
               <Button color="default">Shop</Button>
             </a>
             <Link to="/videos/" activeStyle={activeStyle}>
