@@ -8,7 +8,7 @@ const StyledFooter = styled.footer`
   justify-content: center;
   align-items: center;
   background-color: #eee;
-  padding: 1.5rem;
+  padding: 1.5rem 1.5rem 4.5rem;
   text-align: center;
 
   h5 {
