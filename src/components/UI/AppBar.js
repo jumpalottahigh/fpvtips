@@ -9,7 +9,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 
 import Drawer from './Drawer'
 
-import logo from '../../assets/logo.svg'
+import logo from '../../assets/fpvtips-logo-full.svg'
 
 const activeStyle = {
   borderBottom: '2px solid #0474dc',
@@ -31,6 +31,8 @@ const styles = {
 }
 
 const Brand = styled(Link)`
+  display: flex;
+
   &:hover {
     color: red;
     text-decoration: none;
@@ -57,7 +59,7 @@ function ButtonAppBar(props) {
         <Toolbar>
           <div className={classes.flex}>
             <Brand to="/">
-              <img src={logo} style={{ height: '48px' }} alt="FPVTIPS" />
+              <img src={logo} style={{ height: '64px' }} alt="FPVTIPS" />
             </Brand>
           </div>
           <NavLinks>
