@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Img from 'gatsby-image'
+import AdSense from 'react-adsense'
 
 import Layout from '../../components/Layout/layout'
 import PaperCard from '../../components/UI/PaperCard'
@@ -95,6 +96,15 @@ class IndexPage extends React.Component {
             )
           })}
         </Grid>
+
+        <AdSense.Google
+          client="ca-pub-8470358888871889"
+          slot="6212610784"
+          style={{ display: 'block' }}
+          format="fluid"
+          responsive="true"
+          layoutKey="-5w+bz-1z-4l+vv"
+        />
       </Layout>
     )
   }
