@@ -70,7 +70,7 @@ class IndexPage extends React.Component {
           col600="1"
           col900="2"
           col1200="3"
-          style={{ width: '100%' }}
+          style={{ width: '100%', marginBottom: '5rem' }}
         >
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
@@ -95,16 +95,16 @@ class IndexPage extends React.Component {
               </StyledBlogLink>
             )
           })}
+          <StyledPaperCard>
+            <AdSense.Google
+              client="ca-pub-8470358888871889"
+              slot="6212610784"
+              style={{ display: 'block' }}
+              format="fluid"
+              layoutKey="-5w+bz-1z-4l+vv"
+            />
+          </StyledPaperCard>
         </Grid>
-
-        <AdSense.Google
-          client="ca-pub-8470358888871889"
-          slot="6212610784"
-          style={{ display: 'block' }}
-          format="fluid"
-          responsive="true"
-          layoutKey="-5w+bz-1z-4l+vv"
-        />
       </Layout>
     )
   }
