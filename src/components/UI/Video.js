@@ -72,6 +72,9 @@ export default class Video extends Component {
 
     const fullUrl = new URL(src)
     let videoId = fullUrl.search.split('v=')[1]
+
+    if (!videoId) return null
+
     let ampersandPosition = videoId.indexOf('&')
 
     if (ampersandPosition != -1) {

@@ -1,6 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import styled from 'styled-components'
+import AdSense from 'react-adsense'
 
 import Layout from '../components/Layout/layout'
 import PaperCard from '../components/UI/PaperCard'
@@ -36,6 +36,15 @@ const WeatherPage = () => (
     <PaperCard>
       <WeatherInfo />
     </PaperCard>
+
+    <AdSense.Google
+      client="ca-pub-8470358888871889"
+      slot="7225507221"
+      style={{ display: 'block' }}
+      format="auto"
+      responsive="true"
+      layoutKey="-gw-1+2a-9x+5c"
+    />
   </Layout>
 )
 
