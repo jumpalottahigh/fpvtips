@@ -72,9 +72,19 @@ class IndexPage extends React.Component {
           col1200="3"
           style={{ width: '100%', marginBottom: '5rem' }}
         >
-          {posts.map(({ node }) => {
+          {posts.map(({ node }, index) => {
             const title = node.frontmatter.title || node.fields.slug
-            return (
+            return index > 0 && index % 4 === 0 ? (
+              <StyledPaperCard>
+                <AdSense.Google
+                  client="ca-pub-8470358888871889"
+                  slot="6212610784"
+                  style={{ display: 'block' }}
+                  format="fluid"
+                  layoutKey="-5w+bz-1z-4l+vv"
+                />
+              </StyledPaperCard>
+            ) : (
               <StyledBlogLink key={node.fields.slug} to={node.fields.slug}>
                 <StyledPaperCard hoverable="true" style={{ height: '100%' }}>
                   {node.frontmatter.ogImage !== null && (
