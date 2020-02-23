@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Img from 'gatsby-image'
-import AdSense from 'react-adsense'
 
 import Layout from '../../components/Layout/layout'
 import PaperCard from '../../components/UI/PaperCard'
@@ -74,17 +73,7 @@ class BlogIndexPage extends React.Component {
         >
           {posts.map(({ node }, index) => {
             const title = node.frontmatter.title || node.fields.slug
-            return index > 0 && index % 4 === 0 ? (
-              <StyledPaperCard key={index}>
-                <AdSense.Google
-                  client="ca-pub-8470358888871889"
-                  slot="6212610784"
-                  style={{ display: 'block' }}
-                  format="fluid"
-                  layoutKey="-5w+bz-1z-4l+vv"
-                />
-              </StyledPaperCard>
-            ) : (
+            return (
               <StyledBlogLink key={node.fields.slug} to={node.fields.slug}>
                 <StyledPaperCard hoverable="true" style={{ height: '100%' }}>
                   {node.frontmatter.ogImage !== null && (
@@ -105,15 +94,6 @@ class BlogIndexPage extends React.Component {
               </StyledBlogLink>
             )
           })}
-          <StyledPaperCard>
-            <AdSense.Google
-              client="ca-pub-8470358888871889"
-              slot="6212610784"
-              style={{ display: 'block' }}
-              format="fluid"
-              layoutKey="-5w+bz-1z-4l+vv"
-            />
-          </StyledPaperCard>
         </Grid>
       </Layout>
     )

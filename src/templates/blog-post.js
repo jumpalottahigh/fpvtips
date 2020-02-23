@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import AdSense from 'react-adsense'
 
 import Layout from '../components/Layout/layout'
 import PromoBanner from '../components/UI/PromoBanner'
@@ -29,37 +28,23 @@ class BlogPostTemplate extends React.Component {
           )}
         </Helmet>
         <h1>{post.frontmatter.title}</h1>
-        {/* <PromoBanner
+        <PromoBanner
           linkTo="https://www.banggood.com/promotion-banggood-2019-summer-prime-sale-9178.html?utmid=8617&p=NY211410857261201705"
-          imagePath="/promo/banggood-summer-prime-sale-2019.png"
-        /> */}
-        <AdSense.Google
-          client="ca-pub-8470358888871889"
-          slot="6212610784"
-          style={{ display: 'block' }}
-          format="fluid"
-          layoutKey="-5w+bz-1z-4l+vv"
+          imagePath="/promo/banggood-stripe-4.jpg"
         />
         <p>
           {post.frontmatter.author}, {post.frontmatter.date}
         </p>
         <BlogContent dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr />
-        <AdSense.Google
-          client="ca-pub-8470358888871889"
-          slot="6212610784"
-          style={{ display: 'block' }}
-          format="fluid"
-          layoutKey="-5w+bz-1z-4l+vv"
-        />
-        {/* <PromoBanner
+        <PromoBanner
           linkTo="https://www.banggood.com/promotion-2019-summer-rc-outdoor-sale-promotion-9166.html?utmid=8759&utm_design=80&p=NY211410857261201705"
-          imagePath="/promo/banggood-rc-july-2019.jpg"
-        /> */}
-        {/* <PromoBanner
+          imagePath="/promo/banggood-stripe-4.jpg"
+        />
+        <PromoBanner
           linkTo="https://www.banggood.com/promotion-banggood-2019-summer-prime-sale-9178.html?utmid=8617&p=NY211410857261201705"
-          imagePath="/promo/banggood-summer-sale-2019.jpg"
-        /> */}
+          imagePath="/promo/banggood-square.jpg"
+        />
       </Layout>
     )
   }
