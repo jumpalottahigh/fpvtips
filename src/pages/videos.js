@@ -32,6 +32,9 @@ const helmetStrings = {
 }
 
 const videoList = [
+  'https://www.youtube.com/watch?v=INYdY-2tP9E',
+  'https://www.youtube.com/watch?v=W4f8TyaOjBw',
+  'https://www.youtube.com/watch?v=MYFAHx4gWeE',
   'https://www.youtube.com/watch?v=qMm0v1Va6wg',
   'https://www.youtube.com/watch?v=EpG4Ba4xpy4',
   'https://www.youtube.com/watch?v=cfssLvuPOO4',
