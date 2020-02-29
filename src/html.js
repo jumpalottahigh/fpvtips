@@ -34,10 +34,10 @@ export default class HTML extends React.Component {
           />
           {this.props.postBodyComponents}
 
-          <script
+          {/* <script
             async={true}
             src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-          />
+          /> */}
         </body>
       </html>
     )
