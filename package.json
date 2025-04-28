@@ -18,7 +18,7 @@
     "gatsby-plugin-netlify": "^2.1.31",
     "gatsby-plugin-offline": "^3.0.31",
     "gatsby-plugin-react-helmet": "^3.1.21",
-    "gatsby-plugin-sharp": "^2.3.13",
+    "gatsby-plugin-sharp": "^2.14.4",
     "gatsby-plugin-sitemap": "^2.2.25",
     "gatsby-plugin-styled-components": "3.1.17",
     "gatsby-remark-copy-linked-files": "^2.1.36",
@@ -30,7 +30,7 @@
     "gatsby-source-filesystem": "^2.1.46",
     "gatsby-transformer-json": "^2.2.25",
     "gatsby-transformer-remark": "^2.6.48",
-    "gatsby-transformer-sharp": "^2.3.12",
+    "gatsby-transformer-sharp": "^2.12.1",
     "google-map-react": "^1.1.5",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -58,6 +58,8 @@
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
     "develop": "gatsby develop",
     "build": "gatsby build",
-    "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
+    "serve": "gatsby serve",
+    "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js",
+    "deploy": "gatsby build && netlify deploy --prod"
   }
 }
