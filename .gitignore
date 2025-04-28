@@ -6,3 +6,4 @@ public
 .cache/
 .contentful.json
 .config.json
+.env

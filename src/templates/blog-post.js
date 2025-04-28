@@ -16,6 +16,7 @@ class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteDescription = post.excerpt
+    const showBanggoodPromoBanner = !post.frontmatter.tags.includes('mepsking')
 
     return (
       <Layout location={this.props.location}>
@@ -28,23 +29,30 @@ class BlogPostTemplate extends React.Component {
           )}
         </Helmet>
         <h1>{post.frontmatter.title}</h1>
-        <PromoBanner
-          linkTo="https://www.banggood.com/promotion-banggood-2019-summer-prime-sale-9178.html?utmid=8617&p=NY211410857261201705"
-          imagePath="/promo/banggood-stripe-4.jpg"
-        />
+
+        {showBanggoodPromoBanner && (
+          <PromoBanner
+            linkTo="https://www.banggood.com/promotion-banggood-2019-summer-prime-sale-9178.html?utmid=8617&p=NY211410857261201705"
+            imagePath="/promo/banggood-stripe-4.jpg"
+          />
+        )}
         <p>
           {post.frontmatter.author}, {post.frontmatter.date}
         </p>
         <BlogContent dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr />
-        <PromoBanner
-          linkTo="https://www.banggood.com/promotion-2019-summer-rc-outdoor-sale-promotion-9166.html?utmid=8759&utm_design=80&p=NY211410857261201705"
-          imagePath="/promo/banggood-stripe-4.jpg"
-        />
-        <PromoBanner
-          linkTo="https://www.banggood.com/promotion-banggood-2019-summer-prime-sale-9178.html?utmid=8617&p=NY211410857261201705"
-          imagePath="/promo/banggood-square.jpg"
-        />
+        {showBanggoodPromoBanner && (
+          <>
+            <PromoBanner
+              linkTo="https://www.banggood.com/promotion-2019-summer-rc-outdoor-sale-promotion-9166.html?utmid=8759&utm_design=80&p=NY211410857261201705"
+              imagePath="/promo/banggood-stripe-4.jpg"
+            />
+            <PromoBanner
+              linkTo="https://www.banggood.com/promotion-banggood-2019-summer-prime-sale-9178.html?utmid=8617&p=NY211410857261201705"
+              imagePath="/promo/banggood-square.jpg"
+            />
+          </>
+        )}
       </Layout>
     )
   }
@@ -63,6 +71,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "DD MMMM YYYY")
         canonical
+        tags
       }
     }
   }
